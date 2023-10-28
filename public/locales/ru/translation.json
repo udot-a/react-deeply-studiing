@@ -2,5 +2,7 @@
   "testedExample": "Тестовый пример",
   "translate": "Перевод",
   "mainPage": "Главная страница",
-  "lang": "RU"
+  "lang": "RU",
+  "goToMain": "На главную",
+  "goToAbout": "Go to the about page"
 }
