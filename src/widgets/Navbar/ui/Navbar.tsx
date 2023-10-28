@@ -8,17 +8,17 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = ({ className }) => {
-  return (
-    <div className={classNames(cls.navbar, {}, [className])}>
-      <div className={cls.links}>
-        <AppLink to={'/'} theme={AppLinkTheme.SECONDARY}>
+	return (
+		<div className={classNames(cls.navbar, {}, [className])}>
+			<div className={cls.links}>
+				<AppLink to={'/'} theme={AppLinkTheme.SECONDARY}>
           Go to the main page
-        </AppLink>
-        <AppLink to={'/about'} theme={AppLinkTheme.SECONDARY}>
+				</AppLink>
+				<AppLink to={'/about'} theme={AppLinkTheme.SECONDARY}>
           Go to the about page
-        </AppLink>
-      </div>
-    </div>
-  );
+				</AppLink>
+			</div>
+		</div>
+	);
 };
 

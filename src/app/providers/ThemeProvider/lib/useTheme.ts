@@ -7,13 +7,13 @@ export interface UseThemeResult {
 }
 
 export const useTheme = ():UseThemeResult => {
-  const { theme, setTheme } = useContext(ThemeContext);
+	const { theme, setTheme } = useContext(ThemeContext);
 
-  const toggleTheme = useCallback(() => {
-    const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
-    setTheme(newTheme);
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
-  }, [theme, setTheme]);
+	const toggleTheme = useCallback(() => {
+		const newTheme = theme === Theme.DARK ? Theme.LIGHT : Theme.DARK;
+		setTheme(newTheme);
+		localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+	}, [theme, setTheme]);
 
-  return { theme, toggleTheme};
-}
+	return { theme, toggleTheme};
+};
