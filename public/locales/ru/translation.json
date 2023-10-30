@@ -4,5 +4,6 @@
   "mainPage": "Главная страница",
   "lang": "RU",
   "goToMain": "На главную",
-  "goToAbout": "Go to the about page"
+  "goToAbout": "О нас",
+  "pageNotFound": "Страница не найдена"
 }

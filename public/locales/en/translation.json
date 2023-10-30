@@ -4,5 +4,6 @@
   "mainPage": "Main Page",
   "lang": "EN",
   "goToMain": "Go to the main page",
-  "goToAbout": "Go to the about page"
+  "goToAbout": "Go to the about page",
+  "pageNotFound": "Page not found"
 }
