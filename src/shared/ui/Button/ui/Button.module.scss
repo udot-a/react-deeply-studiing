@@ -8,3 +8,13 @@
   border: none;
   outline: none;
 }
+
+.bordered {
+  border: 1px solid var(--inverted-secondary-color);
+  border-radius: 4px;
+  padding: 5px;
+
+  &:hover {
+    background: var(--hover-button-bg);
+  }
+}

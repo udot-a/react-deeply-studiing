@@ -5,5 +5,8 @@
   "lang": "EN",
   "goToMain": "Go to the main page",
   "goToAbout": "Go to the about page",
-  "pageNotFound": "Page not found"
+  "pageNotFound": "Page not found",
+  "Oops, somethings wrong happens!!!": "Oops, somethings wrong happens!!!",
+  "Update the page": "Update the page",
+  "throw error": "throw error"
 }

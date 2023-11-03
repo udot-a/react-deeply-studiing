@@ -1,0 +1,13 @@
+.pageError {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-l);
+}
+
+.button {
+  margin-top: 16px;
+}

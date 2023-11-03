@@ -5,5 +5,8 @@
   "lang": "RU",
   "goToMain": "На главную",
   "goToAbout": "О нас",
-  "pageNotFound": "Страница не найдена"
+  "pageNotFound": "Страница не найдена",
+  "Oops, somethings wrong happens!!!": "Произошла непредвиденая ошибка!!!",
+  "Update the page": "Обновить ошибку",
+  "throw error": "Создать ошибку"
 }
