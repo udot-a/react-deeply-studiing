@@ -31,7 +31,8 @@ module.exports = {
 	'plugins': [
 		'@typescript-eslint',
 		'react',
-		'i18next'
+		'i18next',
+		'typescript-enum'
 	],
 	'rules': {
 		'indent': [
@@ -55,7 +56,8 @@ module.exports = {
 		'import/no-resolved': 'off',
 		'react/no-deprecated': 'off',
 		'react/react-in-jsx-scope': 'off',
-		'no-unused-vars': 'warn',
+		'no-unused-vars': 'off',
+		'no-enum': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'@typescript-eslint/no-unused-vars': 'warn',
 		'i18next/no-literal-string': ['error', { 'markupOnly': true, ignoreAttribute: ['to', 'theme'] }]
