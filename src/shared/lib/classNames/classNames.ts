@@ -5,6 +5,9 @@ export const classNames = (cls: string, mods: Mods = {}, additional: string[] = 
 	return [
 		cls,
 		...additional.filter(Boolean),
-		...Object.entries(mods)?.filter(([_, value]) => Boolean(value)).map(([key]) => key),
+		// eslint-disable-next-line no-unsafe-optional-chaining
+		...Object.entries(mods)?.filter(
+			// eslint-disable-next-line
+			([_, value]) => Boolean(value)).map(([key]) => key),
 	].join(' ').trim();
 };
