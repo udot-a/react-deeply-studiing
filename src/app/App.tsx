@@ -12,7 +12,7 @@ import firebaseApp from 'app/providers/Firebase/firebase';
 
 export const App = () => {
 	const { theme } = useTheme();
-	const { fcmToken, notificationPermissionStatus } = useFcmToken();
+	const { fcmToken } = useFcmToken();
 
 	console.log('FCM token:', fcmToken);
 
