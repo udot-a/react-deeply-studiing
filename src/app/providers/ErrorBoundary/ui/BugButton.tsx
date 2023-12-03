@@ -1,6 +1,6 @@
 import React, { FC, useEffect, useState } from 'react';
 import { Button } from 'shared/ui/Button';
-import { ThemeButton } from 'shared/ui/Button/ui/Button';
+import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 
 // Component for testing purposes
@@ -18,7 +18,7 @@ export const BugButton: FC = () => {
 
 	return (
 		<Button
-			theme={ThemeButton.BORDERED}
+			theme={ButtonTheme.BORDERED}
 			onClick={onThrow}
 		>
 			{t('throw error')}
