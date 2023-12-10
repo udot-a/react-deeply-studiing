@@ -31,7 +31,8 @@ module.exports = {
 		'@typescript-eslint',
 		'react',
 		'i18next',
-		'typescript-enum'
+		'typescript-enum',
+		'react-hooks',
 	],
 	'rules': {
 		'indent': [
@@ -59,7 +60,9 @@ module.exports = {
 		'no-enum': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'@typescript-eslint/no-unused-vars': 'warn',
-		'i18next/no-literal-string': ['error', { 'markupOnly': true, ignoreAttribute: ['to', 'theme', 'data-testid'] }]
+		'i18next/no-literal-string': ['error', { 'markupOnly': true, ignoreAttribute: ['to', 'theme', 'data-testid'] }],
+		'react-hooks/rules-of-hooks': 'error',
+		'react-hooks/exhaustive-deps': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,

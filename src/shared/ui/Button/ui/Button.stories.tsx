@@ -32,7 +32,24 @@ ClearLight.args = {
 	theme: ButtonTheme.CLEAR,
 	children: 'TOGGLE',
 };
+
 ClearLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+
+export const ClearInvertedLight = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+ClearInvertedLight.args = {
+	theme: ButtonTheme.CLEAR_INVERTED,
+	children: 'TOGGLE',
+};
+ClearInvertedLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+
+export const ClearInvertedDark = Template.bind({});
+// More on args: https://storybook.js.org/docs/react/writing-stories/args
+ClearInvertedDark.args = {
+	theme: ButtonTheme.CLEAR_INVERTED,
+	children: 'TOGGLE',
+};
+ClearInvertedDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 
 export const PrimaryDark = Template.bind({});
