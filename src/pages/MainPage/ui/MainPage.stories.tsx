@@ -4,6 +4,9 @@ import MainPage from './MainPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema } from 'app/providers/StoreProvider';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,12 +22,18 @@ export default {
 // @ts-ignore
 const Template: ComponentStory<typeof MainPage> = (args) => <MainPage {...args} />;
 
+const initialState: DeepPartial<StateSchema> = {
+	counter: {
+		value: 11,
+	},
+};
+
 export const MainDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 MainDark.args = {};
-MainDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
+MainDark.decorators = [ReduxDecorator(initialState as StateSchema), StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const MainLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 MainLight.args = {};
-MainLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+MainLight.decorators = [ReduxDecorator(initialState as StateSchema), StyleDecorator, ThemeDecorator(Theme.LIGHT)];
