@@ -11,5 +11,8 @@
   "Update the page": "Обновить ошибку",
   "throw error": "Создать ошибку",
   "TOGGLE": "TOGGLE",
-  "login": "Войти"
+  "login": "Войти",
+  "Enter": "Войти",
+  "Username": "Имя",
+  "Password": "Пароль"
 }

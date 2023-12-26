@@ -11,5 +11,8 @@
   "Update the page": "Update the page",
   "throw error": "throw error",
   "TOGGLE": "TOGGLE",
-  "login": "Login"
+  "login": "Login",
+  "Enter": "Enter",
+  "Username": "Username",
+  "Password": "Password"
 }

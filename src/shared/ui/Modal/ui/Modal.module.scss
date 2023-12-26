@@ -24,6 +24,7 @@
   transition: 0.3s transform;
   transform: scale(0.5);
   max-width: 50%;
+  background-color: var(--bg-color);
 }
 
 .opened {
@@ -41,14 +42,4 @@
   .content {
     transform: scale(0.2);
   }
-}
-
-.content.light {
-  color: var(--inverted-primary-color);
-  background-color: var(--inverted-bg-color);
-}
-
-.content.dark {
-  color: var(--primary-color);
-  background-color: var(--bg-color);
 }

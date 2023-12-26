@@ -60,6 +60,7 @@ module.exports = {
 		'no-enum': 'off',
 		'@typescript-eslint/ban-ts-comment': 'off',
 		'@typescript-eslint/no-unused-vars': 'warn',
+		'@typescript-eslint/no-explicit-any': 'off',
 		'i18next/no-literal-string': ['error', { 'markupOnly': true, ignoreAttribute: ['to', 'theme', 'data-testid'] }],
 		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'error',
