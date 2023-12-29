@@ -5,26 +5,36 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { StateSchema } from 'app/providers/StoreProvider';
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
 	title: 'widgets/Navbar',
 	component: Navbar,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
 } as ComponentMeta<typeof Navbar>;
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Light.args = {};
-Light.decorators = [RouterDecorator, StyleDecorator, ThemeDecorator(Theme.DARK)];
+Light.decorators = [
+	SuspenseDecorator,
+	RouterDecorator,
+	StyleDecorator,
+	ThemeDecorator(Theme.DARK),
+	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } }),
+];
 
 export const Dark = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
 Dark.args = {};
-Dark.decorators = [RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+Dark.decorators = [
+	SuspenseDecorator,
+	RouterDecorator,
+	StyleDecorator,
+	ThemeDecorator(Theme.LIGHT),
+	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } } as StateSchema),
+];

@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Button Component.Is button has disabled class" type="JavaScriptTestRunnerJest" nameIsGenerated="true">
+    <config-file value="$PROJECT_DIR$/config/jest/jest.config.ts" />
+    <node-interpreter value="project" />
+    <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+    <working-dir value="$PROJECT_DIR$" />
+    <envs />
+    <scope-kind value="TEST" />
+    <test-file value="$PROJECT_DIR$/src/shared/ui/Button/ui/Button.test.tsx" />
+    <test-names>
+      <test-name value="Button Component" />
+      <test-name value="Is button has disabled class" />
+    </test-names>
+    <method v="2" />
+  </configuration>
+</component>

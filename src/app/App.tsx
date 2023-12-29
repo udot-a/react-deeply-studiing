@@ -8,12 +8,19 @@ import { Sidebar } from 'widgets/Sidebar';
 import useFcmToken from 'app/providers/Firebase/useFcmToken';
 import { getMessaging, onMessage } from 'firebase/messaging';
 import firebaseApp from 'app/providers/Firebase/firebase';
+import { useDispatch } from 'react-redux';
+import { userActions } from 'enteties/User';
 
 export const App = () => {
 	const { theme } = useTheme();
 	const { fcmToken } = useFcmToken();
+	const dispatch = useDispatch();
 
 	console.log('FCM token:', fcmToken);
+
+	useEffect(() => {
+		dispatch(userActions.initAuthData());
+	}, [dispatch]);
 
 	useEffect(() => {
 		if (typeof window !== 'undefined' && 'serviceWorker' in navigator) {

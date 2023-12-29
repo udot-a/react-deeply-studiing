@@ -23,6 +23,7 @@
   border-style: solid;
   border-radius: 4px;
   padding: 5px;
+  background: var(--bg-color);
 
   &:hover {
     background: var(--hover-button-bg);
@@ -39,6 +40,11 @@
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
   border: none;
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .square {

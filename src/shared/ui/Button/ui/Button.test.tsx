@@ -12,4 +12,9 @@ describe('Button Component', () => {
 		expect(screen.getByText('TEST')).toHaveClass('clear');
 		screen.debug();
 	});
+
+	test('Is button has disabled class', () => {
+		render(<Button theme={ButtonTheme.CLEAR} disabled >TEST</Button>);
+		expect(screen.getByText('TEST')).toHaveClass('disabled');
+	});
 });

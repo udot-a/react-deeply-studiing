@@ -121,3 +121,12 @@ Square.args = {
 	square: true,
 };
 Square.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+
+export const Disable = Template.bind({});
+Disable.args = {
+	theme: ButtonTheme.BORDERED,
+	children: '>',
+	disabled: true,
+	size: ButtonSize.XL,
+};
+Disable.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
