@@ -9,7 +9,7 @@ const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
 // eslint-disable-next-line react/display-name
 export const ReduxDecorator = (
 	initialState: DeepPartial<StateSchema>,
-	asyncReducers: DeepPartial<ReducersMapObject<StateSchema>>,
+	asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
 ) => (StoryComponent: Story) => {
 	return (
 		<StoreProvider
