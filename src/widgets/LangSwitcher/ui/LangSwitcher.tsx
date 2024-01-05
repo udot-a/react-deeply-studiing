@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './LangSwitcher.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +10,7 @@ interface LangSwitcherProps {
 	short: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
+export const LangSwitcher: FC<LangSwitcherProps> = memo(({ className, short }) => {
 	const { t, i18n } = useTranslation();
 
 	const toggleLanguage = async () => {
@@ -26,5 +26,4 @@ export const LangSwitcher: FC<LangSwitcherProps> = ({ className, short }) => {
 			</Button>
 		</div>
 	);
-};
-
+});
