@@ -7,6 +7,7 @@ import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDeco
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -31,9 +32,9 @@ const initialState: DeepPartial<StateSchema> = {
 export const ProfileDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ProfileDark.args = {};
-ProfileDark.decorators = [ReduxDecorator(initialState as StateSchema), StyleDecorator, ThemeDecorator(Theme.DARK)];
+ProfileDark.decorators = [ReduxDecorator(initialState as StateSchema), RouterDecorator, StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const ProfileLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 ProfileLight.args = {};
-ProfileLight.decorators = [ReduxDecorator(initialState as StateSchema), StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+ProfileLight.decorators = [ReduxDecorator(initialState as StateSchema), RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)];

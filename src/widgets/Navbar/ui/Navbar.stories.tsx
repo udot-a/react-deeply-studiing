@@ -23,18 +23,18 @@ export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
 	SuspenseDecorator,
-	RouterDecorator,
 	StyleDecorator,
 	ThemeDecorator(Theme.DARK),
 	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } }),
+	RouterDecorator,
 ];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
 	SuspenseDecorator,
-	RouterDecorator,
 	StyleDecorator,
 	ThemeDecorator(Theme.LIGHT),
 	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } } as StateSchema),
+	RouterDecorator,
 ];

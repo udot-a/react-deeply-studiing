@@ -6,6 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -27,6 +28,7 @@ LoginFormDark.decorators = [
 	StyleDecorator,
 	ThemeDecorator(Theme.DARK),
 	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false, error: 'Error happens' } }),
+	RouterDecorator,
 ];
 
 export const LoginFormLight = Template.bind({});
@@ -36,4 +38,5 @@ LoginFormLight.decorators = [
 	StyleDecorator,
 	ThemeDecorator(Theme.LIGHT),
 	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: true } }),
+	RouterDecorator,
 ];
