@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
 
@@ -19,7 +18,11 @@ describe('getLoginState.test', () => {
 	});
   
 	test('should work with undefined', () => {
-		expect(getLoginState(undefined)).toEqual({ isLoading: false,
+		const emptyState: DeepPartial<StateSchema> = {
+			loginForm: undefined,
+		};
+
+		expect(getLoginState(emptyState as StateSchema)).toEqual({ isLoading: false,
 			username: '',
 			password: '',
 			error: '', 

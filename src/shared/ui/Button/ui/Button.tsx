@@ -30,12 +30,12 @@ export const Button: FC<ButtonProps> = memo((props) => {
 		children,
 		theme = ButtonTheme.CLEAR,
 		square,
-		size,
+		size = ButtonSize.M,
 		disabled = false,
 		...other
 	} = props;
 
-	const mods: Record<string, boolean> = {
+	const mods: Record<string, boolean | undefined> = {
 		[cls.square]: square,
 		[cls.disabled]: disabled,
 	};

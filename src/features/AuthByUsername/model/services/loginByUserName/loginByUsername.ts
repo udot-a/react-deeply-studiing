@@ -24,7 +24,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, Thun
 			localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
 			dispatch(userActions.setAuthUser(response.data));
 
-			extra.navigate(AppRoutes.PROFILE);
+			extra?.navigate?.(AppRoutes.PROFILE);
 
 			return response.data;
 		} catch (e) {

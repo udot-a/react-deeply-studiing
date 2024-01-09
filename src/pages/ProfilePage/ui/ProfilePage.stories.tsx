@@ -5,7 +5,6 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
@@ -21,7 +20,7 @@ export default {
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // @ts-ignore
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
 
 const initialState: DeepPartial<StateSchema> = {
 	counter: {

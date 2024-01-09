@@ -1,5 +1,4 @@
 import { counterActions, counterReducer } from './counterSlice';
-import { DeepPartial } from '@reduxjs/toolkit';
 import { CounterSchema } from '../types/counterSchema';
 
 describe('counterSclice.test', () => {
