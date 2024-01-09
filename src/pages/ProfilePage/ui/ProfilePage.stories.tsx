@@ -19,8 +19,7 @@ export default {
 } as ComponentMeta<typeof ProfilePage>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-// @ts-ignore
-const Template: ComponentStory<typeof ProfilePage> = () => <ProfilePage />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
 
 const initialState: DeepPartial<StateSchema> = {
 	counter: {
@@ -30,10 +29,14 @@ const initialState: DeepPartial<StateSchema> = {
 
 export const ProfileDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ProfileDark.args = {};
+ProfileDark.args = {
+	isStoryBook: true,
+};
 ProfileDark.decorators = [ReduxDecorator(initialState as StateSchema), RouterDecorator, StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const ProfileLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-ProfileLight.args = {};
+ProfileLight.args = {
+	isStoryBook: true,
+};
 ProfileLight.decorators = [ReduxDecorator(initialState as StateSchema), RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)];
