@@ -33,6 +33,14 @@
   animation: blink 0.7s forwards infinite;
 }
 
+.readOnly {
+  opacity: 0.7;
+
+  .caret {
+    background: transparent;
+  }
+}
+
 @keyframes blink {
   0% {
     opacity: 0;

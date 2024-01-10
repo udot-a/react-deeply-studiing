@@ -5,6 +5,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,9 +23,19 @@ const Template: ComponentStory<typeof Sidebar> = (args) => <Sidebar {...args} />
 export const Light = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Light.args = {};
-Light.decorators = [RouterDecorator, StyleDecorator, ThemeDecorator(Theme.DARK)];
+Light.decorators = [
+	StyleDecorator,
+	ThemeDecorator(Theme.DARK),
+	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } }),
+	RouterDecorator,
+];
 
 export const Dark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Dark.args = {};
-Dark.decorators = [RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+Dark.decorators = [
+	StyleDecorator,
+	ThemeDecorator(Theme.LIGHT),
+	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } }),
+	RouterDecorator,
+];

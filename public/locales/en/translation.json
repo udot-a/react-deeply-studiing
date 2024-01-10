@@ -18,5 +18,7 @@
   "Password": "Password",
   "Authorization form": "Authorization form",
   "You have typed incorrect login or password": "You have typed incorrect login or password",
-  "Logout": "Logout"
+  "Logout": "Logout",
+  "Avatar image": "Avatar image",
+  "Choose country": "Choose country"
 }

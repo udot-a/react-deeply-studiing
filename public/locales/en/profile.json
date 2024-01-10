@@ -2,5 +2,14 @@
   "Profile": "Profile",
   "Edit": "Edit",
   "Your name": "Your name",
-  "Your surname": "Your surname"
+  "Your surname": "Your surname",
+  "Oops, somethings wrong happens!!!": "Oops, somethings wrong happens!!!",
+  "Please try to reload page": "Please try to reload page",
+  "Cancel": "Cancel",
+  "Save": "Save",
+  "Your age": "Your age",
+  "City": "City",
+  "Nickname": "Nickname",
+  "Avatar": "Avatar",
+  "Choose currency": "Choose currency"
 }

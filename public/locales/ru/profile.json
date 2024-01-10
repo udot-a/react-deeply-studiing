@@ -2,5 +2,14 @@
   "Profile": "Профиль",
   "Edit": "Редактировать",
   "Your name": "Ваше имя",
-  "Your surname": "Ваша фамилия"
+  "Your surname": "Ваша фамилия",
+  "Oops, somethings wrong happens!!!": "Что-то пошло не так!!!",
+  "Please try to reload page": "Попробуйте перезагрузить страницу",
+  "Cancel": "Отменить",
+  "Save": "Сохранить",
+  "Your age": "Возраст",
+  "City": "Город",
+  "Nickname": "Кличка",
+  "Avatar": "Имага",
+  "Choose currency": "Choose currency"
 }

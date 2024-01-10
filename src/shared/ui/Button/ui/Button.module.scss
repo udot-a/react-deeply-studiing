@@ -30,6 +30,20 @@
   }
 }
 
+.bordered-red {
+  border-width: 1px;
+  border-color: var(--red-light);
+  border-style: solid;
+  border-radius: 4px;
+  padding: 5px;
+  background: var(--bg-color);
+  color: var(--red-light);
+
+  &:hover {
+    background: var(--hover-button-bg);
+  }
+}
+
 .background {
   background: var(--bg-color);
   color: var(--primary-color);

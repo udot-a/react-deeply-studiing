@@ -1,14 +1,25 @@
-import React, { ChangeEvent, FC, InputHTMLAttributes, memo, useCallback, useEffect, useRef, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import React, {
+	ChangeEvent,
+	FC,
+	InputHTMLAttributes,
+	memo,
+	useCallback,
+	useEffect,
+	useMemo,
+	useRef,
+	useState
+} from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autofocus?: boolean;
+	readOnly?: boolean;
 }
 
 export const Input: FC<InputProps> = memo((props) => {
@@ -19,6 +30,7 @@ export const Input: FC<InputProps> = memo((props) => {
 		type = 'text',
 		placeholder,
 		autofocus,
+		readOnly,
 		...otherProps
 	} = props;
 
@@ -50,8 +62,12 @@ export const Input: FC<InputProps> = memo((props) => {
 		setCaretPosition(e?.target?.selectionStart);
 	}, []);
 
+	const mods: Mods = useMemo(() => ({
+		[cls.readOnly]: readOnly,
+	}), [readOnly]);
+
 	return (
-		<div className={classNames(cls.inputWrapper, {}, [className])}>
+		<div className={classNames(cls.inputWrapper, mods, [className])}>
 			{!!placeholder && (
 				<div className={cls.placeholder}>
 					{`${placeholder}>`}
@@ -60,6 +76,7 @@ export const Input: FC<InputProps> = memo((props) => {
 			<div className={cls.caretWrapper}>
 				<input
 					ref={inputRef}
+					readOnly={readOnly}
 					type={type}
 					value={value}
 					onChange={onChangeHandler}

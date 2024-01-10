@@ -18,5 +18,7 @@
   "Password": "Пароль",
   "Authorization form": "Форма авторизации",
   "You have typed incorrect login or password": "Вы ввели некоректный логин или пароль",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+  "Avatar image": "Avatar image",
+  "Choose country": "Choose country"
 }
