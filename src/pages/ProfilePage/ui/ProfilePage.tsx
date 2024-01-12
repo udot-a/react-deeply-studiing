@@ -5,36 +5,49 @@ import { profileActions, profileReducer } from 'enteties/Profile/model/slice/pro
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
 	fetchProfileData,
-	getProfileError, getProfileForm,
-	getProfileIsLoading, getProfileReadonly,
-	ProfileCard,
+	getProfileError,
+	getProfileForm,
+	getProfileIsLoading,
+	getProfileReadonly,
+	getProfileValidatesErrors,
+	ProfileCard, ValidateProfileError,
 } from 'enteties/Profile';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'enteties/Currency';
 import { Country } from 'enteties/Country';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { useTranslation } from 'react-i18next';
 
 interface ProfilePageProps {
   className?: string;
-	isStoryBook: boolean;
 }
 
 const reducers: ReducerList = {
 	profile: profileReducer,
 };
 
-const ProfilePage: FC<ProfilePageProps> = ({ className, isStoryBook = false }) => {
+const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 	const dispatch = useAppDispatch();
 	const form = useSelector(getProfileForm);
 	const isLoading = useSelector(getProfileIsLoading);
 	const error = useSelector(getProfileError);
 	const readonly = useSelector(getProfileReadonly);
+	const validateErrors = useSelector(getProfileValidatesErrors);
+	const { t } = useTranslation('profile');
 
+	const validateErrorTranslates = {
+		[ValidateProfileError.SERVER_ERROR]: t('Server error'),
+		[ValidateProfileError.NO_DATA]: t('Emty data'),
+		[ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
+		[ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
+		[ValidateProfileError.INCORRECT_USER_DATA]: t('Incorrect user data'),
+	};
 	useEffect(() => {
-		if (!isStoryBook) {
+		if (__PROJECT__ !== 'storybook') {
 			dispatch(fetchProfileData());
 		}
-	}, [dispatch, isStoryBook]);
+	}, [dispatch]);
 
 	const handleProfileFirstName = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({ first: value || '' }));
@@ -72,6 +85,13 @@ const ProfilePage: FC<ProfilePageProps> = ({ className, isStoryBook = false }) =
 		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
 			<div className={classNames('', {}, [className])}>
 				<ProfilePageHeader />
+				{validateErrors?.length && validateErrors.map(err => (
+					<Text
+						key={err}
+						theme={TextTheme.ERROR}
+						text={validateErrorTranslates[err]}
+					/>
+				))}
 				<ProfileCard
 					data={form}
 					isLoading={isLoading}

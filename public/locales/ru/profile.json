@@ -11,5 +11,10 @@
   "City": "Город",
   "Nickname": "Кличка",
   "Avatar": "Имага",
-  "Choose currency": "Choose currency"
+  "Choose currency": "Choose currency",
+  "Server error": "Server error",
+  "Emty data": "Emty data",
+  "Incorrect age": "Incorrect age",
+  "Incorrect country": "Incorrect country",
+  "Incorrect user data": "Incorrect user data"
 }

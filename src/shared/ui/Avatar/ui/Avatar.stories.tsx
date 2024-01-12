@@ -4,7 +4,7 @@ import { Avatar } from './Avatar';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import testAvatarImg from './test_avatar_img.png';
+import testAvatarImg from '../../../assets/tests/test_avatar_img.png';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
