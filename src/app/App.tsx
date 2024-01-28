@@ -8,13 +8,14 @@ import { Sidebar } from 'widgets/Sidebar';
 import useFcmToken from 'app/providers/Firebase/useFcmToken';
 import { getMessaging, onMessage } from 'firebase/messaging';
 import firebaseApp from 'app/providers/Firebase/firebase';
-import { useDispatch } from 'react-redux';
-import { userActions } from 'enteties/User';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUserInited, userActions } from 'enteties/User';
 
 export const App = () => {
 	const { theme } = useTheme();
 	const { fcmToken } = useFcmToken();
 	const dispatch = useDispatch();
+	const inited = useSelector(getUserInited);
 
 	console.log('FCM token:', fcmToken);
 
@@ -44,7 +45,7 @@ export const App = () => {
 				<Navbar />
 				<div className="content-page">
 					<Sidebar />
-					<AppRouter />
+					{inited && <AppRouter />}
 				</div>
 			</Suspense>
 		</div>
