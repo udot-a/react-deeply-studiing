@@ -1,6 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Text, TextTheme } from './Text';
+import { Text, TextSize, TextTheme } from './Text';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
@@ -40,3 +40,10 @@ Error.args = {
 };
 Error.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
 
+export const SizeL = Template.bind({});
+SizeL.args = {
+	title: 'Title',
+	text: 'Some text will be typed here.',
+	size: TextSize.L,
+};
+SizeL.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
