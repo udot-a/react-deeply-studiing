@@ -5,7 +5,7 @@ import cls from './ArticleDetails.module.scss';
 import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import { useAppDispatch } from 'shared/lib/hooks';
+import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { useSelector } from 'react-redux';
 import EyeIcon from 'shared/assets/icons/open_eye.svg';
@@ -52,12 +52,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
 		}
 	}, []);
 
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(fetchArticleById(id));
-		}
-	}, [dispatch, id]);
-
+	useInitialEffect(() => dispatch(fetchArticleById(id)));
 	let content;
 
 	if (isLoading) {
@@ -103,7 +98,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
 		);
 	}
 	return (
-		<div className={classNames(cls.ArticleDetails, {}, [className])}>
+		<div className={classNames('', {}, [className])}>
 			<DynamicModuleLoader reducers={reducers} removeAfterRemount>
 				{content}
 			</DynamicModuleLoader>

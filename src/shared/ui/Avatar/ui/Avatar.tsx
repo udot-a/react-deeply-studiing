@@ -23,7 +23,7 @@ export const Avatar: FC<AvatarProps> = ({ className, src, size, alt }) => {
 	return (
 		<img
 			alt={alt || t('Avatar image')}
-			src={src}
+			src={src || 'https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper.png'}
 			style={styles}
 			className={classNames(cls.avatar, {}, [className])}
 		/>
