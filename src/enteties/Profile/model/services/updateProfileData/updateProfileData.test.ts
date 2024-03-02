@@ -12,6 +12,7 @@ const data = {
 	'city': 'Kharkiv',
 	'country': Country.Britain,
 	'currency': Currency.USD,
+	'id': '1',
 };
 
 describe('updateProfileData.test', () => {

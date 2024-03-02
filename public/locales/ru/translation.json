@@ -22,5 +22,7 @@
   "Logout": "Выйти",
   "Avatar image": "Avatar image",
   "Choose country": "Choose country",
-  "There are no comments": "Нет ни одного комментария"
+  "There are no comments": "Нет ни одного комментария",
+  "Type comment here": "Введите текст комментария",
+  "Send": "Отправить"
 }

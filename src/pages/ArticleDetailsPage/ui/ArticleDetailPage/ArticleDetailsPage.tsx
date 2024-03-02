@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'enteties/Article';
@@ -14,6 +14,8 @@ import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
 import {
 	fetchCommentsByArticleId
 } from 'pages/ArticleDetailsPage/model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddCommentForm } from 'features/AddCommentForm';
+import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/service/addCommentForArticle/addCommentForArticle';
 
 const reducers: ReducerList = {
 	articleDetailsComments: articleDetailsCommentsReducer,
@@ -29,6 +31,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 	const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 	const dispatch = useAppDispatch();
 
+	const onSendComment = useCallback((text: string) => {
+		dispatch(addCommentForArticle(text));
+	}, [dispatch]);
+
 	useInitialEffect(() => dispatch(fetchCommentsByArticleId(id)));
 
 	if (!id && __PROJECT__ !=='storybook') {
@@ -43,6 +49,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 			<div className={classNames('', {}, [className])}>
 				<ArticleDetails id={id || '1'}/>
 				<Text className={cls.commentTitle} title={t('Comments')}/>
+				<AddCommentForm onSendComment={onSendComment}/>
 				<CommentList isLoading={commentsIsLoading} comments={comments}/>
 			</div>
 		</DynamicModuleLoader>

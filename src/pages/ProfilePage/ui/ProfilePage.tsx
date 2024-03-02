@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect } from 'react';
+import React, { FC, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { profileActions, profileReducer } from 'enteties/Profile/model/slice/profileSlice';
@@ -18,6 +18,8 @@ import { Currency } from 'enteties/Currency';
 import { Country } from 'enteties/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
+import { useInitialEffect } from 'shared/lib/hooks';
+import { useParams } from 'react-router-dom';
 
 interface ProfilePageProps {
   className?: string;
@@ -35,6 +37,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 	const readonly = useSelector(getProfileReadonly);
 	const validateErrors = useSelector(getProfileValidatesErrors);
 	const { t } = useTranslation('profile');
+	const { id } = useParams<{ id: string }>();
 
 	const validateErrorTranslates = {
 		[ValidateProfileError.SERVER_ERROR]: t('Server error'),
@@ -43,11 +46,12 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 		[ValidateProfileError.INCORRECT_COUNTRY]: t('Incorrect country'),
 		[ValidateProfileError.INCORRECT_USER_DATA]: t('Incorrect user data'),
 	};
-	useEffect(() => {
-		if (__PROJECT__ !== 'storybook') {
-			dispatch(fetchProfileData());
+
+	useInitialEffect(() => {
+		if (id) {
+			dispatch(fetchProfileData(id));
 		}
-	}, [dispatch]);
+	});
 
 	const handleProfileFirstName = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({ first: value || '' }));

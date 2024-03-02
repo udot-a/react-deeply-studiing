@@ -29,6 +29,29 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test comment 333",
+      "id": "HKsPMyy"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "test 555",
+      "id": "oiP3kM9"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "id": "kKQ3wFE"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "Text 9999",
+      "id": "10pj7MB"
     }
   ],
   "users": [
@@ -47,16 +70,30 @@
       "avatar": "https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png"
     }
   ],
-  "profile": {
-    "first": "Semn",
-    "last": "Udot",
-    "age": 23,
-    "currency": "UAH",
-    "city": "Kharkiv",
-    "username": "admin",
-    "avatar": "https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-512.png",
-    "country": "Ukraine"
-  },
+  "profile": [
+    {
+      "id": "1",
+      "first": "Ignat",
+      "last": "Udot",
+      "age": 23,
+      "currency": "UAH",
+      "city": "Kharkiv",
+      "username": "admin",
+      "avatar": "https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-512.png",
+      "country": "Ukraine"
+    },
+    {
+      "id": "2",
+      "first": "ulbi tv",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "ulbi tv",
+      "avatar": "https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png"
+    }
+  ],
   "articles": [
     {
       "id": "1",
@@ -65,7 +102,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "type": ["IT"],
+      "type": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",

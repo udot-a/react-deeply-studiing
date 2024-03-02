@@ -7,6 +7,7 @@ import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDeco
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { ArticleBlockType, ArticleType } from 'enteties/Article/model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 
 export default {
 	title: 'pages/ArticleDetailsPage',
@@ -20,7 +21,7 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDe
 
 export const ArticleDetailsPageWithData = Template.bind({});
 ArticleDetailsPageWithData.args = {};
-ArticleDetailsPageWithData.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: {
+ArticleDetailsPageWithData.decorators = [SuspenseDecorator, StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: {
 	'id': '1',
 	'title': 'Javascript news',
 	'subtitle': 'Что нового в JS за 2022 год?',

@@ -4,6 +4,8 @@ import { CommentList } from './CommentList';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 export default {
 	title: 'enteties/CommentList',
@@ -41,7 +43,7 @@ Light.args = {
 	]
 };
 
-Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({}), RouterDecorator];
 
 export const Skeleton = Template.bind({});
 Skeleton.args = {
