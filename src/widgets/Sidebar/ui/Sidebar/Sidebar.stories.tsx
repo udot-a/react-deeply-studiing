@@ -36,6 +36,6 @@ Dark.args = {};
 Dark.decorators = [
 	StyleDecorator,
 	ThemeDecorator(Theme.LIGHT),
-	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } }),
+	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false }, user: { authData: { id: '1' } } }),
 	RouterDecorator,
 ];

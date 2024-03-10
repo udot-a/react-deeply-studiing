@@ -1,42 +1,33 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import ArticleDetailsPage from './ArticleDetailsPage';
+import { ArticleListItem } from './ArticleListItem';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
-import { ArticleBlockType, ArticleType } from 'enteties/Article/model/types/article';
+import { Article, ArticleView } from '../../model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 
-export default {
-	title: 'pages/ArticleDetailsPage',
-	component: ArticleDetailsPage,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
-
-export const ArticleDetailsPageWithData = Template.bind({});
-ArticleDetailsPageWithData.args = {};
-ArticleDetailsPageWithData.decorators = [SuspenseDecorator, StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: {
+const article = {
 	'id': '1',
-	'title': 'Javascript news',
+	'title': 'Javascript news and many different interesting information',
 	'subtitle': 'Что нового в JS за 2022 год?',
 	'img': 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
 	'views': 1022,
 	user: {
 		id: '1',
 		username: 'Andrii Udot',
+		avatar: 'https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png',
 	},
 	'createdAt': '26.02.2022',
-	'type': [ArticleType.IT],
+	'type': [
+		'IT',
+		'SCIENCE',
+		'ECONOMICS',
+	],
 	'blocks': [
 		{
-			id: '1',
-			type: ArticleBlockType.TEXT,
+			'id': '1',
+			'type': 'TEXT',
 			'title': 'Заголовок этого блока',
 			'paragraphs': [
 				'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -46,12 +37,12 @@ ArticleDetailsPageWithData.decorators = [SuspenseDecorator, StyleDecorator, Them
 		},
 		{
 			'id': '4',
-			'type': ArticleBlockType.CODE,
+			'type': 'CODE',
 			'code': '<!DOCTYPE html>\n<html>\n  <body>\n    <p id="hello"></p>\n\n    <script>\n      document.getElementById("hello").innerHTML = "Hello, world!";\n    </script>\n  </body>\n</html>;'
 		},
 		{
 			'id': '5',
-			'type': ArticleBlockType.TEXT,
+			'type': 'TEXT',
 			'title': 'Заголовок этого блока',
 			'paragraphs': [
 				'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
@@ -60,18 +51,18 @@ ArticleDetailsPageWithData.decorators = [SuspenseDecorator, StyleDecorator, Them
 		},
 		{
 			'id': '2',
-			'type': ArticleBlockType.IMAGE,
+			'type': 'IMAGE',
 			'src': 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
 			'title': 'Рисунок 1 - скриншот сайта'
 		},
 		{
 			'id': '3',
-			'type': ArticleBlockType.CODE,
+			'type': 'CODE',
 			'code': 'const path = require(\'path\');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, \'db.json\'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);'
 		},
 		{
 			'id': '7',
-			'type': ArticleBlockType.TEXT,
+			'type': 'TEXT',
 			'title': 'Заголовок этого блока',
 			'paragraphs': [
 				'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.',
@@ -80,18 +71,42 @@ ArticleDetailsPageWithData.decorators = [SuspenseDecorator, StyleDecorator, Them
 		},
 		{
 			'id': '8',
-			'type': ArticleBlockType.IMAGE,
+			'type': 'IMAGE',
 			'src': 'https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png',
 			'title': 'Рисунок 1 - скриншот сайта'
 		},
 		{
 			'id': '9',
-			'type': ArticleBlockType.TEXT,
+			'type': 'TEXT',
 			'title': 'Заголовок этого блока',
 			'paragraphs': [
 				'JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.'
 			]
 		}
 	]
-} } }), RouterDecorator];
+} as Article;
 
+export default {
+	title: 'enteties/ArticleListItem',
+	component: ArticleListItem,
+	argTypes: {
+		backgroundColor: { control: 'color' },
+	},
+} as ComponentMeta<typeof ArticleListItem>;
+
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
+
+export const Big = Template.bind({});
+Big.args = {
+	article: article,
+	view: ArticleView.BIG
+};
+Big.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), RouterDecorator];
+
+export const Small = Template.bind({});
+Small.args = {
+	article: article,
+	view: ArticleView.SMALL
+};
+
+Small.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), RouterDecorator];
