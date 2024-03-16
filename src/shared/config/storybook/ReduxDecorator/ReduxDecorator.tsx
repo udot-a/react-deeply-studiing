@@ -6,6 +6,7 @@ import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicMo
 import { articleDetailsReducer } from 'enteties/Article/model/slice/articleDetailsSlice';
 import { addCommentFormSReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice';
 import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 
 const defaultAsyncReducers: ReducerList = {
 	loginForm: loginReducer,
@@ -13,6 +14,7 @@ const defaultAsyncReducers: ReducerList = {
 	articleDetails: articleDetailsReducer,
 	addCommentForm: addCommentFormSReducer,
 	articleDetailsComments: articleDetailsCommentsReducer,
+	articlesPage: articlesPageReducer,
 };
 // eslint-disable-next-line react/display-name
 export const ReduxDecorator = (
