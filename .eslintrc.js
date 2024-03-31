@@ -66,6 +66,7 @@ module.exports = {
 		'react-hooks/exhaustive-deps': 'error',
 		'react/display-name': 'off',
 		'react/prop-types': 'off',
+		'no-mixed-spaces-and-tabs': 'off',
 	},
 	globals: {
 		__IS_DEV__: true,

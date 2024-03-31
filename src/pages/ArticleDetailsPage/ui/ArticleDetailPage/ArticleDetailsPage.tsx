@@ -18,6 +18,7 @@ import { AddCommentForm } from 'features/AddCommentForm';
 import { addCommentForArticle } from '../../model/service/addCommentForArticle/addCommentForArticle';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 
 const reducers: ReducerList = {
 	articleDetailsComments: articleDetailsCommentsReducer,
@@ -53,7 +54,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 	}
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
-			<div className={classNames('', {}, [className])}>
+			<Page className={classNames('', {}, [className])}>
 				<Button theme={ButtonTheme.BORDERED} onClick={handleBackPress}>
 					{t('Back to list')}
 				</Button>
@@ -61,7 +62,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 				<Text className={cls.commentTitle} title={t('Comments')}/>
 				<AddCommentForm onSendComment={onSendComment}/>
 				<CommentList isLoading={commentsIsLoading} comments={comments}/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };

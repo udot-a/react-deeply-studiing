@@ -20,6 +20,7 @@ import { Text, TextTheme } from 'shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks';
 import { useParams } from 'react-router-dom';
+import { Page } from 'shared/ui/Page/Page';
 
 interface ProfilePageProps {
   className?: string;
@@ -87,7 +88,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
-			<div className={classNames('', {}, [className])}>
+			<Page className={classNames('', {}, [className])}>
 				<ProfilePageHeader />
 				{validateErrors?.length && validateErrors.map(err => (
 					<Text
@@ -110,7 +111,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 					onCurrencyChange={handleProfileCurrency}
 					onCountryChange={handleProfileCountry}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };

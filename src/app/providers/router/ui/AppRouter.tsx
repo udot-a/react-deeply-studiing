@@ -8,11 +8,7 @@ export const AppRouter = memo(() => {
 	const renderWithWrapper = useCallback((route: AppRouteProps) => {
 		const { path, authOnly, element } = route;
 
-		const routerElement = (
-			<div className="page-wrapper">
-				{authOnly ? <RequireAuth>{element as JSX.Element}</RequireAuth> : element}
-			</div>
-		);
+		const routerElement = authOnly ? <RequireAuth>{element as JSX.Element}</RequireAuth> : element;
 		return (
 
 			<Route

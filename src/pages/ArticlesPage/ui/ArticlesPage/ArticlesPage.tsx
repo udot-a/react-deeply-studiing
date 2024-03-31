@@ -4,11 +4,14 @@ import { ArticleList, ArticleView, ArticleViewSelector } from 'enteties/Article'
 import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articlesPageActions, articlesPageReducer, getArticles } from '../../model/slices/articlesPageSlice';
 import { useAppDispatch, useInitialEffect } from 'shared/lib/hooks';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { useSelector } from 'react-redux';
 import {
-	getArticlesPageIsLoading, getArticlesPageView
+	getArticlesPageHasMore,
+	getArticlesPageIsLoading, getArticlesPageNum, getArticlesPageView
 } from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlesPageProps {
   className?: string;
@@ -24,9 +27,18 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 	// const error = useSelector(getArticlesPageError);
 	const view = useSelector(getArticlesPageView);
 
+	const onLoadNextPart = useCallback(() => {
+		if (__PROJECT__ === 'storybook') {
+			return;
+		}
+		dispatch(fetchNextArticlesPage());
+	}, [dispatch]);
+
 	useInitialEffect(() => {
-		dispatch(fetchArticlesList());
 		dispatch(articlesPageActions.initState());
+		dispatch(fetchArticlesList({
+			page: 1,
+		}));
 	});
 
 	const handleChangeView = useCallback((newView: ArticleView) => {
@@ -35,14 +47,17 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
-			<div className={classNames('', {}, [className])}>
+			<Page
+				className={classNames('', {}, [className])}
+				onScrollEnd={onLoadNextPart}
+			>
 				<ArticleViewSelector view={view} onViewClick={handleChangeView} />
 				<ArticleList
 					isLoading={isLoading}
 					articles={articles}
 					view={view}
 				/>
-			</div>
+			</Page>
 		</DynamicModuleLoader>
 	);
 };

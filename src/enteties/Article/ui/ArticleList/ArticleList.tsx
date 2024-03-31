@@ -29,15 +29,15 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 		);
 	};
 
-	if (isLoading) {
-		return (
-			<div
-				className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-			>
-				{getSkeletons(view)}
-			</div>
-		);
-	}
+	// if (isLoading) {
+	// 	return (
+	// 		<div
+	// 			className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+	// 		>
+	// 			{getSkeletons(view)}
+	// 		</div>
+	// 	);
+	// }
 
 	return (
 		<div
@@ -47,6 +47,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 				? articles.map(renderArticle)
 				: null
 			}
+			{isLoading && getSkeletons(view)}
 		</div>
 	);
 });
