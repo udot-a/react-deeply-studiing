@@ -21,14 +21,30 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Button.module.scss';
-export var ThemeButton;
-(function (ThemeButton) {
-    ThemeButton["CLEAR"] = "clear";
-    ThemeButton["BORDERED"] = "bordered";
-})(ThemeButton || (ThemeButton = {}));
-export var Button = function (props) {
-    var className = props.className, children = props.children, _a = props.theme, theme = _a === void 0 ? ThemeButton.CLEAR : _a, other = __rest(props, ["className", "children", "theme"]);
-    return (_jsx("button", __assign({ className: classNames(cls.button, {}, [className, cls[theme]]) }, other, { children: children })));
-};
+export var ButtonTheme;
+(function (ButtonTheme) {
+    ButtonTheme["CLEAR"] = "clear";
+    ButtonTheme["CLEAR_INVERTED"] = "clearInverted";
+    ButtonTheme["BORDERED"] = "bordered";
+    ButtonTheme["BORDERED_RED"] = "bordered-red";
+    ButtonTheme["BACKGROUND"] = "background";
+    ButtonTheme["BACKGROUND_INVERTED"] = "backgroundInverted";
+})(ButtonTheme || (ButtonTheme = {}));
+export var ButtonSize;
+(function (ButtonSize) {
+    ButtonSize["M"] = "size_m";
+    ButtonSize["L"] = "size_l";
+    ButtonSize["XL"] = "size_xl";
+})(ButtonSize || (ButtonSize = {}));
+export var Button = memo(function (props) {
+    var _a;
+    var className = props.className, children = props.children, _b = props.theme, theme = _b === void 0 ? ButtonTheme.CLEAR : _b, square = props.square, _c = props.size, size = _c === void 0 ? ButtonSize.M : _c, _d = props.disabled, disabled = _d === void 0 ? false : _d, other = __rest(props, ["className", "children", "theme", "square", "size", "disabled"]);
+    var mods = (_a = {},
+        _a[cls.square] = square,
+        _a[cls.disabled] = disabled,
+        _a);
+    return (_jsx("button", __assign({ className: classNames(cls.button, mods, [className, cls[theme], cls[size]]), disabled: disabled }, other, { children: children })));
+});

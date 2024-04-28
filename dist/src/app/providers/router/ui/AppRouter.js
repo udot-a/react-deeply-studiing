@@ -10,13 +10,16 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
-import { Suspense } from 'react';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
-export var AppRouter = function () {
-    return (_jsx(Suspense, __assign({ fallback: _jsx(PageLoader, {}) }, { children: _jsx(Routes, { children: Object.values(routeConfig).map(function (_a) {
-                var element = _a.element, path = _a.path;
-                return (_jsx(Route, { path: path, element: _jsx("div", __assign({ className: "page-wrapper" }, { children: element })) }, path));
-            }) }) })));
-};
+import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
+export var AppRouter = memo(function () {
+    var renderWithWrapper = useCallback(function (route) {
+        var path = route.path, authOnly = route.authOnly, element = route.element;
+        var routerElement = authOnly ? _jsx(RequireAuth, { children: element }) : element;
+        return (_jsx(Route, { path: path, element: routerElement }, path));
+    }, []);
+    return (_jsx(Suspense, __assign({ fallback: _jsx(PageLoader, {}) }, { children: _jsx(Routes, { children: Object.values(routeConfig).map(renderWithWrapper) }) })));
+});

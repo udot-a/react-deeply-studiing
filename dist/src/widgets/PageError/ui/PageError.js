@@ -14,12 +14,12 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './PageError.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button';
-import { ThemeButton } from 'shared/ui/Button/ui/Button';
+import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 export var PageError = function (_a) {
     var className = _a.className;
     var t = useTranslation().t;
     var reloadPage = function () {
         location.reload();
     };
-    return (_jsxs("div", __assign({ className: classNames(cls.pageError, {}, [className]) }, { children: [_jsx("p", { children: t('Oops, somethings wrong happens!!!') }), _jsx(Button, __assign({ theme: ThemeButton.BORDERED, onClick: reloadPage, className: cls.button }, { children: t('Update the page') }))] })));
+    return (_jsxs("div", __assign({ className: classNames(cls.pageError, {}, [className]) }, { children: [_jsx("p", { children: t('Oops, somethings wrong happens!!!') }), _jsx(Button, __assign({ theme: ButtonTheme.BORDERED, onClick: reloadPage, className: cls.button }, { children: t('Update the page') }))] })));
 };

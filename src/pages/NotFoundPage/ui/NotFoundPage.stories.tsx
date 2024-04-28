@@ -4,6 +4,8 @@ import { NotFoundPage } from './NotFoundPage';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -22,9 +24,9 @@ const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {.
 export const NotFoundDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 NotFoundDark.args = {};
-NotFoundDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
+NotFoundDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({}), RouterDecorator];
 
 export const NotFoundLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 NotFoundLight.args = {};
-NotFoundLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+NotFoundLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({}), RouterDecorator];

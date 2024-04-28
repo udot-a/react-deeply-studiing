@@ -10,12 +10,13 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { memo } from 'react';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import LightIcon from 'shared/assets/icons/theme-light.svg';
 import DarkIcon from 'shared/assets/icons/theme-dark.svg';
 import { Button } from 'shared/ui/Button';
-import { ThemeButton } from 'shared/ui/Button/ui/Button';
-export var ThemeSwitcher = function () {
+import { ButtonTheme } from 'shared/ui/Button/ui/Button';
+export var ThemeSwitcher = memo(function () {
     var _a = useTheme(), theme = _a.theme, toggleTheme = _a.toggleTheme;
-    return (_jsx(Button, __assign({ onClick: toggleTheme, theme: ThemeButton.CLEAR }, { children: theme === Theme.DARK ? _jsx(DarkIcon, {}) : _jsx(LightIcon, {}) })));
-};
+    return (_jsx(Button, __assign({ onClick: toggleTheme, theme: ButtonTheme.CLEAR }, { children: theme === Theme.DARK ? _jsx(DarkIcon, {}) : _jsx(LightIcon, {}) })));
+});

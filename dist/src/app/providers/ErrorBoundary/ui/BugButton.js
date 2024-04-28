@@ -12,7 +12,7 @@ var __assign = (this && this.__assign) || function () {
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useEffect, useState } from 'react';
 import { Button } from 'shared/ui/Button';
-import { ThemeButton } from 'shared/ui/Button/ui/Button';
+import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { useTranslation } from 'react-i18next';
 // Component for testing purposes
 export var BugButton = function () {
@@ -24,5 +24,5 @@ export var BugButton = function () {
             throw new Error();
         }
     }, [error]);
-    return (_jsx(Button, __assign({ theme: ThemeButton.BORDERED, onClick: onThrow }, { children: t('throw error') })));
+    return (_jsx(Button, __assign({ theme: ButtonTheme.BORDERED, onClick: onThrow }, { children: t('throw error') })));
 };
