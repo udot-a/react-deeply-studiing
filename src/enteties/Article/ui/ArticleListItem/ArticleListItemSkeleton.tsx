@@ -1,18 +1,8 @@
 import React, { FC, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
-import { useTranslation } from 'react-i18next';
-import { Article, ArticleBlockType, ArticleTextBlock, ArticleView } from '../../model/types/article';
-import { Text } from 'shared/ui/Text';
-import { Icon } from 'shared/ui/Icon';
-import EyeIcon from 'shared/assets/icons/open_eye.svg';
+import { ArticleView } from '../../model/types/article';
 import { Card } from 'shared/ui/Card/Card';
-import { useHover } from 'shared/lib/hooks/useHover';
-import { Avatar } from 'shared/ui/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { useNavigate } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { Skeleton } from 'shared/Skeleton/Skeleton';
 
 interface ArticleListItemSkeletonProps {

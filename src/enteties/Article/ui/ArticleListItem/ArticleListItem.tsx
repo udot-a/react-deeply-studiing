@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { useTranslation } from 'react-i18next';
@@ -11,24 +11,24 @@ import { useHover } from 'shared/lib/hooks/useHover';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonTheme } from 'shared/ui/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { useNavigate } from 'react-router-dom';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink/AppLink';
 
 interface ArticleListItemProps {
   className?: string;
 	article: Article;
 	view?: ArticleView;
+	target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
-	const { className, article, view = ArticleView.SMALL } = props;
+	const {
+		className, article,
+		target,
+		view = ArticleView.SMALL,
+	} = props;
 	const { t } = useTranslation();
 	const [isHover, bindHover] = useHover();
-	const navigate = useNavigate();
-
-	const onOpenArticle = useCallback(() => {
-		navigate(RoutePath.article_details + article.id);
-	}, [navigate, article.id]);
 
 	const types = (<Text text={article.type.join(', ')} className={cls.types} />);
 	const views = (
@@ -60,12 +60,16 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 						<ArticleTextBlockComponent block={textBlock} className={cls.textBlock}/>
 					)}
 					<div className={cls.footer}>
-						<Button
-							theme={ButtonTheme.BORDERED}
-							onClick={onOpenArticle}
+						<AppLink
+							target={target}
+							to={RoutePath.article_details + article.id}
 						>
-							{t('Read more')}
-						</Button>
+							<Button
+								theme={ButtonTheme.BORDERED}
+							>
+								{t('Read more')}
+							</Button>
+						</AppLink>
 						{views}
 					</div>
 				</Card>
@@ -74,22 +78,27 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 	}
 
 	return (
-		<div
-			{...bindHover}
-			className={classNames('', {}, [className, cls[view]])}
+		<AppLink
+			target={target}
+			to={RoutePath.article_details + article.id}
 		>
-			<Card>
-				<div className={cls.imageWrapper} onClick={onOpenArticle}>
-					<img src={article.img} className={cls.img} alt={article.title}/>
-					<Text text={article.createdAt} className={cls.date}/>
-				</div>
-				<div className={cls.infoWrapper}>
-					{types}
-					{views}
-				</div>
-				<Text text={article.title} className={cls.title}/>
-			</Card>
-		</div>
+			<div
+				{...bindHover}
+				className={classNames('', {}, [className, cls[view]])}
+			>
+				<Card>
+					<div className={cls.imageWrapper}>
+						<img src={article.img} className={cls.img} alt={article.title}/>
+						<Text text={article.createdAt} className={cls.date}/>
+					</div>
+					<div className={cls.infoWrapper}>
+						{types}
+						{views}
+					</div>
+					<Text text={article.title} className={cls.title}/>
+				</Card>
+			</div>
+		</AppLink>
 	);
 });
 

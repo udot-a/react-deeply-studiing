@@ -17,7 +17,6 @@ import { Input } from 'shared/ui/Input';
 import { ArticleSortSelector } from 'enteties/Article';
 import { SortOrder } from 'shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 
 interface ArticlePageFilterProps {
   className?: string;
@@ -32,24 +31,6 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = memo((props) => {
 	const sort = useSelector(getArticlesPageSort);
 	const search = useSelector(getArticlesPageSearch);
 	const type = useSelector(getArticlesPageType);
-
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const typeTabs = useMemo<TabItem<ArticleType>[]>(() => [
-		{
-			value: ArticleType.ALL,
-			content: t('All'),
-		},
-		{
-			value: ArticleType.IT,
-			content: t('IT'),
-		},{
-			value: ArticleType.ECONOMICS,
-			content: t('Economics'),
-		},{
-			value: ArticleType.SCIENCE,
-			content: t('Science'),
-		},
-	], [t]);
 
 	const fetchData = useCallback(() => {
 		dispatch(fetchArticlesList({ replace: true }));

@@ -7,6 +7,9 @@ import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'enteties/User';
+import { Text, TextTheme } from 'shared/ui/Text';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
 interface NavbarProps {
   className?: string;
@@ -33,6 +36,10 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 	if (authData) {
 		return (
 			<div className={classNames(cls.navbar, {}, [className])}>
+				<Text className={cls.appName} title={t('Andrii Udot Pet Project')} theme={TextTheme.SECONDARY}/>
+				<AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} >
+					{t('Create article')}
+				</AppLink>
 				<Button
 					data-testid="login-button-test"
 					theme={ButtonTheme.CLEAR_INVERTED} className={cls.links}
@@ -45,7 +52,8 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 	}
 
 	return (
-		<div className={classNames(cls.navbar, {}, [className])}>
+		<header className={classNames(cls.navbar, {}, [className])}>
+			<Text className={cls.appName} title={t('Andrii Udot Pet Project')} theme={TextTheme.SECONDARY}/>
 			<Button
 				data-testid="login-button-test"
 				theme={ButtonTheme.CLEAR_INVERTED} className={cls.links}
@@ -54,6 +62,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 			</Button>
 			{/* eslint-disable-next-line i18next/no-literal-string */}
 			{isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
-		</div>
+		</header>
 	);
 });

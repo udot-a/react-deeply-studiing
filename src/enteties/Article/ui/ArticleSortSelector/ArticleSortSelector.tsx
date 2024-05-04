@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback, useMemo } from 'react';
+import React, { FC, memo, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleSortSelector.module.scss';
 import { useTranslation } from 'react-i18next';

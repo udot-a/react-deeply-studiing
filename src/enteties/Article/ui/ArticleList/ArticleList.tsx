@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
@@ -21,15 +21,22 @@ interface ArticleListProps {
 	articles?: Article[];
 	isLoading?: boolean;
 	view?: ArticleView;
+	target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleList: FC<ArticleListProps> = memo((props) => {
-	const { className, articles, isLoading, view = ArticleView.SMALL } = props;
+	const {
+		className,
+		articles,
+		isLoading,
+		target,
+		view = ArticleView.SMALL,
+	} = props;
 	const { t } = useTranslation();
 
 	const renderArticle = (article: Article) => {
 		return (
-			<ArticleListItem key={article.id} article={article} view={view} />
+			<ArticleListItem key={article.id} article={article} view={view} target={target} />
 		);
 	};
 

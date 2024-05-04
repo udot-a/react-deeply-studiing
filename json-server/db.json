@@ -52,6 +52,12 @@
       "userId": "1",
       "text": "Text 9999",
       "id": "10pj7MB"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Comment test 1",
+      "id": "fbmRqUq"
     }
   ],
   "users": [

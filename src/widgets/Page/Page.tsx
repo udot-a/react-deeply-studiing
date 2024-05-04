@@ -1,4 +1,4 @@
-import React, { FC, memo, MutableRefObject, ReactNode, useCallback, useRef, UIEvent } from 'react';
+import React, { FC, memo, MutableRefObject, ReactNode, useRef, UIEvent } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Page.module.scss';
 import { useAppDispatch, useInfiniteScroll, useInitialEffect, useThrottle } from 'shared/lib/hooks';

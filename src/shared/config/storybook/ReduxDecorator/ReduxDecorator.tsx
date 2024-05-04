@@ -5,16 +5,16 @@ import { profileReducer } from 'enteties/Profile';
 import { ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { articleDetailsReducer } from 'enteties/Article/model/slice/articleDetailsSlice';
 import { addCommentFormSReducer } from 'features/AddCommentForm/model/slices/addCommentFormSlice';
-import { articleDetailsCommentsReducer } from 'pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slice';
 
 const defaultAsyncReducers: ReducerList = {
 	loginForm: loginReducer,
 	profile: profileReducer,
 	articleDetails: articleDetailsReducer,
 	addCommentForm: addCommentFormSReducer,
-	articleDetailsComments: articleDetailsCommentsReducer,
 	articlesPage: articlesPageReducer,
+	articleDetailsPage: articleDetailsPageReducer,
 };
 // eslint-disable-next-line react/display-name
 export const ReduxDecorator = (

@@ -3,7 +3,6 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
 import { ArticleType } from 'enteties/Article';
-import { useAppDispatch } from 'shared/lib/hooks';
 
 interface ArticleTypeTabsProps {
   className?: string;
@@ -14,7 +13,6 @@ interface ArticleTypeTabsProps {
 export const ArticleTypeTabs: FC<ArticleTypeTabsProps> = memo((props) => {
 	const { className, value, onChangeType } = props;
 	const { t } = useTranslation();
-	const dispatch = useAppDispatch();
 
 	const typeTabs = useMemo<TabItem<ArticleType>[]>(() => [
 		{

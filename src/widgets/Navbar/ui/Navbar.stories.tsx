@@ -25,7 +25,15 @@ Light.decorators = [
 	SuspenseDecorator,
 	StyleDecorator,
 	ThemeDecorator(Theme.DARK),
-	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } }),
+	ReduxDecorator({
+		user: {
+			authData: {
+				id: '1',
+				username: 'Vasyl',
+			},
+		},
+		loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false }
+	}),
 	RouterDecorator,
 ];
 
