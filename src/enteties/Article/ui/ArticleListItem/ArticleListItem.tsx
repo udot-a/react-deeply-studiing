@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributeAnchorTarget, memo, useCallback } from 'react';
+import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { useTranslation } from 'react-i18next';
