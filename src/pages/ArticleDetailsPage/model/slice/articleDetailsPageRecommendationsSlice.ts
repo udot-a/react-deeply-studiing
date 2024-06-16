@@ -9,7 +9,7 @@ import {
 import { Article } from 'enteties/Article';
 import {
 	fetchArticleRecommendations
-} from 'pages/ArticleDetailsPage/model/service/fetchAticleRecommendations/fetchArticleRecommendations';
+} from '../service/fetchAticleRecommendations/fetchArticleRecommendations';
 
 const recommendationsAdapter = createEntityAdapter<Article>({
 	// Assume IDs are stored in a field other than `book.id`

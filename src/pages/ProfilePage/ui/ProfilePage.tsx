@@ -13,7 +13,7 @@ import {
 	ProfileCard, ValidateProfileError,
 } from 'enteties/Profile';
 import { useSelector } from 'react-redux';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'enteties/Currency';
 import { Country } from 'enteties/Country';
 import { Text, TextTheme } from 'shared/ui/Text';
@@ -69,7 +69,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 	const handleProfileCity = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({ city: value || '' }));
 	}, [dispatch]);
-	
+
 	const handleProfileUsername = useCallback((value?: string) => {
 		dispatch(profileActions.updateProfile({ username: value || '' }));
 	}, [dispatch]);
@@ -81,7 +81,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 	const handleProfileCurrency = useCallback((value: Currency) => {
 		dispatch(profileActions.updateProfile({ currency: value }));
 	}, [dispatch]);
-	
+
 	const handleProfileCountry = useCallback((value: Country) => {
 		dispatch(profileActions.updateProfile({ country: value }));
 	}, [dispatch]);

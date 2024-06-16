@@ -7,6 +7,8 @@ import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkele
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text';
 import { TextSize } from 'shared/ui/Text/ui/Text';
+import { List, ListRowProps, WindowScroller } from 'react-virtualized';
+import { PAGE_ID } from 'widgets/Page/Page';
 
 const getSkeletons = (view: ArticleView) => {
 	return Array(view === ArticleView.SMALL ? 9 : 3)
@@ -34,21 +36,38 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 	} = props;
 	const { t } = useTranslation();
 
-	const renderArticle = (article: Article) => {
+	const isBig = view === ArticleView.BIG;
+
+	const itemsPerRow = isBig ? 1 : 6;
+	const rowCount = isBig ? (articles as Article[]).length : Math.ceil((articles as Article[]).length / itemsPerRow);
+
+	const rowRenderer = ({ index, key, style }: ListRowProps) => {
+		const items = [];
+		const fromIndex = index * itemsPerRow;
+		const toIndex = Math.min(fromIndex + itemsPerRow, articles?.length || 0);
+
+		for (let i = fromIndex; i < toIndex; i++) {
+			items.push(
+				<ArticleListItem
+					key={articles?.[i].id}
+					article={articles?.[i] as Article}
+					view={view}
+					target={target}
+					className={cls.card}
+				/>
+			);
+		}
+
 		return (
-			<ArticleListItem key={article.id} article={article} view={view} target={target} />
+			<div
+				key={key}
+				style={style}
+				className={cls.row}
+			>
+				{items}
+			</div>
 		);
 	};
-
-	// if (isLoading) {
-	// 	return (
-	// 		<div
-	// 			className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-	// 		>
-	// 			{getSkeletons(view)}
-	// 		</div>
-	// 	);
-	// }
 
 	if (!isLoading && !articles?.length) {
 		return (
@@ -60,15 +79,37 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 		);
 	}
 	return (
-		<div
-			className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+		<WindowScroller
+			scrollElement={document.getElementById(PAGE_ID) as Element}
 		>
-			{articles?.length
-				? articles.map(renderArticle)
-				: null
-			}
-			{isLoading && getSkeletons(view)}
-		</div>
+			{({
+				width,
+				height,
+				registerChild,
+				scrollTop,
+				isScrolling,
+				onChildScroll,
+			}) => (
+				<div
+					ref={registerChild}
+					className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+				>
+					<List
+						height={height}
+						rowCount={rowCount}
+						rowHeight={isBig ? 700 : 330}
+						rowRenderer={rowRenderer}
+						width={width}
+						autoHeight
+						autoWidth={isBig}
+						onScroll={onChildScroll}
+						isScrolling={isScrolling}
+						scrollTop={scrollTop}
+					/>
+					{isLoading && getSkeletons(view)}
+				</div>
+			)}
+		</WindowScroller>
 	);
 });
 

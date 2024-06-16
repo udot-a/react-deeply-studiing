@@ -3,6 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+// eslint-disable-next-line udot-project-plugin/path-checker
 import { Modal } from 'shared/ui/Modal';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

@@ -33,6 +33,7 @@ module.exports = {
 		'i18next',
 		'typescript-enum',
 		'react-hooks',
+		'udot-project-plugin',
 	],
 	'rules': {
 		'indent': [
@@ -67,6 +68,7 @@ module.exports = {
 		'react/display-name': 'off',
 		'react/prop-types': 'off',
 		'no-mixed-spaces-and-tabs': 'off',
+		'udot-project-plugin/path-checker': 'error',
 	},
 	globals: {
 		__IS_DEV__: true,

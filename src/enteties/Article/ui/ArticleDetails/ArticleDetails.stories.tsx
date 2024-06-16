@@ -6,7 +6,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { ArticleBlockType, ArticleType } from 'enteties/Article/model/types/article';
+import { ArticleBlockType, ArticleType } from '../../model/types/article';
 
 export default {
 	title: 'enteties/ArticleDetails',

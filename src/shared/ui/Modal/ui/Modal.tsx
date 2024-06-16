@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Modal.module.scss';
+// eslint-disable-next-line udot-project-plugin/path-checker
 import { Portal } from 'shared/ui/Portal/Portal';
 
 interface ModalProps {

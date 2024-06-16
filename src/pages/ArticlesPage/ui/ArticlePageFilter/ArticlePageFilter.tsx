@@ -11,7 +11,7 @@ import {
 	getArticlesPageSearch,
 	getArticlesPageSort, getArticlesPageType,
 	getArticlesPageView
-} from 'pages/ArticlesPage/model/selectors/articlesPageSelectors';
+} from '../../model/selectors/articlesPageSelectors';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input';
 import { ArticleSortSelector } from 'enteties/Article';
@@ -78,7 +78,7 @@ export const ArticlePageFilter: FC<ArticlePageFilterProps> = memo((props) => {
 				/>
 				<ArticleViewSelector view={view} onViewClick={handleChangeView} />
 				<Card >
-					<Input 
+					<Input
 						placeholder={t('Search')}
 						onChange={handleChangeSearch}
 						value={search}

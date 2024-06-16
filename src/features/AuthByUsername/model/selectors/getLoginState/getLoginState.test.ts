@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getLoginState } from 'features/AuthByUsername/model/selectors/getLoginState/getLoginState';
+import { getLoginState } from './getLoginState';
 
 describe('getLoginState.test', () => {
 	test('should return { username: \'Andrii\', password: \'123\', isLoading: true, error: \'error\' }', () => {
@@ -16,7 +16,7 @@ describe('getLoginState.test', () => {
 			password: '123',
 			error: 'error', });
 	});
-  
+
 	test('should work with undefined', () => {
 		const emptyState: DeepPartial<StateSchema> = {
 			loginForm: undefined,
@@ -25,7 +25,7 @@ describe('getLoginState.test', () => {
 		expect(getLoginState(emptyState as StateSchema)).toEqual({ isLoading: false,
 			username: '',
 			password: '',
-			error: '', 
+			error: '',
 		});
 	});
 });

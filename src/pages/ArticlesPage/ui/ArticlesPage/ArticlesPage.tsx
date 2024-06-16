@@ -11,7 +11,7 @@ import {
 } from '../../model/selectors/articlesPageSelectors';
 import { Page } from 'widgets/Page/Page';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import { ArticlePageFilter } from 'pages/ArticlesPage/ui/ArticlePageFilter/ArticlePageFilter';
+import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import cls from './ArticlesPage.module.scss';
 import { useSearchParams } from 'react-router-dom';
 

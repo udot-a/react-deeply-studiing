@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Tabs.module.scss';
+// eslint-disable-next-line udot-project-plugin/path-checker
 import { Card, CardTheme } from 'shared/ui/Card/Card';
 
 export interface TabItem<T extends string> {
@@ -27,8 +28,8 @@ export const Tabs = <T extends string>  (props: TabsProps<T>) => {
 	return (
 		<div className={classNames(cls.Tabs, {}, [className])}>
 			{tabs.map((tab, i) => (
-				<Card 
-					key={`TAB ITEM ${i}`} 
+				<Card
+					key={`TAB ITEM ${i}`}
 					className={cls.tab}
 					theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
 					onClick={clickHandler(tab)}
