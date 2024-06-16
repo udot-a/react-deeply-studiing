@@ -39,7 +39,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 	const isBig = view === ArticleView.BIG;
 
 	const itemsPerRow = isBig ? 1 : 6;
-	const rowCount = isBig ? (articles as Article[]).length : Math.ceil((articles as Article[]).length / itemsPerRow);
+	const rowCount = isBig ? (articles as Article[])?.length : Math.ceil((articles as Article[])?.length / itemsPerRow);
 
 	const rowRenderer = ({ index, key, style }: ListRowProps) => {
 		const items = [];
