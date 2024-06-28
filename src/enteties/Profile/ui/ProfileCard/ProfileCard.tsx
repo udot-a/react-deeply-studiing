@@ -12,6 +12,7 @@ import { Currency, CurrencySelect } from 'enteties/Currency';
 
 import { Country } from 'enteties/Country/model/types/country';
 import { CountrySelect } from 'enteties/Country';
+import { VStack } from 'shared/ui/Stack';
 
 interface ProfileCardProps {
   className?: string;
@@ -72,74 +73,72 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 		);
 	}
 	return (
-		<div className={classNames(cls.profileCard, mods, [className])}>
-			<div className={cls.data}>
-				<div className={cls.avatarWrapper}>
-					{data?.avatar && <Avatar src={data?.avatar}/>}
-				</div>
-				<Input
-					value={data?.first}
-					placeholder={t('Your name')}
-					className={cls.input}
-					onChange={onFirstNameChange}
-					readOnly={readonly}
-				/>
-
-				<Input
-					value={data?.last}
-					placeholder={t('Your surname')}
-					className={cls.input}
-					onChange={onLastNameChange}
-					readOnly={readonly}
-				/>
-
-				<Input
-					value={data?.age}
-					placeholder={t('Your age')}
-					className={cls.input}
-					onChange={onAgeChange}
-					readOnly={readonly}
-				/>
-
-				<Input
-					value={data?.city}
-					placeholder={t('City')}
-					className={cls.input}
-					onChange={onCityChange}
-					readOnly={readonly}
-				/>
-
-				<Input
-					value={data?.username}
-					placeholder={t('Nickname')}
-					className={cls.input}
-					onChange={onUsernameNameChange}
-					readOnly={readonly}
-				/>
-
-				<Input
-					value={data?.avatar}
-					placeholder={t('Avatar')}
-					className={cls.input}
-					onChange={onAvatarChange}
-					readOnly={readonly}
-				/>
-
-				<CurrencySelect
-					value={data?.currency}
-					onChange={onCurrencyChange}
-					readOnly={readonly}
-					className={cls.input}
-				/>
-
-				<CountrySelect
-					value={data?.country}
-					onChange={onCountryChange}
-					readOnly={readonly}
-					className={cls.input}
-				/>
+		<VStack max gap="16" className={classNames(cls.profileCard, mods, [className])}>
+			<div className={cls.avatarWrapper}>
+				{data?.avatar && <Avatar src={data?.avatar}/>}
 			</div>
-		</div>
+			<Input
+				value={data?.first}
+				placeholder={t('Your name')}
+				className={cls.input}
+				onChange={onFirstNameChange}
+				readOnly={readonly}
+			/>
+
+			<Input
+				value={data?.last}
+				placeholder={t('Your surname')}
+				className={cls.input}
+				onChange={onLastNameChange}
+				readOnly={readonly}
+			/>
+
+			<Input
+				value={data?.age}
+				placeholder={t('Your age')}
+				className={cls.input}
+				onChange={onAgeChange}
+				readOnly={readonly}
+			/>
+
+			<Input
+				value={data?.city}
+				placeholder={t('City')}
+				className={cls.input}
+				onChange={onCityChange}
+				readOnly={readonly}
+			/>
+
+			<Input
+				value={data?.username}
+				placeholder={t('Nickname')}
+				className={cls.input}
+				onChange={onUsernameNameChange}
+				readOnly={readonly}
+			/>
+
+			<Input
+				value={data?.avatar}
+				placeholder={t('Avatar')}
+				className={cls.input}
+				onChange={onAvatarChange}
+				readOnly={readonly}
+			/>
+
+			<CurrencySelect
+				value={data?.currency}
+				onChange={onCurrencyChange}
+				readOnly={readonly}
+				className={cls.input}
+			/>
+
+			<CountrySelect
+				value={data?.country}
+				onChange={onCountryChange}
+				readOnly={readonly}
+				className={cls.input}
+			/>
+		</VStack>
 	);
 };
 

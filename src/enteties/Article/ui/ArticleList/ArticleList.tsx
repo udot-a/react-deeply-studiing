@@ -95,11 +95,11 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 					className={classNames(cls.ArticleList, {}, [className, cls[view]])}
 				>
 					<List
-						height={height}
+						height={height || 0}
 						rowCount={rowCount}
 						rowHeight={isBig ? 700 : 330}
 						rowRenderer={rowRenderer}
-						width={width}
+						width={width || 0}
 						autoHeight
 						autoWidth={isBig}
 						onScroll={onChildScroll}

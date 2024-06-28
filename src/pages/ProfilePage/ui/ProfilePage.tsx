@@ -21,6 +21,7 @@ import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from 'shared/lib/hooks';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 
 interface ProfilePageProps {
   className?: string;
@@ -89,28 +90,30 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
 			<Page className={classNames('', {}, [className])}>
-				<ProfilePageHeader />
-				{validateErrors?.length && validateErrors.map(err => (
-					<Text
-						key={err}
-						theme={TextTheme.ERROR}
-						text={validateErrorTranslates[err]}
+				<VStack max gap="16">
+					<ProfilePageHeader />
+					{validateErrors?.length && validateErrors.map(err => (
+						<Text
+							key={err}
+							theme={TextTheme.ERROR}
+							text={validateErrorTranslates[err]}
+						/>
+					))}
+					<ProfileCard
+						data={form}
+						isLoading={isLoading}
+						error={error}
+						readonly={readonly}
+						onFirstNameChange={handleProfileFirstName}
+						onLastNameChange={handleProfileLastName}
+						onAgeChange={handleProfileAge}
+						onCityChange={handleProfileCity}
+						onAvatarChange={handleProfileAvatar}
+						onUsernameNameChange={handleProfileUsername}
+						onCurrencyChange={handleProfileCurrency}
+						onCountryChange={handleProfileCountry}
 					/>
-				))}
-				<ProfileCard
-					data={form}
-					isLoading={isLoading}
-					error={error}
-					readonly={readonly}
-					onFirstNameChange={handleProfileFirstName}
-					onLastNameChange={handleProfileLastName}
-					onAgeChange={handleProfileAge}
-					onCityChange={handleProfileCity}
-					onAvatarChange={handleProfileAvatar}
-					onUsernameNameChange={handleProfileUsername}
-					onCurrencyChange={handleProfileCurrency}
-					onCountryChange={handleProfileCountry}
-				/>
+				</VStack>
 			</Page>
 		</DynamicModuleLoader>
 	);

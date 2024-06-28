@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux';
 import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'enteties/Profile';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'enteties/User';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string;
@@ -35,10 +36,10 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 	}, [dispatch]);
 
 	return (
-		<div className={classNames(cls.profilePageHeader, {}, [className])}>
+		<HStack justify="between" max className={classNames('', {}, [className])}>
 			<Text title={t('Profile')}/>
 			{canEdit && (
-				<div className={cls.btnsWrapper}>
+				<HStack gap="16" >
 					{readonly
 						? (
 							<Button
@@ -67,9 +68,9 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 								</Button>
 							</>
 						)}
-				</div>
+				</HStack>
 			)}
-		</div>
+		</HStack>
 	);
 };
 
