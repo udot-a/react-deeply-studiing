@@ -35,7 +35,7 @@ export const CountrySelect: FC<CountrySelectProps> = memo(({ className, value, o
 			items={options}
 			onChange={handleSelectChange}
 			readonly={readOnly}
-			direction="top"
+			direction="bottom right"
 			label={t('Choose country')}
 		/>
 	);

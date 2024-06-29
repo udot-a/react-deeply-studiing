@@ -10,6 +10,8 @@ import { getUserAuthData, userActions } from 'enteties/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
+import { Avatar } from 'shared/ui/Avatar';
 
 interface NavbarProps {
   className?: string;
@@ -40,13 +42,21 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 				<AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} >
 					{t('Create article')}
 				</AppLink>
-				<Button
-					data-testid="login-button-test"
-					theme={ButtonTheme.CLEAR_INVERTED} className={cls.links}
-					onClick={handleLogout}>
-					{t('Logout')}
-				</Button>
-				{/* eslint-disable-next-line i18next/no-literal-string */}
+				<Dropdown
+					className={cls.dropdown}
+					items={[
+						{
+							content: t('Profile'),
+							href: RoutePath.profile + authData.id,
+						},
+						{
+							content: t('Logout'),
+							onClick: handleLogout,
+						},
+					]}
+					trigger={<Avatar size={30} src={authData.avatar}/>}
+					direction="bottom left"
+				/>
 			</div>
 		);
 	}

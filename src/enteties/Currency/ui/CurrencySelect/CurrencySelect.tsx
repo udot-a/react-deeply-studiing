@@ -31,7 +31,7 @@ export const CurrencySelect: FC<CurrencySelectProps> = memo(({ className, value,
 			items={options}
 			onChange={handleSelectChange}
 			readonly={readOnly}
-			direction="top"
+			direction="top right"
 			label={t('Pick currency')}
 		/>
 	);

@@ -2,7 +2,7 @@
   "testedExample": "Тестовый пример",
   "translate": "Перевод",
   "mainPage": "Главная страница",
-  "lang": "Russian",
+  "lang": "Русский",
   "shortLang": "RU",
   "goToMain": "На главную",
   "goToAbout": "О нас",
@@ -21,7 +21,7 @@
   "You have typed incorrect login or password": "Вы ввели некоректный логин или пароль",
   "Logout": "Выйти",
   "Avatar image": "Avatar image",
-  "Choose country": "Choose country",
+  "Choose country": "Выбери страну",
   "There are no comments": "Нет ни одного комментария",
   "Type comment here": "Введите текст комментария",
   "Send": "Отправить",
@@ -41,5 +41,6 @@
   "No articles were found": "Статьи не найдены",
   "Andrii Udot Pet Project": "Andrii Udot Pet Project",
   "Create article": "Создать статью",
-  "Pick currency": "Укажите валюту"
+  "Pick currency": "Укажите валюту",
+  "Profile": "Профиль"
 }
