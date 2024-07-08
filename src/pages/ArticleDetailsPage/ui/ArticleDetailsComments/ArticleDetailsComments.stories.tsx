@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -17,7 +17,11 @@ export default {
 	},
 } as ComponentMeta<typeof ArticleDetailsComments>;
 
-const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => <ArticleDetailsComments {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
+	<Suspense fallback={<div>{'Loading...'}</div>}>
+		<ArticleDetailsComments {...args} />
+	</Suspense>
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};
