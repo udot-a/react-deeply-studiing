@@ -28,6 +28,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 		view = ArticleView.SMALL,
 	} = props;
 	const { t } = useTranslation();
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [isHover, bindHover] = useHover();
 
 	const types = (<Text text={article.type.join(', ')} className={cls.types} />);

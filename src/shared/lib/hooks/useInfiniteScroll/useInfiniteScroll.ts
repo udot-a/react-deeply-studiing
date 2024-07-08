@@ -37,7 +37,7 @@ export const useInfiniteScroll = ({ callback, wrapperRef, triggerRef }: UseInfin
 		return () => {
 			if (observer) {
 				// eslint-disable-next-line react-hooks/exhaustive-deps
-				observer.unobserve(triggerRef.current);
+				observer.unobserve(triggerElement);
 			}
 
 			if (currentObserveNumber.current) {

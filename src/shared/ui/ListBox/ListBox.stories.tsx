@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />
 export const Dark = Template.bind({});
 Dark.args = {
 	defaultValue: 'Choose value',
-	onChange: (value) => {},
+	onChange: () => {},
 	value:undefined,
 	items: [
 		{ value: '1', content: '1 item sfdsfsdfsdfdsf' },
@@ -32,7 +32,7 @@ Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 export const Light = Template.bind({});
 Light.args = {
 	defaultValue: 'Choose value',
-	onChange: (value) => {},
+	onChange: () => {},
 	value:undefined,
 	items: [
 		{ value: '1', content: '1 item sfdsfsdfsdfdsf' },

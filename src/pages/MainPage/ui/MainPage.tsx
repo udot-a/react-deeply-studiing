@@ -17,7 +17,7 @@ const MainPage = () => {
 
 				<ListBox
 					defaultValue="Choose value"
-					onChange={(value) => {}}
+					onChange={() => {}}
 					value={undefined}
 					items={[
 						{ value: '1', content: '1 item sfdsfsdfsdfdsf' },

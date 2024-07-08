@@ -58,6 +58,18 @@
       "userId": "1",
       "text": "Comment test 1",
       "id": "fbmRqUq"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "comment test 2",
+      "id": "rMwC7NV"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "Third comment",
+      "id": "zoVVm38"
     }
   ],
   "users": [

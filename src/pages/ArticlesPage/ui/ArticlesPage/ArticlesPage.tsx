@@ -40,9 +40,8 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 		dispatch(initArticlesPage(search));
 	});
 
-
 	return (
-		<DynamicModuleLoader reducers={reducers} removeAfterRemount={false}>
+		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
 			<Page
 				className={classNames('', {}, [className])}
 				onScrollEnd={onLoadNextPart}

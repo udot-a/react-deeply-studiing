@@ -52,11 +52,11 @@ export const ListBox = memo((props: ListBoxProps) => {
 				onChange={onChange}
 				className={classNames(cls.ListBox, {}, [className])}
 			>
-				<HListbox.Button className={cls.trigger} disabled={readonly}>
-					<Button theme={ButtonTheme.BORDERED} disabled={readonly}>
-						{value ?? defaultValue}
-					</Button>
-				</HListbox.Button>
+				{/*<HListbox.Button className={cls.trigger} disabled={readonly}>*/}
+				<Button theme={ButtonTheme.BORDERED} disabled={readonly}>
+					{value ?? defaultValue}
+				</Button>
+				{/*</HListbox.Button>*/}
 				<HListbox.Options className={classNames(cls.options, {}, [mapDirectionClass[direction]])}>
 					{items?.map((item) => (
 						<HListbox.Option

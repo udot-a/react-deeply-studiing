@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { forwardRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 import { Link, LinkProps } from 'react-router-dom';
@@ -13,7 +13,8 @@ interface AppLinkProps extends LinkProps {
   theme?: AppLinkTheme;
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const AppLink = forwardRef((props: AppLinkProps, ref) => {
 	const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props;
 
 	return (
@@ -22,8 +23,10 @@ export const AppLink: FC<AppLinkProps> = (props) => {
 			className={classNames(cls.appLink, {  }, [className, cls[theme]])}
 			{...otherProps}
 		>
-			{children}
+			<div>
+				{children}
+			</div>
 		</Link>
 	);
-};
+});
 
