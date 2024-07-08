@@ -20,6 +20,7 @@ import { ButtonSize, ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
+import { VStack } from 'shared/ui/Stack';
 export var Sidebar = memo(function (_a) {
     var _b;
     var className = _a.className;
@@ -31,5 +32,5 @@ export var Sidebar = memo(function (_a) {
     var renderAppLinks = useMemo(function () {
         return sidebarItemsList.map(function (item) { return (_jsx(SidebarItem, { item: item, collapsed: collapsed }, item.text)); });
     }, [collapsed, sidebarItemsList]);
-    return (_jsxs("div", __assign({ "data-testid": "sidebar", className: classNames(cls.sidebar, (_b = {}, _b[cls.collapsed] = collapsed, _b), [className]) }, { children: [_jsx(Button, __assign({ "data-testid": "sidebar-toggle", onClick: onToggle, className: cls.collapseBtn, theme: ButtonTheme.BACKGROUND_INVERTED, size: ButtonSize.L, square: true }, { children: collapsed ? '>' : '<' })), _jsx("div", __assign({ className: cls.links }, { children: renderAppLinks })), _jsxs("div", __assign({ className: cls.switchers }, { children: [_jsx(ThemeSwitcher, {}), _jsx(LangSwitcher, { className: cls.lang, short: collapsed })] }))] })));
+    return (_jsxs("aside", __assign({ "data-testid": "sidebar", className: classNames(cls.sidebar, (_b = {}, _b[cls.collapsed] = collapsed, _b), [className]) }, { children: [_jsx(Button, __assign({ "data-testid": "sidebar-toggle", onClick: onToggle, className: cls.collapseBtn, theme: ButtonTheme.BACKGROUND_INVERTED, size: ButtonSize.L, square: true }, { children: collapsed ? '>' : '<' })), _jsx(VStack, __assign({ role: "navigation", gap: "8", className: cls.links }, { children: renderAppLinks })), _jsxs("div", __assign({ className: cls.switchers }, { children: [_jsx(ThemeSwitcher, {}), _jsx(LangSwitcher, { className: cls.lang, short: collapsed })] }))] })));
 });

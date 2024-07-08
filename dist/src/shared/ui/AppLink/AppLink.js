@@ -21,6 +21,7 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import { jsx as _jsx } from "react/jsx-runtime";
+import { forwardRef } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './AppLink.module.scss';
 import { Link } from 'react-router-dom';
@@ -29,7 +30,7 @@ export var AppLinkTheme;
     AppLinkTheme["PRIMARY"] = "primary";
     AppLinkTheme["SECONDARY"] = "secondary";
 })(AppLinkTheme || (AppLinkTheme = {}));
-export var AppLink = function (props) {
+export var AppLink = forwardRef(function (props, ref) {
     var to = props.to, className = props.className, _a = props.theme, theme = _a === void 0 ? AppLinkTheme.PRIMARY : _a, children = props.children, otherProps = __rest(props, ["to", "className", "theme", "children"]);
-    return (_jsx(Link, __assign({ to: to, className: classNames(cls.appLink, {}, [className, cls[theme]]) }, otherProps, { children: children })));
-};
+    return (_jsx(Link, __assign({ to: to, className: classNames(cls.appLink, {}, [className, cls[theme]]) }, otherProps, { children: _jsx("div", { children: children }) })));
+});

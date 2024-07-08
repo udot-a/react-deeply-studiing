@@ -6,6 +6,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 import { ProfilePage } from 'pages/ProfilePage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticleEditPage } from 'pages/ArticleEditPage';
 export var AppRoutes;
 (function (AppRoutes) {
     AppRoutes["MAIN"] = "main";
@@ -13,6 +14,8 @@ export var AppRoutes;
     AppRoutes["PROFILE"] = "profile";
     AppRoutes["ARTICLES"] = "articles";
     AppRoutes["ARTICLE_DETAILS"] = "article_details";
+    AppRoutes["ARTICLE_CREATE"] = "article_create";
+    AppRoutes["ARTICLE_EDIT"] = "article_edit";
     // last
     AppRoutes["NOT_FOUND"] = "not_found";
 })(AppRoutes || (AppRoutes = {}));
@@ -22,6 +25,8 @@ export var RoutePath = (_a = {},
     _a[AppRoutes.PROFILE] = '/profile/',
     _a[AppRoutes.ARTICLES] = '/articles',
     _a[AppRoutes.ARTICLE_DETAILS] = '/articles/',
+    _a[AppRoutes.ARTICLE_CREATE] = '/articles/create',
+    _a[AppRoutes.ARTICLE_EDIT] = '/articles/:id/edit',
     // mandatory last
     _a[AppRoutes.NOT_FOUND] = '*',
     _a);
@@ -47,6 +52,16 @@ export var routeConfig = (_b = {},
     _b[AppRoutes.ARTICLE_DETAILS] = {
         path: "".concat(RoutePath.article_details, ":id"),
         element: _jsx(ArticleDetailsPage, {}),
+        authOnly: true,
+    },
+    _b[AppRoutes.ARTICLE_EDIT] = {
+        path: RoutePath.article_edit,
+        element: _jsx(ArticleEditPage, {}),
+        authOnly: true,
+    },
+    _b[AppRoutes.ARTICLE_CREATE] = {
+        path: RoutePath.article_create,
+        element: _jsx(ArticleEditPage, {}),
         authOnly: true,
     },
     _b[AppRoutes.NOT_FOUND] = {
