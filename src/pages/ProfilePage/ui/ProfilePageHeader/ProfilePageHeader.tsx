@@ -46,6 +46,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 								onClick={handleEdit}
 								theme={ButtonTheme.BORDERED}
 								className={cls.editButton}
+								data-testid="ProfilePageHeader.EditButton"
 							>
 								{t('Edit')}
 							</Button>
@@ -56,6 +57,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 									onClick={handleCancel}
 									theme={ButtonTheme.BORDERED_RED}
 									className={cls.editButton}
+									data-testid="ProfilePageHeader.CancelButton"
 								>
 									{t('Cancel')}
 								</Button>
@@ -63,6 +65,7 @@ export const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => 
 									onClick={handleSave}
 									theme={ButtonTheme.BORDERED}
 									className={cls.saveButton}
+									data-testid="ProfilePageHeader.SaveButton"
 								>
 									{t('Save')}
 								</Button>

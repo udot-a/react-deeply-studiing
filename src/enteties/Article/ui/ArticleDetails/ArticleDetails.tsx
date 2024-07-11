@@ -23,6 +23,7 @@ import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { VStack } from 'shared/ui/Stack';
 
 interface ArticleDetailsProps {
   className?: string;
@@ -98,11 +99,11 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(({ className, id }) 
 		);
 	}
 	return (
-		<div className={classNames('', {}, [className])}>
-			<DynamicModuleLoader reducers={reducers} removeAfterRemount>
+		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
+			<VStack gap="16" max className={classNames('', {}, [className])}>
 				{content}
-			</DynamicModuleLoader>
-		</div>
+			</VStack>
+		</DynamicModuleLoader>
 	);
 });
 

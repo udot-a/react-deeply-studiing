@@ -11,10 +11,10 @@
   "City": "Город",
   "Nickname": "Кличка",
   "Avatar": "Имага",
-  "Choose currency": "Choose currency",
-  "Server error": "Server error",
-  "Emty data": "Emty data",
-  "Incorrect age": "Incorrect age",
-  "Incorrect country": "Incorrect country",
-  "Incorrect user data": "Incorrect user data"
+  "Choose currency": "Виберите валюту",
+  "Server error": "Ошибка сервера",
+  "Emty data": "Отсутствуют данные",
+  "Incorrect age": "Неверно указан возраст",
+  "Incorrect country": "Неверно указана страна",
+  "Incorrect user data": "Неверные данные пользователя"
 }

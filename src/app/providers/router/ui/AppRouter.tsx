@@ -3,12 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 import { AppRouteProps, routeConfig } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader';
 import { RequireAuth } from 'app/providers/router/ui/RequireAuth';
+import { UserRole } from 'enteties/User';
 
 export const AppRouter = memo(() => {
 	const renderWithWrapper = useCallback((route: AppRouteProps) => {
 		const { path, authOnly, element } = route;
 
-		const routerElement = authOnly ? <RequireAuth>{element as JSX.Element}</RequireAuth> : element;
+		const routerElement = authOnly ? <RequireAuth roles={[UserRole.MANAGER, UserRole.ADMIN]}>{element as JSX.Element}</RequireAuth> : element;
 		return (
 
 			<Route

@@ -79,6 +79,16 @@ export default {
 
 	// An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
 	transformIgnorePatterns: ['node_modules/(?!axios)'],
+	'reporters': [
+		'default',
+		['jest-html-reporters', {
+			'publicPath': '<rootDir>/reports/unit',
+			'filename': 'report.html',
+			'openReport': false,
+			'inlineSource': true,
+		}]
+	],
+
 
 	// Indicates whether the coverage information should be collected while executing the test
 	// collectCoverage: false,

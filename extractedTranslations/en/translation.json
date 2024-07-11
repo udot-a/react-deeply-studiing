@@ -1,5 +1,7 @@
 {
   "": "",
+  "ADMIN PANEL PAGE": "",
+  "Admin panel": "Admin panel",
   "All": "All",
   "An Error happens when article has been loading": "An Error happens when article has been loading",
   "Andrii Udot Pet Project": "Andrii Udot Pet Project",
@@ -18,6 +20,7 @@
   "Edit": "",
   "Emty data": "",
   "Enter": "Enter",
+  "Forbidden page": "Forbidden page",
   "IT": "IT",
   "Incorrect age": "",
   "Incorrect country": "",
@@ -47,6 +50,7 @@
   "Update the page": "",
   "User Profile": "User Profile",
   "Username": "Username",
+  "You do not have access to this page": "You do not have access to this page",
   "You have typed incorrect login or password": "You have typed incorrect login or password",
   "Your age": "",
   "Your name": "",

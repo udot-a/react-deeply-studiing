@@ -42,5 +42,8 @@
   "Andrii Udot Pet Project": "Andrii Udot Pet Project",
   "Create article": "Создать статью",
   "Pick currency": "Укажите валюту",
-  "Profile": "Профиль"
+  "Profile": "Профиль",
+  "Admin panel": "Админка",
+  "Forbidden page": "Forbidden page",
+  "You do not have access to this page": "У вас недостаточно прав для доступа к этой странице"
 }

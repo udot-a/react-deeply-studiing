@@ -97,6 +97,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 							key={err}
 							theme={TextTheme.ERROR}
 							text={validateErrorTranslates[err]}
+							data-testid={'Profile.Error'}
 						/>
 					))}
 					<ProfileCard

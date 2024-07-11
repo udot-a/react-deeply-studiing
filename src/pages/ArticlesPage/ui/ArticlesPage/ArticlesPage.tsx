@@ -46,7 +46,7 @@ const ArticlesPage: FC<ArticlesPageProps> = ({ className }) => {
 				className={classNames('', {}, [className])}
 				onScrollEnd={onLoadNextPart}
 			>
-				<ArticlePageFilter />
+				<ArticlePageFilter/>
 				<ArticleList
 					isLoading={isLoading}
 					articles={articles}
