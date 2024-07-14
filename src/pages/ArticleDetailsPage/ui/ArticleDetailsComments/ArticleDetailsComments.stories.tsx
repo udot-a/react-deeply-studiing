@@ -5,9 +5,22 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
-import { ArticleType } from 'enteties/Article';
+import { Article, ArticleType } from 'enteties/Article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ArticleBlockType } from 'enteties/Article/model/consts/consts';
+import withMock from 'storybook-addon-mock';
+
+const article: Article = {
+	id: '1',
+	img: '',
+	createdAt: '',
+	views: 123,
+	user: { id: '1', username: '123' },
+	blocks: [],
+	type: [],
+	title: '123',
+	subtitle: 'asfsa',
+};
 
 export default {
 	title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
@@ -15,6 +28,7 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
+	decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsComments>;
 
 const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
@@ -25,6 +39,20 @@ const Template: ComponentStory<typeof ArticleDetailsComments> = (args) => (
 
 export const Dark = Template.bind({});
 Dark.args = {};
+Dark.parameters = {
+	mockData: [
+		{
+			url: `${__API__}/articles?_limit=3`,
+			method: 'GET',
+			status: 200,
+			response: [
+				{ ...article, id: '1' },
+				{ ...article, id: '2' },
+				{ ...article, id: '3' },
+			],
+		},
+	],
+};
 Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: {
 	'id': '1',
 	'title': 'Javascript news',
@@ -101,7 +129,20 @@ Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ 
 
 export const Light = Template.bind({});
 Light.args = {};
-
+Light.parameters = {
+	mockData: [
+		{
+			url: `${__API__}/articles?_limit=3`,
+			method: 'GET',
+			status: 200,
+			response: [
+				{ ...article, id: '1' },
+				{ ...article, id: '2' },
+				{ ...article, id: '3' },
+			],
+		},
+	],
+};
 Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: {
 	'id': '1',
 	'title': 'Javascript news',

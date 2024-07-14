@@ -8,6 +8,21 @@ import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDeco
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { ArticleBlockType, ArticleType } from 'enteties/Article/model/consts/consts';
+import withMock from 'storybook-addon-mock';
+
+import { Article } from 'enteties/Article';
+
+const article: Article = {
+	id: '1',
+	img: '',
+	createdAt: '',
+	views: 123,
+	user: { id: '1', username: '123' },
+	blocks: [],
+	type: [],
+	title: '123',
+	subtitle: 'asfsa',
+};
 
 export default {
 	title: 'pages/ArticleDetailsPage',
@@ -15,12 +30,27 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
+	decorators: [withMock],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const ArticleDetailsPageWithData = Template.bind({});
 ArticleDetailsPageWithData.args = {};
+ArticleDetailsPageWithData.parameters = {
+	mockData: [
+		{
+			url: `${__API__}/articles?_limit=3`,
+			method: 'GET',
+			status: 200,
+			response: [
+				{ ...article, id: '1' },
+				{ ...article, id: '2' },
+				{ ...article, id: '3' },
+			],
+		},
+	],
+};
 ArticleDetailsPageWithData.decorators = [SuspenseDecorator, StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: {
 	'id': '1',
 	'title': 'Javascript news',
