@@ -5,8 +5,9 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
-import { Article, ArticleType } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ArticleType } from '../../model/consts/consts';
 
 export default {
 	title: 'enteties/ArticleTypeTabs',

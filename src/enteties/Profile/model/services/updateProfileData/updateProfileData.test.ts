@@ -2,8 +2,8 @@ import { updateProfileData } from './updateProfileData';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'enteties/Country';
 import { Currency } from 'enteties/Currency';
-import { ValidateProfileError } from '../../types/profile';
 import { omit } from 'shared/lib/lodashHelpers';
+import { ValidateProfileError } from '../../consts/consts';
 
 const data = {
 	'first': 'Andrii',

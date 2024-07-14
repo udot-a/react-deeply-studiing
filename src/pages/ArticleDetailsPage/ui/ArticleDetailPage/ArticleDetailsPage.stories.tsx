@@ -5,9 +5,9 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
-import { ArticleBlockType, ArticleType } from 'enteties/Article/model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { SuspenseDecorator } from 'shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { ArticleBlockType, ArticleType } from 'enteties/Article/model/consts/consts';
 
 export default {
 	title: 'pages/ArticleDetailsPage',

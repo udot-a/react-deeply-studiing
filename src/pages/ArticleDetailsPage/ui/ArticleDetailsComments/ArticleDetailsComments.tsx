@@ -1,4 +1,4 @@
-import React, { FC, memo, useCallback } from 'react';
+import React, { FC, memo, Suspense, useCallback } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text';
@@ -41,7 +41,9 @@ export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((pro
 				size={TextSize.L}
 				title={t('Comments')}
 			/>
-			<AddCommentForm onSendComment={onSendComment}/>
+			<Suspense fallback={'Loading...'}>
+				<AddCommentForm onSendComment={onSendComment}/>
+			</Suspense>
 			<CommentList isLoading={commentsIsLoading} comments={comments}/>
 		</VStack>
 	);

@@ -4,6 +4,8 @@ import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): webpack.WebpackPluginInstance[] {
 	const plugins = [
@@ -24,6 +26,19 @@ export function buildPlugins({ paths, isDev, apiUrl, project }: BuildOptions): w
 			patterns: [
 				{ from: paths.locales, to: paths.buildLocales },
 			],
+		}),
+		new CircularDependencyPlugin({
+			exclude: /node_modules/,
+			failOnError: true,
+		}),
+		new ForkTsCheckerWebpackPlugin({
+			typescript: {
+				diagnosticOptions: {
+					semantic: true,
+					syntactic: true,
+				},
+				mode: 'write-references',
+			},
 		}),
 	];
 

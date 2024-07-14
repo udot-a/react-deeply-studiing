@@ -11,6 +11,7 @@ export type ReducerList = {
 interface DynamicModuleLoaderProps {
   reducers: ReducerList;
   removeAfterRemount: boolean;
+	children: React.ReactNode;
 }
 
 export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {

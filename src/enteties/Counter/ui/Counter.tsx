@@ -18,7 +18,7 @@ export const Counter: FC = () => {
 	};
 
 	return (
-		<div data-testdi="counter">
+		<div data-testid="counter">
 			<h1 data-testid="value-title">{counterValue}</h1>
 			<Button
 				data-testid="increment-button"

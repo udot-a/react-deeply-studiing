@@ -19,11 +19,12 @@ import {
 import { Skeleton } from 'shared/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar';
 import { TextSize } from 'shared/ui/Text/ui/Text';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { VStack } from 'shared/ui/Stack';
+import { ArticleBlockType } from '../../model/consts/consts';
 
 interface ArticleDetailsProps {
   className?: string;

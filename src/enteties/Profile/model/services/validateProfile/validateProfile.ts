@@ -1,4 +1,5 @@
-import { Profile, ValidateProfileError } from '../../types/profile';
+import { Profile } from '../../types/profile';
+import { ValidateProfileError } from '../../consts/consts';
 
 export const validateProfile = (profile?: Profile): ValidateProfileError[] => {
 	const errors: ValidateProfileError[] = [];
@@ -16,7 +17,7 @@ export const validateProfile = (profile?: Profile): ValidateProfileError[] => {
 	if (!age || !Number.isInteger(age)) {
 		errors.push(ValidateProfileError.INCORRECT_AGE);
 	}
-  
+
 	if (!country) {
 		errors.push(ValidateProfileError.INCORRECT_COUNTRY);
 	}

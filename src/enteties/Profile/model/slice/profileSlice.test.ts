@@ -1,8 +1,9 @@
-import { ProfileSchema, ValidateProfileError } from '../types/profile';
+import { ProfileSchema } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 import { Country } from 'enteties/Country';
 import { Currency } from 'enteties/Currency';
+import { ValidateProfileError } from '../consts/consts';
 
 const profileData = {
 	'first': 'Andrii',

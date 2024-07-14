@@ -1,22 +1,26 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { buildCssLoader } from './loaders/buildCssLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	const { isDev } = options;
 
 	const cssLoaders = buildCssLoader(isDev);
 
-	const babelLoader = {
-		test: /\.m?(js|ts|jsx|tsx)$/,
-		exclude: /node_modules/,
-		use: {
-			loader: 'babel-loader',
-			options: {
-				presets: ['@babel/preset-env']
-			}
-		}
-	};
+	const codeBabelLoader = buildBabelLoader(false);
+	const tsxBabelLoader = buildBabelLoader(true);
+
+	// const babelLoader = {
+	// 	test: /\.m?(js|ts|jsx|tsx)$/,
+	// 	exclude: /node_modules/,
+	// 	use: {
+	// 		loader: 'babel-loader',
+	// 		options: {
+	// 			presets: ['@babel/preset-env']
+	// 		}
+	// 	}
+	// };
 
 	const svgLoader = {
 		test: /\.svg$/,
@@ -65,8 +69,9 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 	return [
 		fileLoader,
 		svgLoader,
-		babelLoader,
-		typescriptLoader,
+		codeBabelLoader,
+		tsxBabelLoader,
+		// typescriptLoader,
 		cssLoaders,
 	];
 }

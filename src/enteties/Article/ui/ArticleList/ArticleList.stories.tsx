@@ -4,7 +4,8 @@ import { ArticleList } from './ArticleList';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { ArticleView } from '../../model/types/article';
+
+import { ArticleView } from '../../model/consts/consts';
 
 export default {
 	title: 'enteties/ArticleList',

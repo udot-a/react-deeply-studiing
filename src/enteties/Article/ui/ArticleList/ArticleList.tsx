@@ -1,7 +1,7 @@
 import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './ArticleList.module.scss';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { useTranslation } from 'react-i18next';
@@ -9,6 +9,7 @@ import { Text } from 'shared/ui/Text';
 import { TextSize } from 'shared/ui/Text/ui/Text';
 import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page/Page';
+import { ArticleView } from '../../model/consts/consts';
 
 const getSkeletons = (view: ArticleView) => {
 	return Array(view === ArticleView.SMALL ? 9 : 3)
@@ -81,6 +82,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 		);
 	}
 
+	// @ts-ignore
 	return (
 		<WindowScroller
 			scrollElement={document.getElementById(PAGE_ID) as Element}
@@ -94,6 +96,7 @@ export const ArticleList: FC<ArticleListProps> = memo((props) => {
 				onChildScroll,
 			}) => (
 				<div
+					// @ts-ignore
 					ref={registerChild}
 					className={classNames(cls.ArticleList, {}, [className, cls[view]])}
 				>

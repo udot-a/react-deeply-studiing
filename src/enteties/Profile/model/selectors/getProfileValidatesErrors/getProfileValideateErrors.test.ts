@@ -1,6 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { getProfileValidatesErrors } from './getProfileValidatesErrors';
-import { ValidateProfileError } from '../../types/profile';
+
+import { ValidateProfileError } from '../../consts/consts';
 
 describe('getProfileValidatesErrors.test', () => {
 	test('should be  [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.NO_DATA]', () => {

@@ -6,8 +6,8 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { ArticleType } from 'enteties/Article';
-import { ArticleBlockType } from 'enteties/Article/model/types/article';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ArticleBlockType } from 'enteties/Article/model/consts/consts';
 
 export default {
 	title: 'pages/ArticleDetailsPage/ArticleDetailsComments',

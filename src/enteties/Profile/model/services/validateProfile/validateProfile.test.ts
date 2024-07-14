@@ -2,7 +2,8 @@ import { Country } from 'enteties/Country';
 import { Currency } from 'enteties/Currency';
 import { validateProfile } from './validateProfile';
 import { omit } from 'shared/lib/lodashHelpers';
-import { ValidateProfileError } from '../../types/profile';
+
+import { ValidateProfileError } from '../../consts/consts';
 
 const data = {
 	'first': 'Andrii',
