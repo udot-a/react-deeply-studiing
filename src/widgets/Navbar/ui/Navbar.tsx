@@ -1,17 +1,17 @@
 import React, { FC, memo, useCallback, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import cls from './Navbar.module.scss';
-import { Button } from 'shared/ui/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button';
 import { useTranslation } from 'react-i18next';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from 'enteties/User';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'enteties/User';
 import { Text, TextTheme } from 'shared/ui/Text';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { NotificationButton } from 'features/notificationButton';
+import { AvatarDropDown } from 'features/avatarDropdown/ui/AvatarDopdown/AvatarDropDown';
 
 interface NavbarProps {
   className?: string;
@@ -21,11 +21,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 	const { t } = useTranslation();
 	const [isOpen, setIsOpen] = useState(false);
 	const authData = useSelector(getUserAuthData);
-	const isAdmin = useSelector(isUserAdmin);
-	const isManager = useSelector(isUserManager);
-	const dispatch = useDispatch();
-
-	const isAdminPanelAvalable = isAdmin || isManager;
 
 	const onCloseModal = useCallback(() => {
 		setIsOpen(false);
@@ -35,10 +30,6 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 		setIsOpen(true);
 	}, []);
 
-	const handleLogout = useCallback(() => {
-		dispatch(userActions.logout());
-	}, [dispatch]);
-
 	if (authData) {
 		return (
 			<div className={classNames(cls.navbar, {}, [className])}>
@@ -46,25 +37,10 @@ export const Navbar: FC<NavbarProps> = memo(({ className }) => {
 				<AppLink to={RoutePath.article_create} theme={AppLinkTheme.SECONDARY} >
 					{t('Create article')}
 				</AppLink>
-				<Dropdown
-					className={cls.dropdown}
-					items={[
-						...(isAdminPanelAvalable ? [{
-							content: t('Admin panel'),
-							href: RoutePath.admin_panel,
-						}] : []),
-						{
-							content: t('Profile'),
-							href: RoutePath.profile + authData.id,
-						},
-						{
-							content: t('Logout'),
-							onClick: handleLogout,
-						},
-					]}
-					trigger={<Avatar size={30} src={authData.avatar}/>}
-					direction="bottom left"
-				/>
+				<HStack gap={'16'} className={cls.actions}>
+					<NotificationButton />
+					<AvatarDropDown />
+				</HStack>
 			</div>
 		);
 	}
