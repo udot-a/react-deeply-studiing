@@ -1,10 +1,10 @@
 import React, { FC, memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticlePageFilter.module.scss';
 import { useTranslation } from 'react-i18next';
-import { ArticleSortField, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector } from 'enteties/Article';
+import { ArticleSortField, ArticleType, ArticleTypeTabs, ArticleView, ArticleViewSelector } from '@/enteties/Article';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
-import { useAppDispatch, useDebounce } from 'shared/lib/hooks';
+import { useAppDispatch, useDebounce } from '@/shared/lib/hooks';
 import { useSelector } from 'react-redux';
 import {
 	getArticlesPageOrder,
@@ -12,10 +12,10 @@ import {
 	getArticlesPageSort, getArticlesPageType,
 	getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input';
-import { ArticleSortSelector } from 'enteties/Article';
-import { SortOrder } from 'shared/types';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input';
+import { ArticleSortSelector } from '@/enteties/Article';
+import { SortOrder } from '@/shared/types';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlePageFilterProps {

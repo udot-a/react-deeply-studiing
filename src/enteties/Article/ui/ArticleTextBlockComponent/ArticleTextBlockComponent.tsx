@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleTextBlock } from '../../model/types/article';
 import cls from './ArticleTextBlockComponent.module.scss';
-import { Text } from 'shared/ui/Text';
+import { Text } from '@/shared/ui/Text';
 
 interface ArticleTextBlockComponentProps {
   className?: string;

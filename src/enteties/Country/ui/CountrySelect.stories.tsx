@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { CountrySelect } from './CountrySelect';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { Country } from '../model/types/country';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export

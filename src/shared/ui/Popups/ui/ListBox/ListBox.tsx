@@ -2,7 +2,6 @@ import { Fragment, memo, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import { classNames } from '../../../../lib/classNames/classNames';
-import { Button, ButtonTheme } from '../../../Button';
 import { HStack } from '../../../Stack';
 import { DropdownDirection } from '../../../../types/ui';
 import { mapDirectionClass } from '../../styles/consts';

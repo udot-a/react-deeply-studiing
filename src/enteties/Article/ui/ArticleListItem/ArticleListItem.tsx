@@ -1,18 +1,18 @@
 import React, { FC, HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ArticleListItem.module.scss';
 import { useTranslation } from 'react-i18next';
 import { Article, ArticleTextBlock } from '../../model/types/article';
-import { Text } from 'shared/ui/Text';
-import { Icon } from 'shared/ui/Icon';
-import EyeIcon from 'shared/assets/icons/open_eye.svg';
-import { Card } from 'shared/ui/Card/Card';
-import { useHover } from 'shared/lib/hooks/useHover';
-import { Avatar } from 'shared/ui/Avatar';
-import { Button, ButtonTheme } from 'shared/ui/Button';
+import { Text } from '@/shared/ui/Text';
+import { Icon } from '@/shared/ui/Icon';
+import EyeIcon from '@/shared/assets/icons/open_eye.svg';
+import { Card } from '@/shared/ui/Card/Card';
+import { useHover } from '@/shared/lib/hooks/useHover';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
 
 interface ArticleListItemProps {

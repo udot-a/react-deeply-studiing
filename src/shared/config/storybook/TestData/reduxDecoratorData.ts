@@ -1,6 +1,6 @@
-import { ArticleType } from 'enteties/Article';
+import { ArticleType } from '@/enteties/Article';
 
-import { ArticleBlockType } from 'enteties/Article/model/consts/consts';
+import { ArticleBlockType } from '@/enteties/Article/model/consts/consts';
 
 export const reduxDecoratorData = {
 	'id': '1',

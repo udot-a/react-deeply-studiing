@@ -75,6 +75,7 @@ export default {
 		'@pages/(.*)': '<rootDir>/src/pages/$1',
 		'@widgets/(.*)': '<rootDir>/src/widgets/$1',
 		'^axios$': require.resolve('axios'),
+		'^@/(.*)$': '<rootDir>src/$1',
 	},
 
 	// An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation

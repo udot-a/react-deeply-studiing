@@ -1,7 +1,7 @@
-import { Country } from 'enteties/Country';
-import { Currency } from 'enteties/Currency';
+import { Country } from '@/enteties/Country';
+import { Currency } from '@/enteties/Currency';
 import { validateProfile } from './validateProfile';
-import { omit } from 'shared/lib/lodashHelpers';
+import { omit } from '@/shared/lib/lodashHelpers';
 
 import { ValidateProfileError } from '../../consts/consts';
 

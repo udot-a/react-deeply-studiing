@@ -1,15 +1,15 @@
 import React, { FC, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './ProfilePageHeader.module.scss';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/Text';
-import { Button } from 'shared/ui/Button';
-import { ButtonTheme } from 'shared/ui/Button/ui/Button';
+import { Text } from '@/shared/ui/Text';
+import { Button } from '@/shared/ui/Button';
+import { ButtonTheme } from '@/shared/ui/Button/ui/Button';
 import { useSelector } from 'react-redux';
-import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from 'enteties/Profile';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getUserAuthData } from 'enteties/User';
-import { HStack } from 'shared/ui/Stack';
+import { getProfileData, getProfileReadonly, profileActions, updateProfileData } from '@/enteties/Profile';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getUserAuthData } from '@/enteties/User';
+import { HStack } from '@/shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
   className?: string;

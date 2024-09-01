@@ -1,8 +1,8 @@
 import React, { FC, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
-import { DynamicModuleLoader, ReducerList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileActions, profileReducer } from 'enteties/Profile/model/slice/profileSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { profileActions, profileReducer } from '@/enteties/Profile/model/slice/profileSlice';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
 	fetchProfileData,
 	getProfileError,
@@ -11,17 +11,17 @@ import {
 	getProfileReadonly,
 	getProfileValidatesErrors,
 	ProfileCard, ValidateProfileError,
-} from 'enteties/Profile';
+} from '@/enteties/Profile';
 import { useSelector } from 'react-redux';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { Currency } from 'enteties/Currency';
-import { Country } from 'enteties/Country';
-import { Text, TextTheme } from 'shared/ui/Text';
+import { Currency } from '@/enteties/Currency';
+import { Country } from '@/enteties/Country';
+import { Text, TextTheme } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
-import { useInitialEffect } from 'shared/lib/hooks';
+import { useInitialEffect } from '@/shared/lib/hooks';
 import { useParams } from 'react-router-dom';
-import { Page } from 'widgets/Page/Page';
-import { VStack } from 'shared/ui/Stack';
+import { Page } from '@/widgets/Page/Page';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ProfilePageProps {
   className?: string;

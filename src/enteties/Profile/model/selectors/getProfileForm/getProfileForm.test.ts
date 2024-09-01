@@ -1,7 +1,7 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getProfileForm } from './getProfileForm';
-import { Country } from 'enteties/Country';
-import { Currency } from 'enteties/Currency';
+import { Country } from '@/enteties/Country';
+import { Currency } from '@/enteties/Currency';
 
 describe('getProfileForm.test', () => {
 	test('should be equal to {\n' +

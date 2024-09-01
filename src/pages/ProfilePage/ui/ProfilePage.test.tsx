@@ -1,11 +1,11 @@
 import ProfilePage from './ProfilePage';
-import { renderComponent, RenderComponentOptions } from 'shared/lib/tests/componentRender/componentRender';
-import { Profile, profileReducer } from 'enteties/Profile';
-import { Country } from 'enteties/Country';
-import { Currency } from 'enteties/Currency';
+import { renderComponent, RenderComponentOptions } from '@/shared/lib/tests/componentRender/componentRender';
+import { Profile, profileReducer } from '@/enteties/Profile';
+import { Country } from '@/enteties/Country';
+import { Currency } from '@/enteties/Currency';
 import { userEvent } from '@testing-library/user-event';
 import { screen } from '@testing-library/react';
-import { $api } from 'shared/api/api';
+import { $api } from '@/shared/api/api';
 
 
 const profile: Profile = {

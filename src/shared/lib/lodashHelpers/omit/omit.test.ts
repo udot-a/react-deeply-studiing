@@ -1,5 +1,5 @@
 // eslint-disable-next-line udot-project-plugin/path-checker
-import { omit } from 'shared/lib/lodashHelpers';
+import { omit } from '@/shared/lib/lodashHelpers';
 
 const testObj = {
 	name: 'Andrii',

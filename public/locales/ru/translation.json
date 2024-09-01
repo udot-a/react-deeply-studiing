@@ -44,6 +44,10 @@
   "Pick currency": "Укажите валюту",
   "Profile": "Профиль",
   "Admin panel": "Админка",
-  "Forbidden page": "Forbidden page",
-  "You do not have access to this page": "У вас недостаточно прав для доступа к этой странице"
+  "Forbidden page": "Запрещенная страница",
+  "You do not have access to this page": "У вас недостаточно прав для доступа к этой странице",
+  "Your feedback": "Ваш отзыв",
+  "Rate article": "Оцените статью",
+  "Left your feedback about article": "Оставьте Ваш отзыв о статье",
+  "Thanks for the rate!!!": "Спасибо за оценку!!!"
 }

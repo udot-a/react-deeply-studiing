@@ -5,7 +5,9 @@
 @import "themes/orange";
 
 :root,
-.app {
+.app,
+.modal,
+.app_drawer {
   font: var(--font-m);
   background: var(--bg-color);
   color: var(--primary-color);

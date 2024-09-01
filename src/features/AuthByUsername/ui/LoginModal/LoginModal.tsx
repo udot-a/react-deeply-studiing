@@ -1,7 +1,7 @@
 import React, { FC, Suspense } from 'react';
-import { Modal } from 'shared/ui/Modal';
+import { Modal } from '@/shared/ui/Modal';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
-import { Loader } from 'shared/ui/Loader';
+import { Loader } from '@/shared/ui/Loader';
 interface LoginModalProps {
 	isOpen: boolean;
 	onClose: () => void;

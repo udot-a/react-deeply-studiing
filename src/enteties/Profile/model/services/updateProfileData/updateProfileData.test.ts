@@ -1,8 +1,8 @@
 import { updateProfileData } from './updateProfileData';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { Country } from 'enteties/Country';
-import { Currency } from 'enteties/Currency';
-import { omit } from 'shared/lib/lodashHelpers';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { Country } from '@/enteties/Country';
+import { Currency } from '@/enteties/Currency';
+import { omit } from '@/shared/lib/lodashHelpers';
 import { ValidateProfileError } from '../../consts/consts';
 
 const data = {

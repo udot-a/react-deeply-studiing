@@ -1,13 +1,13 @@
 import React, { Suspense } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StyleDecorator } from 'shared/config/storybook/StyleDecorator/StyleDecorator';
-import { ReduxDecorator } from 'shared/config/storybook/ReduxDecorator/ReduxDecorator';
-import { Article, ArticleType } from 'enteties/Article';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { ArticleBlockType } from 'enteties/Article/model/consts/consts';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { Article, ArticleType } from '@/enteties/Article';
+import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { ArticleBlockType } from '@/enteties/Article/model/consts/consts';
 import withMock from 'storybook-addon-mock';
 
 const article: Article = {
