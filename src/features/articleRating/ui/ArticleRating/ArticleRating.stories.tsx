@@ -5,6 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { Theme } from '@/app/providers/ThemeProvider';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import withMock from 'storybook-addon-mock';
 
 export default {
 	title: 'features/ArticleRating',
@@ -12,12 +13,15 @@ export default {
 	argTypes: {
 		backgroundColor: { control: 'color' },
 	},
+	decorators: [withMock],
 } as ComponentMeta<typeof ArticleRating>;
 
 const Template: ComponentStory<typeof ArticleRating> = (args) => <ArticleRating {...args} />;
 
 export const Dark = Template.bind({});
-Dark.args = {};
+Dark.args = {
+	articleId: '10',
+};
 Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({
 	user: {
 		authData: {
@@ -25,9 +29,29 @@ Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({
 		}
 	}
 })];
+Dark.parameters = {
+	mockData: [
+		{
+			url: `${__API__}/article-ratings?userId=1&articleId=10`,
+			method: 'GET',
+			status: 200,
+			response: [
+				{
+					userId: '1',
+					articleId: '10',
+					rate: 1,
+					feedback: 'отстой',
+					id: 'II0a75O'
+				},
+			],
+		},
+	],
+};
 
 export const Light = Template.bind({});
-Light.args = {};
+Light.args = {
+	articleId: '10',
+};
 
 Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({
 	user: {
@@ -36,3 +60,21 @@ Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator(
 		}
 	}
 })];
+Light.parameters = {
+	mockData: [
+		{
+			url: `${__API__}/article-ratings?userId=1&articleId=10`,
+			method: 'GET',
+			status: 200,
+			response: [
+				{
+					userId: '1',
+					articleId: '10',
+					rate: 4,
+					feedback: 'отстой',
+					id: 'II0a75O'
+				},
+			],
+		},
+	],
+};
