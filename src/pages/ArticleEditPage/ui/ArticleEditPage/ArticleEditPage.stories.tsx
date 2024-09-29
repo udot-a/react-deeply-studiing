@@ -6,6 +6,7 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { reduxDecoratorData } from '@/shared/config/storybook/TestData/reduxDecoratorData';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'pages/ArticleEditPage',

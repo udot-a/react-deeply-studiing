@@ -5,6 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 
 import { ArticleView } from '../../model/consts/consts';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'enteties/ArticleList',

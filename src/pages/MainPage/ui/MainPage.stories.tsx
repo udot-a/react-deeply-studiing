@@ -6,6 +6,7 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
+import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

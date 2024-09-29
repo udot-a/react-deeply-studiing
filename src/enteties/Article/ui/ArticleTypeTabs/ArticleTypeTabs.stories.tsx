@@ -7,6 +7,7 @@ import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDe
 import { Article } from '../../model/types/article';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ArticleType } from '../../model/consts/consts';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'enteties/ArticleTypeTabs',

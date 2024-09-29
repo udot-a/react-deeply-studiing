@@ -5,6 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'enteties/CommentCard',

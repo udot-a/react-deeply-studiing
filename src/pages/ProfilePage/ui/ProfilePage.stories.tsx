@@ -9,6 +9,7 @@ import { Country } from '@/enteties/Country';
 import { Currency } from '@/enteties/Currency';
 import testAvatar from '@/shared/assets/tests/test_avatar_img.png';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
+import { Theme } from '@/shared/const/theme';
 
 
 export default {

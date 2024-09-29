@@ -7,6 +7,7 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'widgets/Navbar',

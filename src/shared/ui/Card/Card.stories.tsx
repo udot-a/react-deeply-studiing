@@ -5,6 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 // eslint-disable-next-line udot-project-plugin/path-checker
 import { Text } from '@/shared/ui/Text';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'shared/Card',

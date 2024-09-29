@@ -4,6 +4,7 @@ import { Dropdown } from './Dropdown';
 import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { StyleDecorator } from '../../../../config/storybook/StyleDecorator/StyleDecorator';
 import { Button, ButtonTheme } from '../../../Button';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'shared/Dropdown',

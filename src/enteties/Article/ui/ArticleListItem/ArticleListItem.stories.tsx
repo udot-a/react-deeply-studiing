@@ -6,6 +6,7 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { Article } from '../../model/types/article';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { ArticleView } from '../../model/consts/consts';
+import { Theme } from '@/shared/const/theme';
 
 const article = {
 	'id': '1',
