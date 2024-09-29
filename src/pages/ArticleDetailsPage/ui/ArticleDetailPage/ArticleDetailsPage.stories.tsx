@@ -2,15 +2,15 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ArticleDetailsPage from './ArticleDetailsPage';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
-import { ArticleBlockType, ArticleType } from '@/enteties/Article/model/consts/consts';
+import { ArticleBlockType, ArticleType } from '@/enteties/Article';
 import withMock from 'storybook-addon-mock';
 
 import { Article } from '@/enteties/Article';
+import { Theme } from '@/shared/const/theme';
 
 const article: Article = {
 	id: '1',

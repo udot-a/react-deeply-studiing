@@ -2,12 +2,12 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleRecommendationsList } from './ArticleRecommendationsList';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/RouterDecorator';
 import withMock from 'storybook-addon-mock';
 import { Article } from '@/enteties/Article';
+import { Theme } from '@/shared/const/theme';
 
 export default {
 	title: 'features/ArticleRecommendationsList',

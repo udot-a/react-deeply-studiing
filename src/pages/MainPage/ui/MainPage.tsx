@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+// eslint-disable-next-line udot-project-plugin/layer-imports
 import { BugButton } from '@/app/providers/ErrorBoundary';
 import { Counter } from '@/enteties/Counter';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 
 const MainPage = () => {

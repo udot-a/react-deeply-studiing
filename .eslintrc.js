@@ -68,7 +68,18 @@ module.exports = {
 		'react/display-name': 'off',
 		'react/prop-types': 'off',
 		'no-mixed-spaces-and-tabs': 'off',
-		'udot-project-plugin/path-checker': 'error',
+		'udot-project-plugin/layer-imports': [
+			'error',
+			{
+				alias: '@' ,
+				ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+			},
+		],
+		'udot-project-plugin/path-checker': ['error', { alias: '@' }],
+		'udot-project-plugin/public-api-imports': ['error', {
+			alias: '@',
+			testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+		}],
 	},
 	globals: {
 		__IS_DEV__: true,

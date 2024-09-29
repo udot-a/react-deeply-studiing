@@ -4,9 +4,9 @@ import cls from './CommentCard.module.scss';
 import { IComment } from '../../model/types/IComment';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Text } from '@/shared/ui/Text';
-import { Skeleton } from '@/shared/Skeleton/Skeleton';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/const/router';
 
 interface CommentCardProps {
   className?: string;

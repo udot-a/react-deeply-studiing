@@ -10,7 +10,7 @@ import { TextAlign } from '@/shared/ui/Text/ui/Text';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Currency, CurrencySelect } from '@/enteties/Currency';
 
-import { Country } from '@/enteties/Country/model/types/country';
+import { Country } from '@/enteties/Country';
 import { CountrySelect } from '@/enteties/Country';
 import { VStack } from '@/shared/ui/Stack';
 

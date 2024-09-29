@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Dropdown } from './Dropdown';
 import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StyleDecorator } from '../../../../config/storybook/StyleDecorator/StyleDecorator';
 import { Button, ButtonTheme } from '../../../Button';
 

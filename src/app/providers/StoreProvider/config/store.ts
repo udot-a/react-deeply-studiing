@@ -2,7 +2,7 @@ import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@redu
 import { StateSchema, ThunkExtraArgs } from './StateSchema';
 import { counterReducer } from '@/enteties/Counter';
 import { userReducer } from '@/enteties/User';
-import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { createReducerManager } from './reducerManager';
 import { $api } from '@/shared/api/api';
 import { uiReducer } from '@/features/UI';
 import { rtkApi } from '@/shared/api/rtkApi';

@@ -2,7 +2,6 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import ArticleEditPage from './ArticleEditPage';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { reduxDecoratorData } from '@/shared/config/storybook/TestData/reduxDecoratorData';
@@ -38,7 +37,7 @@ export const Light = Template.bind({});
 Light.args = {};
 
 Light.decorators = [
-	StyleDecorator, 
+	StyleDecorator,
 	ThemeDecorator(Theme.LIGHT),
 	ReduxDecorator({
 		user: {

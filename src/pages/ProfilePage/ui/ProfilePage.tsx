@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicModuleLoader, ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { profileActions, profileReducer } from '@/enteties/Profile/model/slice/profileSlice';
+import { profileActions, profileReducer } from '@/enteties/Profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
 	fetchProfileData,
@@ -20,7 +20,7 @@ import { Text, TextTheme } from '@/shared/ui/Text';
 import { useTranslation } from 'react-i18next';
 import { useInitialEffect } from '@/shared/lib/hooks';
 import { useParams } from 'react-router-dom';
-import { Page } from '@/widgets/Page/Page';
+import { Page } from '@/widgets/Page';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ProfilePageProps {

@@ -1,6 +1,8 @@
+// eslint-disable-next-line udot-project-plugin/layer-imports
 import { ArticleType } from '@/enteties/Article';
 
-import { ArticleBlockType } from '@/enteties/Article/model/consts/consts';
+// eslint-disable-next-line udot-project-plugin/layer-imports
+import { ArticleBlockType } from '@/enteties/Article';
 
 export const reduxDecoratorData = {
 	'id': '1',

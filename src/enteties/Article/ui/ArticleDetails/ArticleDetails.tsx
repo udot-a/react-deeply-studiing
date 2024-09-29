@@ -16,7 +16,7 @@ import {
 	getArticleDetailsError,
 	getArticleDetailsIsLoading
 } from '../../model/selectors/articleDetails';
-import { Skeleton } from '@/shared/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Avatar } from '@/shared/ui/Avatar';
 import { TextSize } from '@/shared/ui/Text/ui/Text';
 import { ArticleBlock } from '../../model/types/article';

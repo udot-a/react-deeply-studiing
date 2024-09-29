@@ -4,7 +4,6 @@ import { Card } from './Card';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 // eslint-disable-next-line udot-project-plugin/path-checker
 import { Text } from '@/shared/ui/Text';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDecorator';
 
 export default {

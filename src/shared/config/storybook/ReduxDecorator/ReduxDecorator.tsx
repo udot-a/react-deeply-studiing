@@ -1,12 +1,18 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-import { loginReducer } from '@/features/AuthByUsername/model/slice/loginSlice';
+// eslint-disable-next-line udot-project-plugin/layer-imports
+import { loginReducer } from '@/features/AuthByUsername';
+// eslint-disable-next-line udot-project-plugin/layer-imports
 import { profileReducer } from '@/enteties/Profile';
 import { ReducerList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { articleDetailsReducer } from '@/enteties/Article/model/slice/articleDetailsSlice';
-import { addCommentFormSReducer } from '@/features/AddCommentForm/model/slices/addCommentFormSlice';
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
-import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/model/slice';
+// eslint-disable-next-line udot-project-plugin/layer-imports
+import { articleDetailsReducer } from '@/enteties/Article';
+// eslint-disable-next-line udot-project-plugin/layer-imports
+import { addCommentFormSReducer } from '@/features/AddCommentForm';
+// eslint-disable-next-line udot-project-plugin/layer-imports
+import { articlesPageReducer } from '@/pages/ArticlesPage';
+// eslint-disable-next-line udot-project-plugin/layer-imports
+import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
 
 const defaultAsyncReducers: ReducerList = {
 	loginForm: loginReducer,
