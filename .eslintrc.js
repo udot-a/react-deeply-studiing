@@ -34,8 +34,10 @@ module.exports = {
 		'typescript-enum',
 		'react-hooks',
 		'udot-project-plugin',
+		'unused-imports',
 	],
 	'rules': {
+		'unused-imports/no-unused-imports': 'error',
 		'indent': [
 			'error',
 			'tab'

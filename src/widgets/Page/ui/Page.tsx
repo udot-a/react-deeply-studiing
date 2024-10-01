@@ -6,8 +6,9 @@ import { getUIScrollByPath, uiActions } from '@/features/UI';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children: ReactNode;
 	onScrollEnd?: () => void;
@@ -16,7 +17,11 @@ interface PageProps {
 export const PAGE_ID = 'PAGE_ID';
 
 export const Page: FC<PageProps> = memo((props) => {
-	const { className, children, onScrollEnd } = props;
+	const {
+		className,
+		children,
+		onScrollEnd,
+	} = props;
 	const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
 	const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
 	const dispatch = useAppDispatch();
@@ -46,6 +51,7 @@ export const Page: FC<PageProps> = memo((props) => {
 			className={classNames(cls.Page, {}, [className])}
 			onScroll={handleScroll}
 			id={PAGE_ID}
+			data-testid={props['data-testid'] ?? 'Page'}
 		>
 			{children}
 			{onScrollEnd ? <div className={cls.trigger} ref={triggerRef}/> : null}

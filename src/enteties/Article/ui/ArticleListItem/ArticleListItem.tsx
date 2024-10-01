@@ -13,7 +13,9 @@ import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { ArticleBlockType, ArticleView } from '../../model/consts/consts';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
   className?: string;
@@ -53,7 +55,8 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 					</div>
 					<Text title={article.title} className={cls.title}/>
 					{types}
-					<img
+					<AppImage
+						fallback={<Skeleton width="100%" height={250} />}
 						alt={article.title}
 						src={article.img}
 						className={cls.img}
@@ -64,7 +67,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 					<div className={cls.footer}>
 						<AppLink
 							target={target}
-							to={RoutePath.article_details + article.id}
+							to={getRouteArticleDetails(article.id)}
 						>
 							<Button
 								theme={ButtonTheme.BORDERED}
@@ -82,7 +85,7 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 	return (
 		<AppLink
 			target={target}
-			to={RoutePath.article_details + article.id}
+			to={getRouteArticleDetails(article.id)}
 		>
 			<div
 				{...bindHover}
@@ -90,7 +93,12 @@ export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
 			>
 				<Card>
 					<div className={cls.imageWrapper}>
-						<img src={article.img} className={cls.img} alt={article.title}/>
+						<AppImage
+							fallback={<Skeleton width={150} height={150} />}
+							src={article.img}
+							className={cls.img}
+							alt={article.title}
+						/>
 						<Text text={article.createdAt} className={cls.date}/>
 					</div>
 					<div className={cls.infoWrapper}>

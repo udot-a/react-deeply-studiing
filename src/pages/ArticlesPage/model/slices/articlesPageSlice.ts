@@ -4,7 +4,7 @@ import { Article, ArticleSortField, ArticleType, ArticleView } from '@/enteties/
 import { ArticlesPageSchema } from '../types/articlesPageSchema';
 import { ARTICLES_VIEW_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 const articlesAdapter = createEntityAdapter<Article>({
 	// Assume IDs are stored in a field other than `book.id`
@@ -83,7 +83,7 @@ const articlesPageSlice = createSlice({
 	},
 });
 
-export const { 
-	reducer: articlesPageReducer, 
-	actions: articlesPageActions, 
+export const {
+	reducer: articlesPageReducer,
+	actions: articlesPageActions,
 } = articlesPageSlice;

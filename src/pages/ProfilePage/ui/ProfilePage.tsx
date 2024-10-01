@@ -89,7 +89,10 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
 	return (
 		<DynamicModuleLoader reducers={reducers} removeAfterRemount>
-			<Page className={classNames('', {}, [className])}>
+			<Page
+				className={classNames('', {}, [className])}
+				data-testid="profile-page"
+			>
 				<VStack max gap="16">
 					<ProfilePageHeader />
 					{validateErrors?.length && validateErrors.map(err => (

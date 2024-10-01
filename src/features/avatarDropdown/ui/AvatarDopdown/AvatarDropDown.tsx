@@ -5,7 +5,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { Dropdown } from '@/shared/ui/Popups';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/enteties/User';
-import { RoutePath } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropDownProps {
   className?: string;
@@ -32,18 +32,18 @@ export const AvatarDropDown: FC<AvatarDropDownProps> = memo((props) => {
 			items={[
 				...(isAdminPanelAvalable ? [{
 					content: t('Admin panel'),
-					href: RoutePath.admin_panel,
+					href: getRouteAdmin(),
 				}] : []),
 				{
 					content: t('Profile'),
-					href: RoutePath.profile + authData?.id,
+					href: getRouteProfile(authData?.id as string),
 				},
 				{
 					content: t('Logout'),
 					onClick: handleLogout,
 				},
 			]}
-			trigger={<Avatar size={30} src={authData?.avatar}/>}
+			trigger={<Avatar fallbackInverted size={30} src={authData?.avatar}/>}
 			direction="bottom left"
 		/>
 	);
