@@ -15,7 +15,7 @@ import {
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input';
 import { ArticleSortSelector } from '@/enteties/Article';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 interface ArticlePageFilterProps {
