@@ -10,4 +10,4 @@
 .idea
 /storybook-static
 /dist/
-/reports
+/reports/unit
