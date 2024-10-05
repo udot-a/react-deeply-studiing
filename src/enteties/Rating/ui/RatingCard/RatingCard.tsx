@@ -62,19 +62,24 @@ export const RatingCard: FC<RatingCardProps> = memo((props) => {
 				placeholder={t('Your feedback')}
 				onChange={setFeedback}
 				value={feedback}
+				data-testid="feedback-input"
 			/>
 			<HStack max gap="16" justify="end" >
-				<Button theme={ButtonTheme.BORDERED_RED} onClick={handleCancel}>
+				<Button theme={ButtonTheme.BORDERED_RED} onClick={handleCancel} data-testid="rating-close-button">
 					{t('Close')}
 				</Button>
-				<Button theme={ButtonTheme.BORDERED} onClick={handleAccept}>
+				<Button theme={ButtonTheme.BORDERED} onClick={handleAccept} data-testid="rating-send-button">
 					{t('Send')}
 				</Button>
 			</HStack>
 		</VStack>
 	);
 	return (
-		<Card max className={className}>
+		<Card
+			max
+			className={className}
+			data-testid="rating-card"
+		>
 			<VStack align="center" gap="8" max>
 				<Text title={starsCount ? t('Thanks for the rate!!!') : title}/>
 				<StarRating onSelect={onSelectStars} selectedStars={starsCount}/>

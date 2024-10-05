@@ -8,8 +8,8 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
 	const cssLoaders = buildCssLoader(isDev);
 
-	const codeBabelLoader = buildBabelLoader(false);
-	const tsxBabelLoader = buildBabelLoader(true);
+	const codeBabelLoader = buildBabelLoader({ isTsx: false, isDev });
+	const tsxBabelLoader = buildBabelLoader({ isTsx: true, isDev });
 
 	// const babelLoader = {
 	// 	test: /\.m?(js|ts|jsx|tsx)$/,

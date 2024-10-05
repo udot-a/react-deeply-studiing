@@ -73,7 +73,12 @@ export const ProfileCard: FC<ProfileCardProps> = (props) => {
 		);
 	}
 	return (
-		<VStack max gap="16" className={classNames(cls.profileCard, mods, [className])}>
+		<VStack
+			max
+			gap="16"
+			className={classNames(cls.profileCard, mods, [className])}
+			data-testid="profile-card"
+		>
 			<div className={cls.avatarWrapper}>
 				{data?.avatar && <Avatar src={data?.avatar}/>}
 			</div>

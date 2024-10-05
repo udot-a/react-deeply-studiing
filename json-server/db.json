@@ -33,149 +33,6 @@
       "userId": "2"
     }
   ],
-  "posts": [
-    {
-      "id": "1",
-      "title": "json-server",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "title": "json-server",
-      "userId": "2"
-    }
-  ],
-  "comments": [
-    {
-      "id": "1",
-      "text": "some comment",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "2",
-      "text": "some comment 2",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "id": "3",
-      "text": "some comment 3",
-      "articleId": "1",
-      "userId": "1"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "test comment 333",
-      "id": "HKsPMyy"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "test 555",
-      "id": "oiP3kM9"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "id": "kKQ3wFE"
-    },
-    {
-      "articleId": "1",
-      "userId": "1",
-      "text": "Text 9999",
-      "id": "10pj7MB"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "Comment test 1",
-      "id": "fbmRqUq"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "comment test 2",
-      "id": "rMwC7NV"
-    },
-    {
-      "articleId": "7",
-      "userId": "1",
-      "text": "Third comment",
-      "id": "zoVVm38"
-    },
-    {
-      "articleId": "4",
-      "userId": "1",
-      "text": "Cool content.Thanks for your job.",
-      "id": "OzwMBPF"
-    }
-  ],
-  "users": [
-    {
-      "id": "1",
-      "username": "admin",
-      "password": "123",
-      "roles": [
-        "ADMIN"
-      ],
-      "avatar": "https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-512.png"
-    },
-    {
-      "id": "2",
-      "username": "user",
-      "password": "123",
-      "roles": [
-        "USER"
-      ],
-      "avatar": "https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png"
-    },
-    {
-      "id": "3",
-      "username": "manager",
-      "password": "123",
-      "roles": [
-        "MANAGER"
-      ],
-      "avatar": "https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png"
-    }
-  ],
-  "profile": [
-    {
-      "id": "1",
-      "first": "Ignat",
-      "last": "Udot",
-      "age": 23,
-      "currency": "EUR",
-      "city": "Kharkiv",
-      "username": "admin",
-      "avatar": "https://cdn0.iconfinder.com/data/icons/unigrid-flat-human-vol-2/90/011_101_anonymous_anonym_hacker_vendetta_user_human_avatar-512.png",
-      "country": "USA"
-    },
-    {
-      "id": "2",
-      "first": "ulbi tv",
-      "lastname": "asf",
-      "age": 465,
-      "currency": "RUB",
-      "country": "Russia",
-      "city": "Moscow",
-      "username": "ulbi tv",
-      "avatar": "https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png"
-    },
-    {
-      "id": "3",
-      "first": "Manager",
-      "lastname": "Bussiness",
-      "age": 25,
-      "currency": "USD",
-      "country": "USA",
-      "city": "Oklahoma",
-      "username": "John_Deer",
-      "avatar": "https://w7.pngwing.com/pngs/841/222/png-transparent-avatar-boy-max-avatar-vol-2-icon.png"
-    }
-  ],
   "articles": [
     {
       "id": "1",
@@ -253,7 +110,7 @@
       "id": "2",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://banner2.cleanpng.com/20180402/ioq/kisspng-python-logo-clojure-javascript-9-5ac25c2686ca38.9179638515226870145521.jpg",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
       "views": 5204,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -301,7 +158,7 @@
       "id": "4",
       "title": "Scala news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://www.liblogo.com/img-logo/sc123f534-scala-logo-file-scala-full-color-svg-wikimedia-commons.png",
+      "img": "https://coursefreedl.com/wp-content/uploads/2020/01/Scala-Zero-To-Hero-Complete-Guide.jpg",
       "views": 10222,
       "createdAt": "24.01.2022",
       "userId": "1",
@@ -325,7 +182,7 @@
       "id": "5",
       "title": "Golang news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://w7.pngwing.com/pngs/126/472/png-transparent-go-redis-computer-programming-programming-language-green-threads-%E9%87%91%E8%9E%8D-computer-programming-programming-language-c.png",
+      "img": "https://cdn-front.kwork.ru/pics/t3/88/16350941-1630390388.jpg",
       "views": 10222,
       "createdAt": "26.02.2020",
       "userId": "1",
@@ -349,7 +206,7 @@
       "id": "6",
       "title": "Java news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://w7.pngwing.com/pngs/578/816/png-transparent-java-class-file-java-platform-standard-edition-java-development-kit-java-runtime-environment-coffee-jar-text-class-orange-thumbnail.png",
+      "img": "https://andreyex.ru/wp-content/uploads/2018/05/Kak-ustanovit-Java-s-apt-na-Ubuntu-18.04.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -445,7 +302,7 @@
       "id": "10",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://banner2.cleanpng.com/20180402/ioq/kisspng-python-logo-clojure-javascript-9-5ac25c2686ca38.9179638515226870145521.jpg",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -493,7 +350,7 @@
       "id": "12",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://banner2.cleanpng.com/20180402/ioq/kisspng-python-logo-clojure-javascript-9-5ac25c2686ca38.9179638515226870145521.jpg",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -541,7 +398,7 @@
       "id": "14",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://banner2.cleanpng.com/20180402/ioq/kisspng-python-logo-clojure-javascript-9-5ac25c2686ca38.9179638515226870145521.jpg",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -589,7 +446,7 @@
       "id": "16",
       "title": "Python news",
       "subtitle": "Что нового в JS за 2022 год?",
-      "img": "https://banner2.cleanpng.com/20180402/ioq/kisspng-python-logo-clojure-javascript-9-5ac25c2686ca38.9179638515226870145521.jpg",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
@@ -680,6 +537,491 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Научная статья - Биология",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "guOLlgD"
+    },
+    {
+      "title": "Научная статья - Биология",
+      "subtitle": "БиологиЯ",
+      "img": "https://avatars.mds.yandex.net/get-zen_doc/2746556/pub_5f50dd7e1a1ddf4776aa5569_5f50decd2506f211d1de6284/scale_1200",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "type": [
+        "SCIENCE"
+      ],
+      "blocks": [],
+      "id": "6f91vPH"
+    },
+    {
+      "id": "44"
+    },
+    {
+      "title": "Python news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2024",
+      "userId": "4",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "Ga_aLIB"
+    },
+    {
+      "title": "Python news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2024",
+      "userId": "4",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "EUdL_GB"
+    },
+    {
+      "id": "x1EQm_2"
+    },
+    {
+      "id": "-lMLPTt"
+    },
+    {
+      "id": "e6sdSWO"
+    },
+    {
+      "id": "-ijHgT_"
+    },
+    {
+      "id": "ohNrG_b"
+    },
+    {
+      "id": "OSE16bO"
+    },
+    {
+      "id": "9j1MRm0"
+    },
+    {
+      "id": "vA6M82K"
+    },
+    {
+      "id": "LHnKEzB"
+    },
+    {
+      "id": "7YQQl0v"
+    },
+    {
+      "id": "uPMTZ4f"
+    },
+    {
+      "id": "dFygv81"
+    },
+    {
+      "id": "bL12HUt"
+    },
+    {
+      "id": "Stbsm8t"
+    },
+    {
+      "title": "Python news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://zsfond.ru/wp-content/uploads/2021/03/piton-1-1024x578.jpg",
+      "views": 1022,
+      "createdAt": "26.02.2024",
+      "userId": "4",
+      "type": [
+        "IT"
+      ],
+      "blocks": [],
+      "id": "wIICOMH"
+    },
+    {
+      "id": "RIgwugF"
+    },
+    {
+      "id": "3Z4IRsn"
+    },
+    {
+      "id": "bEecnyS"
+    },
+    {
+      "id": "pTHwpmX"
+    },
+    {
+      "id": "9tDsdQR"
+    },
+    {
+      "id": "8ict0j-"
+    },
+    {
+      "id": "RQGcutN"
+    },
+    {
+      "id": "Qn9huH-"
+    },
+    {
+      "id": "liUnRKP"
+    },
+    {
+      "id": "VC8kxoZ"
+    },
+    {
+      "id": "_vNNWgV"
+    },
+    {
+      "id": "xGcfSke"
+    },
+    {
+      "id": "H_r_nam"
+    },
+    {
+      "id": "lHwDHGl"
+    },
+    {
+      "id": "M86UPdm"
+    },
+    {
+      "id": "u_YBcQB"
+    },
+    {
+      "id": "RBhxXP_"
+    },
+    {
+      "id": "GRY7loA"
+    },
+    {
+      "id": "3HovUJJ"
+    },
+    {
+      "id": "VmocL0Q"
+    },
+    {
+      "id": "QXnwQGv"
+    },
+    {
+      "id": "pCjtiud"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "text": "some comment",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "2",
+      "text": "some comment 2",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "id": "3",
+      "text": "some comment 3",
+      "articleId": "1",
+      "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123",
+      "id": "4Cljjzl"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "123asfasf",
+      "id": "AEM4Dvc"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "123asfasf",
+      "id": "IFEOWl0"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "привет мир",
+      "id": "dBacYRZ"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "хехехехе",
+      "id": "rBX_C-e"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "фыафыа",
+      "id": "5k0ApX-"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "sdfsdfsd",
+      "id": "w-HDIRq"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "asdasdasd",
+      "id": "MVvGQoZ"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "comment 1",
+      "id": "bAs7YBE"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "python!!!",
+      "id": "p5rMadd"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "text": "123213",
+      "id": "Zu_RNuF"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "dfdsf",
+      "id": "4rFHQgJ"
+    },
+    {
+      "articleId": "8",
+      "userId": "1",
+      "text": "sdfsdf",
+      "id": "yYEdTI-"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "123213",
+      "id": "TR1yDY6"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "112",
+      "id": "wSAhqy5"
+    },
+    {
+      "articleId": "18",
+      "userId": "1",
+      "text": "12",
+      "id": "r6b1z-N"
+    },
+    {
+      "articleId": "18",
+      "userId": "2",
+      "text": "привет",
+      "id": "DENfTu6"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "33",
+      "id": "Ps59wrg"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "123",
+      "id": "zzYVth3"
+    },
+    {
+      "articleId": "7",
+      "userId": "2",
+      "text": "123",
+      "id": "WjF4c_d"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "privet",
+      "id": "fta748h"
+    },
+    {
+      "articleId": "2",
+      "userId": "2",
+      "text": "питон топ",
+      "id": "ZlmlUrg"
+    },
+    {
+      "articleId": "7",
+      "userId": "1",
+      "text": "123",
+      "id": "KmtWJR_"
+    },
+    {
+      "articleId": "w7EFKKy",
+      "userId": "4",
+      "text": "asasas",
+      "id": "ZWtU1lj"
+    },
+    {
+      "articleId": "vmTioJw",
+      "userId": "4",
+      "text": "text",
+      "id": "jbvk-MI"
+    },
+    {
+      "articleId": "E2m5umK",
+      "userId": "4",
+      "text": "text",
+      "id": "CrQeu9s"
+    },
+    {
+      "articleId": "e6sdSWO",
+      "userId": "4",
+      "text": "text",
+      "id": "P5NJWP0"
+    },
+    {
+      "articleId": "-ijHgT_",
+      "userId": "4",
+      "text": "text",
+      "id": "ir8dzb3"
+    },
+    {
+      "articleId": "9j1MRm0",
+      "userId": "4",
+      "text": "text",
+      "id": "KcpxQs4"
+    },
+    {
+      "articleId": "vA6M82K",
+      "userId": "4",
+      "text": "text",
+      "id": "e8RbK6a"
+    },
+    {
+      "articleId": "uPMTZ4f",
+      "userId": "4",
+      "text": "text",
+      "id": "MMKTb9H"
+    },
+    {
+      "articleId": "bEecnyS",
+      "userId": "4",
+      "text": "text",
+      "id": "qPQ8jSM"
+    },
+    {
+      "articleId": "RQGcutN",
+      "userId": "4",
+      "text": "text",
+      "id": "N6VJ8DK"
+    },
+    {
+      "articleId": "_vNNWgV",
+      "userId": "4",
+      "text": "text",
+      "id": "WRWC_2n"
+    },
+    {
+      "articleId": "M86UPdm",
+      "userId": "4",
+      "text": "text",
+      "id": "Ezeu4AO"
+    },
+    {
+      "articleId": "3HovUJJ",
+      "userId": "4",
+      "text": "text",
+      "id": "kVfC0Zx"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://yakutsk.ru/wp-content/uploads/2022/07/12/bystrov_haker.jpeg"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "123",
+      "roles": [
+        "USER"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "username": "testuser",
+      "password": "123",
+      "roles": [
+        "ADMIN"
+      ],
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    }
+  ],
+  "profile": [
+    {
+      "id": "1",
+      "first": "timur",
+      "lastname": "ulbi",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://yt3.ggpht.com/ytc/AKedOLTYUJxG8Hu036PQ_TXpMLq2fG8Kj8NZI4h0lbn_3g=s900-c-k-c0x00ffffff-no-rj"
+    },
+    {
+      "id": "2",
+      "first": "ulbi tv",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Moscow",
+      "username": "ulbi tv",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
+    },
+    {
+      "id": "4",
+      "first": "test",
+      "lastname": "user",
+      "age": 465,
+      "currency": "EUR",
+      "country": "Ukraine",
+      "city": "Moscow",
+      "username": "testuser",
+      "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
   "article-ratings": [
@@ -726,11 +1068,39 @@
       "id": "bcPnbbZ"
     },
     {
-      "userId": "1",
-      "articleId": "4",
-      "rate": 4,
-      "feedback": "Really good article!!!",
-      "id": "KdU86y2"
+      "userId": "4",
+      "articleId": "xGcfSke",
+      "rate": 5,
+      "feedback": "feedback",
+      "id": "_J0eS6A"
+    },
+    {
+      "userId": "4",
+      "articleId": "u_YBcQB",
+      "rate": 5,
+      "feedback": "feedback",
+      "id": "BN2WesN"
+    },
+    {
+      "userId": "4",
+      "articleId": "VmocL0Q",
+      "rate": 5,
+      "feedback": "feedback",
+      "id": "fJahiGM"
+    },
+    {
+      "userId": "4",
+      "articleId": "QXnwQGv",
+      "rate": 5,
+      "feedback": "feedback",
+      "id": "6mjo48o"
+    },
+    {
+      "userId": "4",
+      "articleId": "pCjtiud",
+      "rate": 5,
+      "feedback": "feedback",
+      "id": "iG_XfXu"
     }
   ],
   "profile-ratings": [

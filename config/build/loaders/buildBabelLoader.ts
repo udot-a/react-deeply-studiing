@@ -1,6 +1,6 @@
 import babelRemovePropsPlugin from '../../babel/babelRemovePropsPlugin';
 
-export function buildBabelLoader (isTsx: boolean) {
+export function buildBabelLoader ({ isTsx, isDev }: {isTsx: boolean, isDev: boolean}) {
 	return {
 		test: isTsx ? /\.(jsx|tsx)$/ : /\.(js|ts)$/,
 		exclude: /node_modules/,
@@ -15,7 +15,7 @@ export function buildBabelLoader (isTsx: boolean) {
 						'@babel/plugin-transform-typescript',
 						{ isTsx },
 					],
-					isTsx && [babelRemovePropsPlugin, { props: ['data-testid'] }]
+					isTsx && !isDev && [babelRemovePropsPlugin, { props: ['data-testid'] }]
 				].filter(Boolean),
 			}
 		}

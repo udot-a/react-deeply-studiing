@@ -4,10 +4,10 @@ import { BuildEnv, BuildPath } from './config/build/types/config';
 import path from 'path';
 
 export default (env: BuildEnv) => {
-	const mode = env.mode || 'development';
+	const mode = env?.mode || 'development';
 	const isDev = mode === 'development';
-	const PORT = env.port || 3000;
-	const apiUrl = env.apiUrl || 'http://localhost:8000';
+	const PORT = env?.port || 3000;
+	const apiUrl = env?.apiUrl || 'http://localhost:8000';
 
 	const paths : BuildPath = {
 		entry: path.resolve(__dirname, 'src', 'index.tsx'),
