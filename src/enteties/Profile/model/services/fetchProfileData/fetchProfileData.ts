@@ -4,21 +4,22 @@ import { Profile } from '../../types/profile';
 
 import { getRouteProfile } from '@/shared/const/router';
 
-export const fetchProfileData = createAsyncThunk<Profile, string, ThunkConfig<string>>(
-	'profile/fetchProfileData',
-	async (profileId, thunkApi) => {
-		const { extra, rejectWithValue } = thunkApi;
+export const fetchProfileData = createAsyncThunk<
+  Profile,
+  string,
+  ThunkConfig<string>
+>('profile/fetchProfileData', async (profileId, thunkApi) => {
+  const { extra, rejectWithValue } = thunkApi;
 
-		try {
-			const response = await extra.api.get<Profile>(getRouteProfile(profileId));
+  try {
+    const response = await extra.api.get<Profile>(getRouteProfile(profileId));
 
-			if (!response.data) {
-				throw new Error();
-			}
+    if (!response.data) {
+      throw new Error();
+    }
 
-			return response.data;
-		} catch (e) {
-			return rejectWithValue('error');
-		}
-	}
-);
+    return response.data;
+  } catch (e) {
+    return rejectWithValue('error');
+  }
+});

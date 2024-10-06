@@ -6,27 +6,19 @@ import { Text } from '@/shared/ui/Text';
 
 interface ArticleTextBlockComponentProps {
   className?: string;
-	block: ArticleTextBlock;
+  block: ArticleTextBlock;
 }
 
-export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> = memo((props) => {
-	const { block, className } = props;
+export const ArticleTextBlockComponent: FC<ArticleTextBlockComponentProps> =
+  memo((props) => {
+    const { block, className } = props;
 
-	return (
-		<div className={classNames('', {}, [className])}>
-			{block.title && (
-				<Text
-					title={block.title}
-					className={cls.title}
-				/>
-			)}
-			{block.paragraphs.map((paragraph: string) => (
-				<Text
-					key={paragraph}
-					text={paragraph}
-				/>
-			))}
-		</div>
-	);
-});
-
+    return (
+      <div className={classNames('', {}, [className])}>
+        {block.title && <Text title={block.title} className={cls.title} />}
+        {block.paragraphs.map((paragraph: string) => (
+          <Text key={paragraph} text={paragraph} />
+        ))}
+      </div>
+    );
+  });

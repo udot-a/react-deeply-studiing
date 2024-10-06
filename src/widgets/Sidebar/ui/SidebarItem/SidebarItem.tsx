@@ -9,29 +9,26 @@ import { SidebarItemType } from '../../types/sidebar';
 
 interface SidebarItemProps {
   item: SidebarItemType;
-	collapsed: boolean;
+  collapsed: boolean;
 }
 
 // eslint-disable-next-line react/prop-types
 export const SidebarItem: FC<SidebarItemProps> = memo(({ item, collapsed }) => {
-	const { t } = useTranslation();
-	const isAuth = useSelector(getUserAuthData);
+  const { t } = useTranslation();
+  const isAuth = useSelector(getUserAuthData);
 
-	if (!isAuth && item.authOnly) {
-		return null;
-	}
+  if (!isAuth && item.authOnly) {
+    return null;
+  }
 
-	return (
-		<AppLink
-			to={item.path}
-			theme={AppLinkTheme.SECONDARY}
-			className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
-		>
-			<item.Icon className={cls.icon}/>
-			<span className={cls.link}>
-				{t(item.text)}
-			</span>
-		</AppLink>
-	);
+  return (
+    <AppLink
+      to={item.path}
+      theme={AppLinkTheme.SECONDARY}
+      className={classNames(cls.item, { [cls.collapsed]: collapsed }, [])}
+    >
+      <item.Icon className={cls.icon} />
+      <span className={cls.link}>{t(item.text)}</span>
+    </AppLink>
+  );
 });
-

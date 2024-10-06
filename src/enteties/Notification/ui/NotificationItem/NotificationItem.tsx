@@ -7,32 +7,32 @@ import { Text } from '@/shared/ui/Text';
 
 interface NotificationItemProps {
   className?: string;
-	item: Notification;
+  item: Notification;
 }
 
 export const NotificationItem: FC<NotificationItemProps> = memo((props) => {
-	const { className, item } = props;
+  const { className, item } = props;
 
-	const content = (
-		<Card theme={CardTheme.OUTLINED} className={classNames(cls.NotificationItem, {}, [className])}>
-			<Text title={item.title} text={item.description} />
-		</Card>
-	);
+  const content = (
+    <Card
+      theme={CardTheme.OUTLINED}
+      className={classNames(cls.NotificationItem, {}, [className])}
+    >
+      <Text title={item.title} text={item.description} />
+    </Card>
+  );
 
-	if (item.href) {
-		return (
-			<a
-				className={cls.link}
-				href={item.href}
-				target="_blank"
-				rel="noreferrer"
-			>
-				<Card theme={CardTheme.OUTLINED} className={classNames(cls.NotificationItem, {}, [className])}>
-					<Text title={item.title} text={item.description} />
-				</Card>
-			</a>
-		);
-	}
-	return content;
+  if (item.href) {
+    return (
+      <a className={cls.link} href={item.href} target="_blank" rel="noreferrer">
+        <Card
+          theme={CardTheme.OUTLINED}
+          className={classNames(cls.NotificationItem, {}, [className])}
+        >
+          <Text title={item.title} text={item.description} />
+        </Card>
+      </a>
+    );
+  }
+  return content;
 });
-

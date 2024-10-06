@@ -6,14 +6,16 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'enteties/ArticleSortSelector',
-	component: ArticleSortSelector,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/ArticleSortSelector',
+  component: ArticleSortSelector,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticleSortSelector>;
 
-const Template: ComponentStory<typeof ArticleSortSelector> = (args) => <ArticleSortSelector {...args} />;
+const Template: ComponentStory<typeof ArticleSortSelector> = (args) => (
+  <ArticleSortSelector {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};

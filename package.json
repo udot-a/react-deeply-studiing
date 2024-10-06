@@ -12,6 +12,7 @@
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production apiUrl=https://udotpetbackend-j7aouj6p.b4a.run/",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
+    "prettier": "npx prettier --write \"**/*.{ts,tsx}\"",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
     "lint:scss": "npx stylelint \"**/*.scss\"",
@@ -31,7 +32,10 @@
     "postinstall": "rm -rf node_modules/.cache"
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": [
+      "prettier",
+      "eslint"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -78,12 +82,13 @@
     "css-loader": "^6.6.0",
     "cypress": "^11.0.0",
     "eslint": "^8.10.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-i18next": "^6.0.0",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-typescript-enum": "^2.1.0",
-    "eslint-plugin-udot-project-plugin": "^0.0.16",
+    "eslint-plugin-udot-project-plugin": "^0.0.17",
     "eslint-plugin-unused-imports": "^4.1.4",
     "file-loader": "^6.2.0",
     "fork-ts-checker-webpack-plugin": "^7.2.13",
@@ -96,6 +101,7 @@
     "lint-staged": "^13.0.3",
     "loki": "^0.28.1",
     "mini-css-extract-plugin": "^2.5.3",
+    "prettier": "^2.7.1",
     "reg-cli": "^0.17.6",
     "regenerator-runtime": "^0.13.9",
     "sass": "^1.49.9",

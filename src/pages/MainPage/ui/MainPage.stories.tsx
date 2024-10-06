@@ -10,12 +10,12 @@ import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'pages/MainPage',
-	component: MainPage,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/MainPage',
+  component: MainPage,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof MainPage>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -23,17 +23,27 @@ export default {
 const Template: ComponentStory<typeof MainPage> = () => <MainPage />;
 
 const initialState: DeepPartial<StateSchema> = {
-	counter: {
-		value: 11,
-	},
+  counter: {
+    value: 11,
+  },
 };
 
 export const MainDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 MainDark.args = {};
-MainDark.decorators = [ReduxDecorator(initialState as StateSchema), RouterDecorator, StyleDecorator, ThemeDecorator(Theme.DARK)];
+MainDark.decorators = [
+  ReduxDecorator(initialState as StateSchema),
+  RouterDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+];
 
 export const MainLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 MainLight.args = {};
-MainLight.decorators = [ReduxDecorator(initialState as StateSchema), RouterDecorator, StyleDecorator, ThemeDecorator(Theme.LIGHT)];
+MainLight.decorators = [
+  ReduxDecorator(initialState as StateSchema),
+  RouterDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+];

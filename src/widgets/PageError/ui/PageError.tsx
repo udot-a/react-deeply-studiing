@@ -10,19 +10,22 @@ interface PageErrorProps {
 }
 
 export const PageError: FC<PageErrorProps> = ({ className }) => {
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	const reloadPage = () => {
-		location.reload();
-	};
+  const reloadPage = () => {
+    location.reload();
+  };
 
-	return (
-		<div className={classNames(cls.pageError, {}, [className])}>
-			<p>{t('Oops, somethings wrong happens!!!')}</p>
-			<Button theme={ButtonTheme.BORDERED} onClick={reloadPage} className={cls.button}>
-				{t('Update the page')}
-			</Button>
-		</div>
-	);
+  return (
+    <div className={classNames(cls.pageError, {}, [className])}>
+      <p>{t('Oops, somethings wrong happens!!!')}</p>
+      <Button
+        theme={ButtonTheme.BORDERED}
+        onClick={reloadPage}
+        className={cls.button}
+      >
+        {t('Update the page')}
+      </Button>
+    </div>
+  );
 };
-

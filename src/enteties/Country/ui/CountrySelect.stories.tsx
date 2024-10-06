@@ -8,26 +8,28 @@ import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'enteties/CountrySelect',
-	component: CountrySelect,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/CountrySelect',
+  component: CountrySelect,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof CountrySelect>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof CountrySelect> = (args) => <CountrySelect {...args} />;
+const Template: ComponentStory<typeof CountrySelect> = (args) => (
+  <CountrySelect {...args} />
+);
 
 export const CurrencySelectDark = Template.bind({});
 CurrencySelectDark.args = {
-	value: Country.China,
+  value: Country.China,
 };
 
 CurrencySelectDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const CurrencySelectLight = Template.bind({});
 CurrencySelectLight.args = {
-	value: Country.Britain,
+  value: Country.Britain,
 };
 CurrencySelectLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];

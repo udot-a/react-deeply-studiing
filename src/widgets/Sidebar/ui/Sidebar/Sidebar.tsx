@@ -15,43 +15,47 @@ interface SidebarProps {
 }
 
 export const Sidebar: FC<SidebarProps> = memo(({ className }) => {
-	const [collapsed, setCollapsed] = useState(false);
-	const sidebarItemsList = useSelector(getSidebarItems);
+  const [collapsed, setCollapsed] = useState(false);
+  const sidebarItemsList = useSelector(getSidebarItems);
 
-	const onToggle = () => {
-		setCollapsed(prev => !prev);
-	};
+  const onToggle = () => {
+    setCollapsed((prev) => !prev);
+  };
 
-	const renderAppLinks = useMemo(() =>
-		sidebarItemsList.map((item) => (
-			<SidebarItem item={item} key={item.text} collapsed={collapsed}/>
-		)
-		), [collapsed, sidebarItemsList]);
+  const renderAppLinks = useMemo(
+    () =>
+      sidebarItemsList.map((item) => (
+        <SidebarItem item={item} key={item.text} collapsed={collapsed} />
+      )),
+    [collapsed, sidebarItemsList],
+  );
 
-	return (
-		<aside
-			data-testid="sidebar"
-			className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [className])}
-		>
-			<Button
-				data-testid="sidebar-toggle"
-				onClick={onToggle}
-				className={cls.collapseBtn}
-				theme={ButtonTheme.BACKGROUND_INVERTED}
-				size={ButtonSize.L}
-				square
-			>
-				{collapsed ? '>' : '<'}
-			</Button>
+  return (
+    <aside
+      data-testid="sidebar"
+      className={classNames(cls.sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
+    >
+      <Button
+        data-testid="sidebar-toggle"
+        onClick={onToggle}
+        className={cls.collapseBtn}
+        theme={ButtonTheme.BACKGROUND_INVERTED}
+        size={ButtonSize.L}
+        square
+      >
+        {collapsed ? '>' : '<'}
+      </Button>
 
-			<VStack role="navigation" gap="8" className={cls.links}>
-				{renderAppLinks}
-			</VStack>
+      <VStack role="navigation" gap="8" className={cls.links}>
+        {renderAppLinks}
+      </VStack>
 
-			<div className={cls.switchers}>
-				<ThemeSwitcher/>
-				<LangSwitcher className={cls.lang} short={collapsed}/>
-			</div>
-		</aside>
-	);
+      <div className={cls.switchers}>
+        <ThemeSwitcher />
+        <LangSwitcher className={cls.lang} short={collapsed} />
+      </div>
+    </aside>
+  );
 });

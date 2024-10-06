@@ -14,42 +14,40 @@ interface NotificationButtonProps {
 }
 
 export const NotificationButton: FC<NotificationButtonProps> = memo((props) => {
-	const { className } = props;
-	const [showDrawer, setShowDrawer] = useState(false);
+  const { className } = props;
+  const [showDrawer, setShowDrawer] = useState(false);
 
-	const onOpenDrawer = useCallback(() => {
-		setShowDrawer(true);
-	}, []);
+  const onOpenDrawer = useCallback(() => {
+    setShowDrawer(true);
+  }, []);
 
-	const onCloseDrawer = useCallback(() => {
-		setShowDrawer(false);
-	}, []);
+  const onCloseDrawer = useCallback(() => {
+    setShowDrawer(false);
+  }, []);
 
+  const trigger = (
+    <Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
+      <Icon Svg={Notification} inverted />
+    </Button>
+  );
 
-	const trigger = (<Button theme={ButtonTheme.CLEAR} onClick={onOpenDrawer}>
-		<Icon Svg={Notification} inverted />
-	</Button>
-	);
-
-	return (
-		<div>
-			<BrowserView>
-				<Popover
-					className={classNames('', {}, [className])}
-					direction="bottom left"
-					trigger={trigger}
-				>
-					<NotificationList className={cls.notifications} />
-				</Popover>
-			</BrowserView>
-			<MobileView>
-				{trigger}
-				<Drawer isOpen={showDrawer} onClose={onCloseDrawer}>
-					<NotificationList />
-				</Drawer>
-			</MobileView>
-		</div>
-
-	);
+  return (
+    <div>
+      <BrowserView>
+        <Popover
+          className={classNames('', {}, [className])}
+          direction="bottom left"
+          trigger={trigger}
+        >
+          <NotificationList className={cls.notifications} />
+        </Popover>
+      </BrowserView>
+      <MobileView>
+        {trigger}
+        <Drawer isOpen={showDrawer} onClose={onCloseDrawer}>
+          <NotificationList />
+        </Drawer>
+      </MobileView>
+    </div>
+  );
 });
-

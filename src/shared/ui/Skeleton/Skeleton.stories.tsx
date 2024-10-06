@@ -6,14 +6,16 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'shared/Skeleton',
-	component: Skeleton,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'shared/Skeleton',
+  component: Skeleton,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Skeleton>;
 
-const Template: ComponentStory<typeof Skeleton> = (args) => <Skeleton {...args} />;
+const Template: ComponentStory<typeof Skeleton> = (args) => (
+  <Skeleton {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -21,17 +23,17 @@ Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const Normal = Template.bind({});
 Normal.args = {
-	width: '100%',
-	height: 200,
+  width: '100%',
+  height: 200,
 };
 
 Normal.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];
 
 export const Circle = Template.bind({});
 Circle.args = {
-	border: '50%',
-	height: 100,
-	width: 100,
+  border: '50%',
+  height: 100,
+  width: 100,
 };
 
 Circle.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];

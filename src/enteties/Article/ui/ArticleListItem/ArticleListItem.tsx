@@ -19,100 +19,93 @@ import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 interface ArticleListItemProps {
   className?: string;
-	article: Article;
-	view?: ArticleView;
-	target?: HTMLAttributeAnchorTarget;
+  article: Article;
+  view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 
 export const ArticleListItem: FC<ArticleListItemProps> = memo((props) => {
-	const {
-		className, article,
-		target,
-		view = ArticleView.SMALL,
-	} = props;
-	const { t } = useTranslation();
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const [isHover, bindHover] = useHover();
+  const { className, article, target, view = ArticleView.SMALL } = props;
+  const { t } = useTranslation();
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isHover, bindHover] = useHover();
 
-	const types = (<Text text={article.type.join(', ')} className={cls.types} />);
-	const views = (
-		<>
-			<Text text={String(article.views)} className={cls.views}/>
-			<Icon Svg={EyeIcon} />
-		</>
-	);
+  const types = <Text text={article.type.join(', ')} className={cls.types} />;
+  const views = (
+    <>
+      <Text text={String(article.views)} className={cls.views} />
+      <Icon Svg={EyeIcon} />
+    </>
+  );
 
-	if (view === ArticleView.BIG) {
-		const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
+  if (view === ArticleView.BIG) {
+    const textBlock = article.blocks.find(
+      (block) => block.type === ArticleBlockType.TEXT,
+    ) as ArticleTextBlock;
 
-		return (
-			<div
-				className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-				data-testid="articles-list-item"
-			>
-				<Card>
-					<div className={cls.header}>
-						<Avatar src={article.user.avatar} size={30} />
-						<Text text={article.user.username} className={cls.username}/>
-						<Text text={article.createdAt} className={cls.date}/>
-					</div>
-					<Text title={article.title} className={cls.title}/>
-					{types}
-					<AppImage
-						fallback={<Skeleton width="100%" height={250} />}
-						alt={article.title}
-						src={article.img}
-						className={cls.img}
-					/>
-					{textBlock && (
-						<ArticleTextBlockComponent block={textBlock} className={cls.textBlock}/>
-					)}
-					<div className={cls.footer}>
-						<AppLink
-							target={target}
-							to={getRouteArticleDetails(article.id)}
-						>
-							<Button
-								theme={ButtonTheme.BORDERED}
-							>
-								{t('Read more')}
-							</Button>
-						</AppLink>
-						{views}
-					</div>
-				</Card>
-			</div>
-		);
-	}
+    return (
+      <div
+        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+        data-testid="articles-list-item"
+      >
+        <Card>
+          <div className={cls.header}>
+            <Avatar src={article.user.avatar} size={30} />
+            <Text text={article.user.username} className={cls.username} />
+            <Text text={article.createdAt} className={cls.date} />
+          </div>
+          <Text title={article.title} className={cls.title} />
+          {types}
+          <AppImage
+            fallback={<Skeleton width="100%" height={250} />}
+            alt={article.title}
+            src={article.img}
+            className={cls.img}
+          />
+          {textBlock && (
+            <ArticleTextBlockComponent
+              block={textBlock}
+              className={cls.textBlock}
+            />
+          )}
+          <div className={cls.footer}>
+            <AppLink target={target} to={getRouteArticleDetails(article.id)}>
+              <Button theme={ButtonTheme.BORDERED}>{t('Read more')}</Button>
+            </AppLink>
+            {views}
+          </div>
+        </Card>
+      </div>
+    );
+  }
 
-	return (
-		<AppLink
-			target={target}
-			to={getRouteArticleDetails(article.id)}
-			data-testid="articles-list-item"
-		>
-			<div
-				{...bindHover}
-				className={classNames('', {}, [className, cls[view]])}
-			>
-				<Card>
-					<div className={cls.imageWrapper}>
-						<AppImage
-							fallback={<Skeleton width={150} height={150} />}
-							src={article.img}
-							className={cls.img}
-							alt={article.title}
-						/>
-						<Text text={article.createdAt} className={cls.date}/>
-					</div>
-					<div className={cls.infoWrapper}>
-						{types}
-						{views}
-					</div>
-					<Text text={article.title} className={cls.title}/>
-				</Card>
-			</div>
-		</AppLink>
-	);
+  return (
+    <AppLink
+      target={target}
+      to={getRouteArticleDetails(article.id)}
+      data-testid="articles-list-item"
+    >
+      <div
+        {...bindHover}
+        className={classNames('', {}, [className, cls[view]])}
+      >
+        <Card>
+          <div className={cls.imageWrapper}>
+            <AppImage
+              fallback={<Skeleton width={150} height={150} />}
+              src={article.img}
+              className={cls.img}
+              alt={article.title}
+            />
+            <Text text={article.createdAt} className={cls.date} />
+          </div>
+          <div className={cls.infoWrapper}>
+            {types}
+            {views}
+          </div>
+          <Text text={article.title} className={cls.title} />
+        </Card>
+      </div>
+    </AppLink>
+  );
 });
-

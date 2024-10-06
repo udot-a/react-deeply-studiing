@@ -5,24 +5,20 @@ import { useTranslation } from 'react-i18next';
 
 // Component for testing purposes
 export const BugButton: FC = () => {
-	const [error, setError] = useState(false);
-	const { t } = useTranslation();
-  
-	const onThrow = () => setError(true);
+  const [error, setError] = useState(false);
+  const { t } = useTranslation();
 
-	useEffect(() => {
-		if (error) {
-			throw new Error();
-		}
-	}, [error]);
+  const onThrow = () => setError(true);
 
-	return (
-		<Button
-			theme={ButtonTheme.BORDERED}
-			onClick={onThrow}
-		>
-			{t('throw error')}
-		</Button>
-	);
+  useEffect(() => {
+    if (error) {
+      throw new Error();
+    }
+  }, [error]);
+
+  return (
+    <Button theme={ButtonTheme.BORDERED} onClick={onThrow}>
+      {t('throw error')}
+    </Button>
+  );
 };
-

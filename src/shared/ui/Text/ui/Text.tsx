@@ -4,20 +4,20 @@ import cls from './Text.module.scss';
 
 export enum TextTheme {
   PRIMARY = 'primary',
-	SECONDARY = 'secondary',
+  SECONDARY = 'secondary',
   ERROR = 'error',
 }
 
 export enum TextAlign {
-	RIGHT = 'right',
-	LEFT = 'left',
-	CENTER = 'center',
+  RIGHT = 'right',
+  LEFT = 'left',
+  CENTER = 'center',
 }
 
 export enum TextSize {
-	S = 'size_s',
-	M = 'size_m',
-	L = 'size_l',
+  S = 'size_s',
+  M = 'size_m',
+  L = 'size_l',
 }
 
 interface TextProps {
@@ -25,53 +25,49 @@ interface TextProps {
   title?: string;
   text?: string;
   theme?: TextTheme;
-	align?: TextAlign;
-	size?: TextSize;
-	'data-testid'?: string;
+  align?: TextAlign;
+  size?: TextSize;
+  'data-testid'?: string;
 }
 
 type HeaderTagType = 'h1' | 'h2' | 'h3';
 const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
-	[TextSize.S]: 'h3',
-	[TextSize.M]: 'h2',
-	[TextSize.L]: 'h1',
+  [TextSize.S]: 'h3',
+  [TextSize.M]: 'h2',
+  [TextSize.L]: 'h1',
 };
 
 export const Text: FC<TextProps> = memo((props) => {
-	const {
-		className,
-		title,
-		text,
-		theme = TextTheme.PRIMARY,
-		align = TextAlign.LEFT,
-		size = TextSize.M,
-		'data-testid': dataTestId = 'Text',
-	} = props;
+  const {
+    className,
+    title,
+    text,
+    theme = TextTheme.PRIMARY,
+    align = TextAlign.LEFT,
+    size = TextSize.M,
+    'data-testid': dataTestId = 'Text',
+  } = props;
 
-	const HeaderTag = mapSizeToHeaderTag[size];
+  const HeaderTag = mapSizeToHeaderTag[size];
 
-	const mods: Mods = {
-		[cls[theme]]: true,
-		[cls[align]]: true,
-		[cls[size]]: true,
-	};
+  const mods: Mods = {
+    [cls[theme]]: true,
+    [cls[align]]: true,
+    [cls[size]]: true,
+  };
 
-	return (
-		<div className={classNames(cls.text, mods, [className])}>
-			{title && (
-				<HeaderTag
-					className={cls.title}
-					data-testid={`${dataTestId}.Header`}>
-					{title}
-				</HeaderTag>
-			)}
-			{text && (
-				<p
-					data-testid={`${dataTestId}.Paragraph`}
-					className={cls.text}>
-					{text}
-				</p>
-			)}
-		</div>
-	);
+  return (
+    <div className={classNames(cls.text, mods, [className])}>
+      {title && (
+        <HeaderTag className={cls.title} data-testid={`${dataTestId}.Header`}>
+          {title}
+        </HeaderTag>
+      )}
+      {text && (
+        <p data-testid={`${dataTestId}.Paragraph`} className={cls.text}>
+          {text}
+        </p>
+      )}
+    </div>
+  );
 });

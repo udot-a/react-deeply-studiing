@@ -9,19 +9,28 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'features/AddCommentForm',
-	component: AddCommentForm,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'features/AddCommentForm',
+  component: AddCommentForm,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof AddCommentForm>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;
+const Template: ComponentStory<typeof AddCommentForm> = (args) => (
+  <AddCommentForm {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {
-	onSendComment: action('onSendComment')
+  onSendComment: action('onSendComment'),
 };
-Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({ addCommentForm: {
-	text: 'Test comment 1',
-} }), RouterDecorator];
+Dark.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({
+    addCommentForm: {
+      text: 'Test comment 1',
+    },
+  }),
+  RouterDecorator,
+];

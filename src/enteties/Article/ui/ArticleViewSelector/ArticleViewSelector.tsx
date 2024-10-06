@@ -14,38 +14,41 @@ interface ArticleViewSelectorProps {
 }
 
 const viewTypes = [
-	{
-		view: ArticleView.SMALL,
-		icon: TiledIcon,
-	},
-	{
-		view: ArticleView.BIG,
-		icon: ListIcon,
-	},
+  {
+    view: ArticleView.SMALL,
+    icon: TiledIcon,
+  },
+  {
+    view: ArticleView.BIG,
+    icon: ListIcon,
+  },
 ];
 
-export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo((props) => {
-	const { className, view, onViewClick } = props;
+export const ArticleViewSelector: FC<ArticleViewSelectorProps> = memo(
+  (props) => {
+    const { className, view, onViewClick } = props;
 
-	const handleClick = (newView: ArticleView) => () => {
-		onViewClick?.(newView);
-	};
+    const handleClick = (newView: ArticleView) => () => {
+      onViewClick?.(newView);
+    };
 
-	return (
-		<div className={classNames(cls.ArticleViewSelector, {}, [className])}>
-			{viewTypes.map(viewType => (
-				<Button
-					key={viewType.view}
-					theme={ButtonTheme.CLEAR}
-					onClick={handleClick(viewType.view)}
-				>
-					<Icon
-						Svg={viewType.icon}
-						className={classNames('', { [cls.notSelected]: view !== viewType.view })}
-					/>
-				</Button>
-			))}
-		</div>
-	);
-});
-
+    return (
+      <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+        {viewTypes.map((viewType) => (
+          <Button
+            key={viewType.view}
+            theme={ButtonTheme.CLEAR}
+            onClick={handleClick(viewType.view)}
+          >
+            <Icon
+              Svg={viewType.icon}
+              className={classNames('', {
+                [cls.notSelected]: view !== viewType.view,
+              })}
+            />
+          </Button>
+        ))}
+      </div>
+    );
+  },
+);

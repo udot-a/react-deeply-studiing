@@ -3,16 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 
 const ForbiddenPage = () => {
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	return (
-		<Page data-testid="ForbiddenPage">
-			<h3>
-				{t('Forbidden page')}
-				{t('You do not have access to this page')}
-			</h3>
-		</Page>
-	);
+  return (
+    <Page data-testid="ForbiddenPage">
+      <h3>
+        {t('Forbidden page')}
+        {t('You do not have access to this page')}
+      </h3>
+    </Page>
+  );
 };
 
 export default ForbiddenPage;

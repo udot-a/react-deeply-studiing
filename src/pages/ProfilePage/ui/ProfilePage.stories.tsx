@@ -11,53 +11,58 @@ import testAvatar from '@/shared/assets/tests/test_avatar_img.png';
 import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDecorator';
 import { Theme } from '@/shared/const/theme';
 
-
 export default {
-	title: 'pages/ProfilePage',
-	component: ProfilePage,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/ProfilePage',
+  component: ProfilePage,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ProfilePage>;
 
-const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage {...args} />;
+const Template: ComponentStory<typeof ProfilePage> = (args) => (
+  <ProfilePage {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {};
 Primary.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.LIGHT),
-	ReduxDecorator({ profile: {
-		form: {
-			'first': 'Andrii',
-			'last': 'Udot',
-			'age': 45,
-			'city': 'Kharkiv',
-			'country': Country.Britain,
-			'currency': Currency.USD,
-			avatar: testAvatar,
-		}
-	} }),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({
+    profile: {
+      form: {
+        first: 'Andrii',
+        last: 'Udot',
+        age: 45,
+        city: 'Kharkiv',
+        country: Country.Britain,
+        currency: Currency.USD,
+        avatar: testAvatar,
+      },
+    },
+  }),
+  RouterDecorator,
 ];
 
 export const WithError = Template.bind({});
 WithError.args = {};
 WithError.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	ReduxDecorator({ profile: {
-		form: {
-			'first': 'Andrii',
-			'last': 'Udot',
-			'age': 45,
-			'city': 'Kharkiv',
-			'country': Country.Britain,
-			'currency': Currency.USD,
-			avatar: testAvatar,
-		}
-	} }),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({
+    profile: {
+      form: {
+        first: 'Andrii',
+        last: 'Udot',
+        age: 45,
+        city: 'Kharkiv',
+        country: Country.Britain,
+        currency: Currency.USD,
+        avatar: testAvatar,
+      },
+    },
+  }),
+  RouterDecorator,
 ];

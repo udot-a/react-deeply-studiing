@@ -11,53 +11,54 @@ import testAvatar from '@/shared/assets/tests/test_avatar_img.png';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'enteties/ProfileCard',
-	component: ProfileCard,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/ProfileCard',
+  component: ProfileCard,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ProfileCard>;
 
-const Template: ComponentStory<typeof ProfileCard> = (args) => <ProfileCard {...args} />;
+const Template: ComponentStory<typeof ProfileCard> = (args) => (
+  <ProfileCard {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
-	data: {
-		'first': 'Andrii',
-		'last': 'Udot',
-		'age': 45,
-		'city': 'Kharkiv',
-		'country': Country.Britain,
-		'currency': Currency.USD,
-		avatar: testAvatar,
-	}
+  data: {
+    first: 'Andrii',
+    last: 'Udot',
+    age: 45,
+    city: 'Kharkiv',
+    country: Country.Britain,
+    currency: Currency.USD,
+    avatar: testAvatar,
+  },
 };
 Primary.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  RouterDecorator,
 ];
 
 export const WithError = Template.bind({});
 WithError.args = {
-	error: 'true',
+  error: 'true',
 };
 WithError.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  RouterDecorator,
 ];
 
 export const Loading = Template.bind({});
 Loading.args = {
-	isLoading: true,
+  isLoading: true,
 };
 Loading.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  RouterDecorator,
 ];
-

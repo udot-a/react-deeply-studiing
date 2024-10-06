@@ -7,24 +7,24 @@ import { action } from '@storybook/addon-actions';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'shared/Tabs',
-	component: Tabs,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'shared/Tabs',
+  component: Tabs,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Tabs>;
 
 const Template: ComponentStory<typeof Tabs> = (args) => <Tabs {...args} />;
 
 export const Dark = Template.bind({});
 Dark.args = {
-	tabs: [
-		{ value: 'tab1', content: 'First' },
-		{ value: 'tab2', content: 'Second' },
-		{ value: 'tab3', content: 'Third' },
-	],
-	value: 'tab2',
-	onTabClick: action('onTabClick'),
+  tabs: [
+    { value: 'tab1', content: 'First' },
+    { value: 'tab2', content: 'Second' },
+    { value: 'tab3', content: 'Third' },
+  ],
+  value: 'tab2',
+  onTabClick: action('onTabClick'),
 };
 Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 

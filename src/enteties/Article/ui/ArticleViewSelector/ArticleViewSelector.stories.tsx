@@ -6,14 +6,16 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'enteties/ArticleViewSelector',
-	component: ArticleViewSelector,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/ArticleViewSelector',
+  component: ArticleViewSelector,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticleViewSelector>;
 
-const Template: ComponentStory<typeof ArticleViewSelector> = (args) => <ArticleViewSelector {...args} />;
+const Template: ComponentStory<typeof ArticleViewSelector> = (args) => (
+  <ArticleViewSelector {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};

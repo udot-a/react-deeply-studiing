@@ -4,30 +4,31 @@ import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 interface LoginByUsernameProps {
-	username: string;
-	password: string;
+  username: string;
+  password: string;
 }
 
-export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps, ThunkConfig<string>>(
-	'login/loginByUsername',
-	async (authData, thunkApi) => {
-		const { dispatch, extra, rejectWithValue } = thunkApi;
+export const loginByUsername = createAsyncThunk<
+  User,
+  LoginByUsernameProps,
+  ThunkConfig<string>
+>('login/loginByUsername', async (authData, thunkApi) => {
+  const { dispatch, extra, rejectWithValue } = thunkApi;
 
-		try {
-			const response = await extra.api.post<User>('/login', authData);
+  try {
+    const response = await extra.api.post<User>('/login', authData);
 
-			if (!response.data) {
-				throw new Error();
-			}
+    if (!response.data) {
+      throw new Error();
+    }
 
-			localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
-			dispatch(userActions.setAuthUser(response.data));
+    localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify(response.data));
+    dispatch(userActions.setAuthUser(response.data));
 
-			// extra?.navigate?.(`${RoutePath.profile}${response.data.id}`);
+    // extra?.navigate?.(`${RoutePath.profile}${response.data.id}`);
 
-			return response.data;
-		} catch (e) {
-			return rejectWithValue('error');
-		}
-	}
-);
+    return response.data;
+  } catch (e) {
+    return rejectWithValue('error');
+  }
+});

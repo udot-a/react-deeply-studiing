@@ -8,32 +8,39 @@ import { ReduxDecorator } from '@/shared/config/storybook/ReduxDecorator/ReduxDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'enteties/CommentCard',
-	component: CommentCard,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/CommentCard',
+  component: CommentCard,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
+const Template: ComponentStory<typeof CommentCard> = (args) => (
+  <CommentCard {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {
-	isLoading: false,
-	comment: {
-		id: '1',
-		text: 'Comment 1',
-		user: {
-			username: 'Andrii',
-			id: '1',
-		},
-	},
+  isLoading: false,
+  comment: {
+    id: '1',
+    text: 'Comment 1',
+    user: {
+      username: 'Andrii',
+      id: '1',
+    },
+  },
 };
-Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({}), RouterDecorator];
+Dark.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({}),
+  RouterDecorator,
+];
 
 export const Light = Template.bind({});
 Light.args = {
-	isLoading: true,
+  isLoading: true,
 };
 
 Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];

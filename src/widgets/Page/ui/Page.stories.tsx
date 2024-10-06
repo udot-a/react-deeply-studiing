@@ -8,20 +8,30 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'shared/Page',
-	component: Page,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'shared/Page',
+  component: Page,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Page>;
 
 const Template: ComponentStory<typeof Page> = (args) => <Page {...args} />;
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({}), RouterDecorator];
+Dark.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({}),
+  RouterDecorator,
+];
 
 export const Light = Template.bind({});
 Light.args = {};
 
-Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({}), RouterDecorator];
+Light.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({}),
+  RouterDecorator,
+];

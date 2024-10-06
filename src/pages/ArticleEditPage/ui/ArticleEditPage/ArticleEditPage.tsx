@@ -8,20 +8,15 @@ interface ArticleEditPageProps {
 }
 
 const ArticleEditPage: FC<ArticleEditPageProps> = memo((props) => {
-	const { className } = props;
-	const { id } = useParams<{ id: string }>();
-	const isEdit = Boolean(id);
+  const { className } = props;
+  const { id } = useParams<{ id: string }>();
+  const isEdit = Boolean(id);
 
-	return (
-		<Page
-			className={classNames('', {}, [className])}
-		>
-			{isEdit
-				? `Edit Page ID ${id}`
-				: 'Create Page'
-			}
-		</Page>
-	);
+  return (
+    <Page className={classNames('', {}, [className])}>
+      {isEdit ? `Edit Page ID ${id}` : 'Create Page'}
+    </Page>
+  );
 });
 
 export default ArticleEditPage;

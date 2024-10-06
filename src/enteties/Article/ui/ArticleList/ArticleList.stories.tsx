@@ -8,26 +8,28 @@ import { ArticleView } from '../../model/consts/consts';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'enteties/ArticleList',
-	component: ArticleList,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/ArticleList',
+  component: ArticleList,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticleList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
+const Template: ComponentStory<typeof ArticleList> = (args) => (
+  <ArticleList {...args} />
+);
 
 export const IsLoadingBig = Template.bind({});
 IsLoadingBig.args = {
-	isLoading: true,
-	view: ArticleView.BIG,
+  isLoading: true,
+  view: ArticleView.BIG,
 };
 IsLoadingBig.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const IsLoadingSmall = Template.bind({});
 IsLoadingSmall.args = {
-	isLoading: true,
-	view: ArticleView.SMALL,
+  isLoading: true,
+  view: ArticleView.SMALL,
 };
 
 IsLoadingSmall.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];

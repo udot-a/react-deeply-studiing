@@ -9,12 +9,12 @@ import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'pages/ForbiddenPage',
-	component: ForbiddenPage,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/ForbiddenPage',
+  component: ForbiddenPage,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ForbiddenPage>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
@@ -24,9 +24,19 @@ const Template: ComponentStory<typeof ForbiddenPage> = () => <ForbiddenPage />;
 export const AboutDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 AboutDark.args = {};
-AboutDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({}), RouterDecorator];
+AboutDark.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({}),
+  RouterDecorator,
+];
 
 export const AboutLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 AboutLight.args = {};
-AboutLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({}), RouterDecorator];
+AboutLight.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({}),
+  RouterDecorator,
+];

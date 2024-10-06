@@ -15,24 +15,23 @@ import { articlesPageReducer } from '@/pages/ArticlesPage';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage';
 
 const defaultAsyncReducers: ReducerList = {
-	loginForm: loginReducer,
-	profile: profileReducer,
-	articleDetails: articleDetailsReducer,
-	addCommentForm: addCommentFormSReducer,
-	articlesPage: articlesPageReducer,
-	articleDetailsPage: articleDetailsPageReducer,
+  loginForm: loginReducer,
+  profile: profileReducer,
+  articleDetails: articleDetailsReducer,
+  addCommentForm: addCommentFormSReducer,
+  articlesPage: articlesPageReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 // eslint-disable-next-line react/display-name
-export const ReduxDecorator = (
-	initialState: DeepPartial<StateSchema>,
-	asyncReducers?: ReducerList,
-) => (StoryComponent: Story) => {
-	return (
-		<StoreProvider
-			initialState={initialState as StateSchema}
-			asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-		>
-			<StoryComponent />
-		</StoreProvider>
-	);
-};
+export const ReduxDecorator =
+  (initialState: DeepPartial<StateSchema>, asyncReducers?: ReducerList) =>
+  (StoryComponent: Story) => {
+    return (
+      <StoreProvider
+        initialState={initialState as StateSchema}
+        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+      >
+        <StoryComponent />
+      </StoreProvider>
+    );
+  };

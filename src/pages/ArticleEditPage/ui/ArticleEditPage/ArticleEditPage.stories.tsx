@@ -9,44 +9,48 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'pages/ArticleEditPage',
-	component: ArticleEditPage,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/ArticleEditPage',
+  component: ArticleEditPage,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticleEditPage>;
 
-const Template: ComponentStory<typeof ArticleEditPage> = (args) => <ArticleEditPage {...args} />;
+const Template: ComponentStory<typeof ArticleEditPage> = (args) => (
+  <ArticleEditPage {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	ReduxDecorator({
-		user: {
-			authData: {
-				id: '1',
-				username: 'Vasyl',
-			},
-		},
-		articleDetails: { error: '', isLoading: false, data: reduxDecoratorData } }),
-	RouterDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({
+    user: {
+      authData: {
+        id: '1',
+        username: 'Vasyl',
+      },
+    },
+    articleDetails: { error: '', isLoading: false, data: reduxDecoratorData },
+  }),
+  RouterDecorator,
 ];
 
 export const Light = Template.bind({});
 Light.args = {};
 
 Light.decorators = [
-	StyleDecorator,
-	ThemeDecorator(Theme.LIGHT),
-	ReduxDecorator({
-		user: {
-			authData: {
-				id: '1',
-				username: 'Vasyl',
-			},
-		},
-		articleDetails: { error: '', isLoading: false, data: reduxDecoratorData } }),
-	RouterDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({
+    user: {
+      authData: {
+        id: '1',
+        username: 'Vasyl',
+      },
+    },
+    articleDetails: { error: '', isLoading: false, data: reduxDecoratorData },
+  }),
+  RouterDecorator,
 ];

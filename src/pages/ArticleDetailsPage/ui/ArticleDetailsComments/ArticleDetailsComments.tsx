@@ -10,9 +10,7 @@ import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlic
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/service/addCommentForArticle/addCommentForArticle';
 import { useAppDispatch, useInitialEffect } from '@/shared/lib/hooks';
-import {
-	fetchCommentsByArticleId
-} from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/service/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleDetailsCommentsProps {
@@ -20,32 +18,33 @@ interface ArticleDetailsCommentsProps {
   id?: string;
 }
 
-export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo((props) => {
-	const { className, id } = props;
-	const { t } = useTranslation();
-	const dispatch = useAppDispatch();
-	const comments = useSelector(getArticleComments.selectAll);
-	const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
+export const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = memo(
+  (props) => {
+    const { className, id } = props;
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const comments = useSelector(getArticleComments.selectAll);
+    const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
 
-	const onSendComment = useCallback((text: string) => {
-		dispatch(addCommentForArticle(text));
-	}, [dispatch]);
+    const onSendComment = useCallback(
+      (text: string) => {
+        dispatch(addCommentForArticle(text));
+      },
+      [dispatch],
+    );
 
-	useInitialEffect(() => {
-		dispatch(fetchCommentsByArticleId(id));
-	});
+    useInitialEffect(() => {
+      dispatch(fetchCommentsByArticleId(id));
+    });
 
-	return (
-		<VStack gap="8" max className={classNames('', {}, [className])}>
-			<Text
-				size={TextSize.L}
-				title={t('Comments')}
-			/>
-			<Suspense fallback={'Loading...'}>
-				<AddCommentForm onSendComment={onSendComment}/>
-			</Suspense>
-			<CommentList isLoading={commentsIsLoading} comments={comments}/>
-		</VStack>
-	);
-});
-
+    return (
+      <VStack gap="8" max className={classNames('', {}, [className])}>
+        <Text size={TextSize.L} title={t('Comments')} />
+        <Suspense fallback={'Loading...'}>
+          <AddCommentForm onSendComment={onSendComment} />
+        </Suspense>
+        <CommentList isLoading={commentsIsLoading} comments={comments} />
+      </VStack>
+    );
+  },
+);

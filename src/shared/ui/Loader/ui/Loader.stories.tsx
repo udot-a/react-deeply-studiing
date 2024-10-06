@@ -7,12 +7,12 @@ import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'shared/Loader',
-	component: Loader,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'shared/Loader',
+  component: Loader,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Loader>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

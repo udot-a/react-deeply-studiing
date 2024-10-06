@@ -1,51 +1,58 @@
-import { AnyAction, combineReducers, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  combineReducers,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { ReducerManager, StateSchema, StateSchemaKeys } from './StateSchema';
 
-export function createReducerManager(initialReducers: ReducersMapObject<StateSchema>): ReducerManager {
-	const reducers = { ...initialReducers };
+export function createReducerManager(
+  initialReducers: ReducersMapObject<StateSchema>,
+): ReducerManager {
+  const reducers = { ...initialReducers };
 
-	let combinedReducer = combineReducers(reducers);
+  let combinedReducer = combineReducers(reducers);
 
-	let keysToRemove: StateSchemaKeys[] = [];
-	const mountedReducers: OptionalRecord<StateSchemaKeys, boolean> = {};
+  let keysToRemove: StateSchemaKeys[] = [];
+  const mountedReducers: OptionalRecord<StateSchemaKeys, boolean> = {};
 
-	return {
-		getReducerMap: () => reducers,
-		getMountedReducers: () => mountedReducers,
-		reduce: (state: StateSchema, action: AnyAction) => {
-			if (keysToRemove.length > 0) {
-				state = { ...state };
-        
-				keysToRemove.forEach((key) => delete state[key]);
-				
-				keysToRemove = [];
-			}
+  return {
+    getReducerMap: () => reducers,
+    getMountedReducers: () => mountedReducers,
+    reduce: (state: StateSchema, action: AnyAction) => {
+      if (keysToRemove.length > 0) {
+        state = { ...state };
 
-			return combinedReducer(state, action);
-		},
+        keysToRemove.forEach((key) => delete state[key]);
 
-		add: (key: StateSchemaKeys, reducer: Reducer) => {
-			if (!key || reducers[key]) {
-				return;
-			}
+        keysToRemove = [];
+      }
 
-			reducers[key] = reducer;
-			mountedReducers[key] = true;
+      return combinedReducer(state, action);
+    },
 
-			combinedReducer = combineReducers(reducers);
-		},
+    add: (key: StateSchemaKeys, reducer: Reducer) => {
+      if (!key || reducers[key]) {
+        return;
+      }
 
-		remove: (key: StateSchemaKeys) => {
-			if (!key || !reducers[key]) {
-				return;
-			}
+      reducers[key] = reducer;
+      mountedReducers[key] = true;
 
-			delete reducers[key];
+      combinedReducer = combineReducers(reducers);
+    },
 
-			keysToRemove.push(key);
-			mountedReducers[key] = false;
+    remove: (key: StateSchemaKeys) => {
+      if (!key || !reducers[key]) {
+        return;
+      }
 
-			combinedReducer = combineReducers(reducers);
-		}
-	};
+      delete reducers[key];
+
+      keysToRemove.push(key);
+      mountedReducers[key] = false;
+
+      combinedReducer = combineReducers(reducers);
+    },
+  };
 }

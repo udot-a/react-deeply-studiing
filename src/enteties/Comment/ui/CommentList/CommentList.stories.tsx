@@ -8,14 +8,16 @@ import { RouterDecorator } from '@/shared/config/storybook/RouterDecorator/Route
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'enteties/CommentList',
-	component: CommentList,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'enteties/CommentList',
+  component: CommentList,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args) => <CommentList {...args} />;
+const Template: ComponentStory<typeof CommentList> = (args) => (
+  <CommentList {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};
@@ -23,49 +25,54 @@ Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const Light = Template.bind({});
 Light.args = {
-	comments: [
-		{
-			id: '1',
-			text: 'Comment 1',
-			user: {
-				username: 'Andrii',
-				id: '1',
-			},
-		},
-		{
-			id: '2',
-			text: 'Comment 2',
-			user: {
-				username: 'Andrii',
-				id: '2',
-			},
-		},
-	]
+  comments: [
+    {
+      id: '1',
+      text: 'Comment 1',
+      user: {
+        username: 'Andrii',
+        id: '1',
+      },
+    },
+    {
+      id: '2',
+      text: 'Comment 2',
+      user: {
+        username: 'Andrii',
+        id: '2',
+      },
+    },
+  ],
 };
 
-Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({}), RouterDecorator];
+Light.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({}),
+  RouterDecorator,
+];
 
 export const Skeleton = Template.bind({});
 Skeleton.args = {
-	isLoading: true,
-	comments: [
-		{
-			id: '1',
-			text: 'Comment 1',
-			user: {
-				username: 'Andrii',
-				id: '1',
-			},
-		},
-		{
-			id: '2',
-			text: 'Comment 2',
-			user: {
-				username: 'Andrii',
-				id: '2',
-			},
-		},
-	]
+  isLoading: true,
+  comments: [
+    {
+      id: '1',
+      text: 'Comment 1',
+      user: {
+        username: 'Andrii',
+        id: '1',
+      },
+    },
+    {
+      id: '2',
+      text: 'Comment 2',
+      user: {
+        username: 'Andrii',
+        id: '2',
+      },
+    },
+  ],
 };
 
 Skeleton.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];

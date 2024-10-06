@@ -9,36 +9,42 @@ import { reduxDecoratorData } from '@/shared/config/storybook/TestData/reduxDeco
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
-	component:ArticleDetailsPageHeader,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
+  component: ArticleDetailsPageHeader,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof ArticleDetailsPageHeader>;
 
-const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => <ArticleDetailsPageHeader {...args} />;
+const Template: ComponentStory<typeof ArticleDetailsPageHeader> = (args) => (
+  <ArticleDetailsPageHeader {...args} />
+);
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	ReduxDecorator({
-		user: {
-			authData: {
-				id: '1',
-				username: 'Vasyl',
-			},
-		},
-		articleDetails: { error: '', isLoading: false, data: reduxDecoratorData } }),
-	RouterDecorator];
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({
+    user: {
+      authData: {
+        id: '1',
+        username: 'Vasyl',
+      },
+    },
+    articleDetails: { error: '', isLoading: false, data: reduxDecoratorData },
+  }),
+  RouterDecorator,
+];
 
 export const Light = Template.bind({});
 Light.args = {};
 
 Light.decorators = [
-	StyleDecorator,
-	ThemeDecorator(Theme.LIGHT),
-	ReduxDecorator({ articleDetails: { error: '', isLoading: false, data: reduxDecoratorData } }),
-	RouterDecorator
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({
+    articleDetails: { error: '', isLoading: false, data: reduxDecoratorData },
+  }),
+  RouterDecorator,
 ];

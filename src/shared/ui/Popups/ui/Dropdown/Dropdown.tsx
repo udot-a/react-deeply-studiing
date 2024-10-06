@@ -18,53 +18,61 @@ interface DropdownProps {
   className?: string;
   items: DropdownItem[];
   trigger?: ReactNode;
-	direction?: DropdownDirection;
+  direction?: DropdownDirection;
 }
 
 export const Dropdown = memo((props: DropdownProps) => {
-	const {
-		className,
-		trigger,
-		items,
-		direction = 'bottom left',
-	} = props;
+  const { className, trigger, items, direction = 'bottom left' } = props;
 
-	const menuClasses = mapDirectionClass[direction];
+  const menuClasses = mapDirectionClass[direction];
 
-	return (
-		<Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
-			<Menu.Button className={popupCls.trigger}>
-				{trigger}
-			</Menu.Button>
-			<Menu.Items className={classNames(cls.menu, {}, [menuClasses])}>
-				{items.map((item, idx) => {
-					const content = ({ active } : {active: boolean}) => (
-						<button
-							type="button"
-							onClick={item.onClick}
-							className={classNames(cls.item, { [popupCls.active]: active, [popupCls.disabled]: item.disabled }, [])}
-							disabled={item.disabled}
-						>
-							{item.content}
-						</button>
-					);
+  return (
+    <Menu as="div" className={classNames(popupCls.popup, {}, [className])}>
+      <Menu.Button className={popupCls.trigger}>{trigger}</Menu.Button>
+      <Menu.Items className={classNames(cls.menu, {}, [menuClasses])}>
+        {items.map((item, idx) => {
+          const content = ({ active }: { active: boolean }) => (
+            <button
+              type="button"
+              onClick={item.onClick}
+              className={classNames(
+                cls.item,
+                {
+                  [popupCls.active]: active,
+                  [popupCls.disabled]: item.disabled,
+                },
+                [],
+              )}
+              disabled={item.disabled}
+            >
+              {item.content}
+            </button>
+          );
 
-					if (item.href) {
+          if (item.href) {
+            return (
+              <Menu.Item
+                as={AppLink}
+                to={item.href}
+                key={`Menu Item ${idx}`}
+                disabled={item.disabled}
+              >
+                {content}
+              </Menu.Item>
+            );
+          }
 
-						return (
-							<Menu.Item as={AppLink} to={item.href} key={`Menu Item ${idx}`} disabled={item.disabled}>
-								{content}
-							</Menu.Item>
-						);
-					}
-
-					return (
-						<Menu.Item as={Fragment} key={`Menu Item ${idx}`} disabled={item.disabled}>
-							{content}
-						</Menu.Item>
-					);
-				})}
-			</Menu.Items>
-		</Menu>
-	);
+          return (
+            <Menu.Item
+              as={Fragment}
+              key={`Menu Item ${idx}`}
+              disabled={item.disabled}
+            >
+              {content}
+            </Menu.Item>
+          );
+        })}
+      </Menu.Items>
+    </Menu>
+  );
 });

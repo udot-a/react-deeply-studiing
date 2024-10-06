@@ -14,38 +14,34 @@ interface CommentListProps {
 }
 
 export const CommentList: FC<CommentListProps> = memo((props) => {
-	const {
-		className,
-		comments,
-		isLoading,
-	} = props;
+  const { className, comments, isLoading } = props;
 
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	if (isLoading) {
-		return (
-			<VStack gap="16" max className={classNames('', {}, [className])}>
-				<CommentCard isLoading />
-				<CommentCard isLoading />
-				<CommentCard isLoading />
-			</VStack>
-		);
+  if (isLoading) {
+    return (
+      <VStack gap="16" max className={classNames('', {}, [className])}>
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+        <CommentCard isLoading />
+      </VStack>
+    );
+  }
 
-	}
-
-	return (
-		<VStack gap="16" max className={classNames('', {}, [className])}>
-			{comments?.length
-				? comments.map((comment) => (
-					<CommentCard
-						key={comment.id}
-						comment={comment}
-						isLoading={isLoading}
-						className={cls.comment}
-					/>
-				))
-				: <Text text={t('There are no comments')} />
-			}
-		</VStack>
-	);
+  return (
+    <VStack gap="16" max className={classNames('', {}, [className])}>
+      {comments?.length ? (
+        comments.map((comment) => (
+          <CommentCard
+            key={comment.id}
+            comment={comment}
+            isLoading={isLoading}
+            className={cls.comment}
+          />
+        ))
+      ) : (
+        <Text text={t('There are no comments')} />
+      )}
+    </VStack>
+  );
 });

@@ -1,13 +1,17 @@
 import { CounterSchema } from '@/enteties/Counter';
 import { UserSchema } from '@/enteties/User';
 import { LoginSchema } from '@/features/AuthByUsername';
-import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
+import {
+  AnyAction,
+  CombinedState,
+  EnhancedStore,
+  Reducer,
+  ReducersMapObject,
+} from '@reduxjs/toolkit';
 import { ProfileSchema } from '@/enteties/Profile';
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from '@/enteties/Article';
-import {
-	ArticleDetailsPageSchema
-} from '@/pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
 import { UISchema } from '@/features/UI';
@@ -17,7 +21,7 @@ export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   ui: UISchema;
-  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   // unnecessary reducer - async
   loginForm?: LoginSchema;
@@ -38,7 +42,7 @@ export interface ReducerManager {
   getMountedReducers: () => MountedReducers;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
+export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
 }
 

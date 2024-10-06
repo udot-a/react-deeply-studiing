@@ -9,26 +9,23 @@ import { getUserInited, userActions } from '@/enteties/User';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 export const App = () => {
-	const { theme } = useTheme();
-	const dispatch = useDispatch();
-	const inited = useSelector(getUserInited);
+  const { theme } = useTheme();
+  const dispatch = useDispatch();
+  const inited = useSelector(getUserInited);
 
-	useEffect(() => {
-		dispatch(userActions.initAuthData());
-	}, [dispatch]);
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
-	return (
-		<div
-			data-testid="app-test"
-			className={classNames('app', {}, [theme])}
-		>
-			<Suspense fallback="">
-				<Navbar />
-				<div className="content-page">
-					<Sidebar />
-					{inited && <AppRouter />}
-				</div>
-			</Suspense>
-		</div>
-	);
+  return (
+    <div data-testid="app-test" className={classNames('app', {}, [theme])}>
+      <Suspense fallback="">
+        <Navbar />
+        <div className="content-page">
+          <Sidebar />
+          {inited && <AppRouter />}
+        </div>
+      </Suspense>
+    </div>
+  );
 };

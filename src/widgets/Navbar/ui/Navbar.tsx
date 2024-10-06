@@ -18,44 +18,54 @@ interface NavbarProps {
 }
 
 export const Navbar: FC<NavbarProps> = memo(({ className }) => {
-	const { t } = useTranslation();
-	const [isOpen, setIsOpen] = useState(false);
-	const authData = useSelector(getUserAuthData);
+  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const authData = useSelector(getUserAuthData);
 
-	const onCloseModal = useCallback(() => {
-		setIsOpen(false);
-	}, []);
+  const onCloseModal = useCallback(() => {
+    setIsOpen(false);
+  }, []);
 
-	const onShowModal = useCallback(() => {
-		setIsOpen(true);
-	}, []);
+  const onShowModal = useCallback(() => {
+    setIsOpen(true);
+  }, []);
 
-	if (authData) {
-		return (
-			<div className={classNames(cls.navbar, {}, [className])}>
-				<Text className={cls.appName} title={t('Andrii Udot Pet Project')} theme={TextTheme.SECONDARY}/>
-				<AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY} >
-					{t('Create article')}
-				</AppLink>
-				<HStack gap={'16'} className={cls.actions}>
-					<NotificationButton />
-					<AvatarDropDown />
-				</HStack>
-			</div>
-		);
-	}
+  if (authData) {
+    return (
+      <div className={classNames(cls.navbar, {}, [className])}>
+        <Text
+          className={cls.appName}
+          title={t('Andrii Udot Pet Project')}
+          theme={TextTheme.SECONDARY}
+        />
+        <AppLink to={getRouteArticleCreate()} theme={AppLinkTheme.SECONDARY}>
+          {t('Create article')}
+        </AppLink>
+        <HStack gap={'16'} className={cls.actions}>
+          <NotificationButton />
+          <AvatarDropDown />
+        </HStack>
+      </div>
+    );
+  }
 
-	return (
-		<header className={classNames(cls.navbar, {}, [className])}>
-			<Text className={cls.appName} title={t('Andrii Udot Pet Project')} theme={TextTheme.SECONDARY}/>
-			<Button
-				data-testid="login-button-test"
-				theme={ButtonTheme.CLEAR_INVERTED} className={cls.links}
-				onClick={onShowModal}>
-				{t('login')}
-			</Button>
-			{/* eslint-disable-next-line i18next/no-literal-string */}
-			{isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
-		</header>
-	);
+  return (
+    <header className={classNames(cls.navbar, {}, [className])}>
+      <Text
+        className={cls.appName}
+        title={t('Andrii Udot Pet Project')}
+        theme={TextTheme.SECONDARY}
+      />
+      <Button
+        data-testid="login-button-test"
+        theme={ButtonTheme.CLEAR_INVERTED}
+        className={cls.links}
+        onClick={onShowModal}
+      >
+        {t('login')}
+      </Button>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
+      {isOpen && <LoginModal isOpen={isOpen} onClose={onCloseModal} />}
+    </header>
+  );
 });

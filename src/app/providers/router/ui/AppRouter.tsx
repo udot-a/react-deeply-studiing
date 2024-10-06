@@ -7,26 +7,22 @@ import { AppRouteProps } from '@/shared/types/router';
 import { UserRole } from '@/shared/const/userRole';
 
 export const AppRouter = memo(() => {
-	const renderWithWrapper = useCallback((route: AppRouteProps) => {
-		const { path, authOnly, element } = route;
+  const renderWithWrapper = useCallback((route: AppRouteProps) => {
+    const { path, authOnly, element } = route;
 
-		const routerElement = authOnly ? <RequireAuth roles={[UserRole.MANAGER, UserRole.ADMIN]}>{element as JSX.Element}</RequireAuth> : element;
-		return (
+    const routerElement = authOnly ? (
+      <RequireAuth roles={[UserRole.MANAGER, UserRole.ADMIN]}>
+        {element as JSX.Element}
+      </RequireAuth>
+    ) : (
+      element
+    );
+    return <Route key={path} path={path} element={routerElement} />;
+  }, []);
 
-			<Route
-				key={path}
-				path={path}
-				element={routerElement}
-			/>
-
-		);
-	}, []);
-
-	return (
-		<Suspense fallback={<PageLoader />}>
-			<Routes>
-				{Object.values(routeConfig).map(renderWithWrapper)}
-			</Routes>
-		</Suspense>
-	);
+  return (
+    <Suspense fallback={<PageLoader />}>
+      <Routes>{Object.values(routeConfig).map(renderWithWrapper)}</Routes>
+    </Suspense>
+  );
 });

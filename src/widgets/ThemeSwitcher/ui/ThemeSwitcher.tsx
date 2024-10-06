@@ -11,14 +11,11 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo(() => {
-	const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
-	return (
-		<Button
-			onClick={toggleTheme}
-			theme={ButtonTheme.CLEAR}
-		>
-			{theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
-		</Button>
-	);
+  return (
+    <Button onClick={toggleTheme} theme={ButtonTheme.CLEAR}>
+      {theme === Theme.DARK ? <DarkIcon /> : <LightIcon />}
+    </Button>
+  );
 });

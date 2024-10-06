@@ -6,43 +6,46 @@ interface UseInfiniteScrollProps {
   wrapperRef: MutableRefObject<HTMLElement>;
 }
 
-export const useInfiniteScroll = ({ callback, wrapperRef, triggerRef }: UseInfiniteScrollProps) => {
-	const currentObserveNumber = useRef(0);
+export const useInfiniteScroll = ({
+  callback,
+  wrapperRef,
+  triggerRef,
+}: UseInfiniteScrollProps) => {
+  const currentObserveNumber = useRef(0);
 
-	useEffect(() => {
-		let observer: IntersectionObserver | null = null;
-		const wrapperElement = wrapperRef.current;
-		const triggerElement = triggerRef.current;
+  useEffect(() => {
+    let observer: IntersectionObserver | null = null;
+    const wrapperElement = wrapperRef.current;
+    const triggerElement = triggerRef.current;
 
-		if (callback && wrapperElement) {
-			const options = {
-				root: wrapperElement,
-				rootMargin: '0px',
-				threshold: 1.0,
-			};
+    if (callback && wrapperElement) {
+      const options = {
+        root: wrapperElement,
+        rootMargin: '0px',
+        threshold: 1.0,
+      };
 
-			observer = new IntersectionObserver(([entry]) => {
-				if (entry.isIntersecting && currentObserveNumber.current) {
-					callback();
-					// console.log('I am here!!!');
-				}
+      observer = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting && currentObserveNumber.current) {
+          callback();
+          // console.log('I am here!!!');
+        }
 
-				currentObserveNumber.current = currentObserveNumber.current + 1;
-			}, options);
+        currentObserveNumber.current = currentObserveNumber.current + 1;
+      }, options);
 
-			observer.observe(triggerElement);
+      observer.observe(triggerElement);
+    }
 
-		}
+    return () => {
+      if (observer) {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        observer.unobserve(triggerElement);
+      }
 
-		return () => {
-			if (observer) {
-				// eslint-disable-next-line react-hooks/exhaustive-deps
-				observer.unobserve(triggerElement);
-			}
-
-			if (currentObserveNumber.current) {
-				currentObserveNumber.current = 0;
-			}
-		};
-	}, [callback, triggerRef, wrapperRef]);
+      if (currentObserveNumber.current) {
+        currentObserveNumber.current = 0;
+      }
+    };
+  }, [callback, triggerRef, wrapperRef]);
 };

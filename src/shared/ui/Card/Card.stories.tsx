@@ -8,24 +8,24 @@ import { StyleDecorator } from '@/shared/config/storybook/StyleDecorator/StyleDe
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'shared/Card',
-	component: Card,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'shared/Card',
+  component: Card,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Card>;
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;
 
 export const Dark = Template.bind({});
 Dark.args = {
-	children: <Text title="Some title" text="Some text description" />
+  children: <Text title="Some title" text="Some text description" />,
 };
 Dark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK)];
 
 export const Light = Template.bind({});
 Light.args = {
-	children: <Text title="Some title" text="Some text description" />
+  children: <Text title="Some title" text="Some text description" />,
 };
 
 Light.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT)];

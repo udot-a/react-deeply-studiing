@@ -4,20 +4,27 @@ import { getProfileValidatesErrors } from './getProfileValidatesErrors';
 import { ValidateProfileError } from '../../consts/consts';
 
 describe('getProfileValidatesErrors.test', () => {
-	test('should be  [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.NO_DATA]', () => {
-		const validateErrors = [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.NO_DATA];
+  test('should be  [ValidateProfileError.INCORRECT_USER_DATA, ValidateProfileError.NO_DATA]', () => {
+    const validateErrors = [
+      ValidateProfileError.INCORRECT_USER_DATA,
+      ValidateProfileError.NO_DATA,
+    ];
 
-		const state: DeepPartial<StateSchema> = {
-			profile: {
-				validateErrors,
-			},
-		};
-		expect(getProfileValidatesErrors(state as StateSchema)).toEqual(validateErrors);
-	});
+    const state: DeepPartial<StateSchema> = {
+      profile: {
+        validateErrors,
+      },
+    };
+    expect(getProfileValidatesErrors(state as StateSchema)).toEqual(
+      validateErrors,
+    );
+  });
 
-	test('should return false if empty state', () => {
-		const emptyState: DeepPartial<StateSchema> = {};
+  test('should return false if empty state', () => {
+    const emptyState: DeepPartial<StateSchema> = {};
 
-		expect(getProfileValidatesErrors(emptyState as StateSchema)).toEqual(undefined);
-	});
+    expect(getProfileValidatesErrors(emptyState as StateSchema)).toEqual(
+      undefined,
+    );
+  });
 });

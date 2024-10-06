@@ -10,33 +10,44 @@ import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'shared/LoginForm',
-	component: LoginForm,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'shared/LoginForm',
+  component: LoginForm,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof LoginForm>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 
 export const LoginFormDark = Template.bind({});
 LoginFormDark.args = {};
 LoginFormDark.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false, error: 'Error happens' } }),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({
+    loginForm: {
+      username: 'Dron',
+      password: 'qwerty123',
+      isLoading: false,
+      error: 'Error happens',
+    },
+  }),
+  RouterDecorator,
 ];
 
 export const LoginFormLight = Template.bind({});
 LoginFormLight.args = {};
 LoginFormLight.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.LIGHT),
-	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: true } }),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({
+    loginForm: { username: 'Dron', password: 'qwerty123', isLoading: true },
+  }),
+  RouterDecorator,
 ];

@@ -8,15 +8,14 @@ interface NotFoundPageProps {
 }
 
 export const NotFoundPage: FC<NotFoundPageProps> = ({ className }) => {
-	const { t } = useTranslation();
+  const { t } = useTranslation();
 
-	return (
-		<Page
-			className={classNames(cls.notFoundPage, {}, [className])}
-			data-testid="not-found-page"
-		>
-			{t('pageNotFound')}
-		</Page>
-	);
+  return (
+    <Page
+      className={classNames(cls.notFoundPage, {}, [className])}
+      data-testid="not-found-page"
+    >
+      {t('pageNotFound')}
+    </Page>
+  );
 };
-

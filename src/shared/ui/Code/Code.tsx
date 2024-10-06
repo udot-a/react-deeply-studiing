@@ -10,25 +10,20 @@ interface CodeProps {
 }
 
 export const Code: FC<CodeProps> = memo(({ className, text }) => {
+  const handleCopy = useCallback(() => {
+    navigator.clipboard.writeText(text);
+  }, [text]);
 
-	const handleCopy = useCallback(() => {
-		navigator.clipboard.writeText(text);
-	}, [text]);
-
-	return (
-		<pre className={classNames(cls.Code, {}, [className])}>
-			<Button
-				className={cls.copyBtn}
-				theme={ButtonTheme.CLEAR}
-				onClick={handleCopy}
-			>
-				<CopyIcon />
-			</Button>
-			<code >
-				{text}
-			</code>
-		</pre>
-
-	);
+  return (
+    <pre className={classNames(cls.Code, {}, [className])}>
+      <Button
+        className={cls.copyBtn}
+        theme={ButtonTheme.CLEAR}
+        onClick={handleCopy}
+      >
+        <CopyIcon />
+      </Button>
+      <code>{text}</code>
+    </pre>
+  );
 });
-

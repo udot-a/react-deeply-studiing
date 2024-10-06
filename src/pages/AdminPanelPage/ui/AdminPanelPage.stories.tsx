@@ -9,24 +9,36 @@ import { Theme } from '@/shared/const/theme';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-	title: 'pages/AdminPanelPage',
-	component: AdminPanelPage,
-	// More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'pages/AdminPanelPage',
+  component: AdminPanelPage,
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof AdminPanelPage>;
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 // @ts-ignore
-const Template: ComponentStory<typeof AdminPanelPage> = () => <AdminPanelPage />;
+const Template: ComponentStory<typeof AdminPanelPage> = () => (
+  <AdminPanelPage />
+);
 
 export const AboutDark = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 AboutDark.args = {};
-AboutDark.decorators = [StyleDecorator, ThemeDecorator(Theme.DARK), ReduxDecorator({}), RouterDecorator];
+AboutDark.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({}),
+  RouterDecorator,
+];
 
 export const AboutLight = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 AboutLight.args = {};
-AboutLight.decorators = [StyleDecorator, ThemeDecorator(Theme.LIGHT), ReduxDecorator({}), RouterDecorator];
+AboutLight.decorators = [
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({}),
+  RouterDecorator,
+];

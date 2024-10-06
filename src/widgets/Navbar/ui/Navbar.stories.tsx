@@ -10,11 +10,11 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { Theme } from '@/shared/const/theme';
 
 export default {
-	title: 'widgets/Navbar',
-	component: Navbar,
-	argTypes: {
-		backgroundColor: { control: 'color' },
-	},
+  title: 'widgets/Navbar',
+  component: Navbar,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
 } as ComponentMeta<typeof Navbar>;
 
 const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
@@ -22,27 +22,29 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 export const Light = Template.bind({});
 Light.args = {};
 Light.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.DARK),
-	ReduxDecorator({
-		user: {
-			authData: {
-				id: '1',
-				username: 'Vasyl',
-			},
-		},
-		loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false }
-	}),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.DARK),
+  ReduxDecorator({
+    user: {
+      authData: {
+        id: '1',
+        username: 'Vasyl',
+      },
+    },
+    loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false },
+  }),
+  RouterDecorator,
 ];
 
 export const Dark = Template.bind({});
 Dark.args = {};
 Dark.decorators = [
-	SuspenseDecorator,
-	StyleDecorator,
-	ThemeDecorator(Theme.LIGHT),
-	ReduxDecorator({ loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false } } as StateSchema),
-	RouterDecorator,
+  SuspenseDecorator,
+  StyleDecorator,
+  ThemeDecorator(Theme.LIGHT),
+  ReduxDecorator({
+    loginForm: { username: 'Dron', password: 'qwerty123', isLoading: false },
+  } as StateSchema),
+  RouterDecorator,
 ];

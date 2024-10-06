@@ -15,18 +15,21 @@ interface AppLinkProps extends LinkProps {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const AppLink = forwardRef((props: AppLinkProps, ref) => {
-	const { to, className, theme = AppLinkTheme.PRIMARY, children, ...otherProps } = props;
+  const {
+    to,
+    className,
+    theme = AppLinkTheme.PRIMARY,
+    children,
+    ...otherProps
+  } = props;
 
-	return (
-		<Link
-			to={to}
-			className={classNames(cls.appLink, {  }, [className, cls[theme]])}
-			{...otherProps}
-		>
-			<div>
-				{children}
-			</div>
-		</Link>
-	);
+  return (
+    <Link
+      to={to}
+      className={classNames(cls.appLink, {}, [className, cls[theme]])}
+      {...otherProps}
+    >
+      <div>{children}</div>
+    </Link>
+  );
 });
-
