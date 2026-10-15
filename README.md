@@ -346,10 +346,6 @@ The [`scripts/`](scripts) folder holds scripts for refactoring, scaffolding code
   - [`createPublicApiForSharedUI.ts`](scripts/refactoring/createPublicApiForSharedUI.ts) generates `index.ts` public APIs for `shared/ui` components.
 - **[`generate-visual-json-report.js`](scripts/generate-visual-json-report.js)** builds the JSON report that reg-cli turns into the screenshot diff report.
 
-### Experimental
-
-[`src/app/providers/Firebase`](src/app/providers/Firebase) and [`public/firebase-messaging-sw.js`](public/firebase-messaging-sw.js) contain a Firebase Cloud Messaging web-push setup (client-side config, a token hook and a service worker). It is not wired into the app yet.
-
 ## CI pipeline and pre-commit hooks
 
 The GitHub Actions workflow is in [`.github/workflows`](.github/workflows). It runs on every push and pull request to `main`, on Node.js 17.x, with two jobs:
